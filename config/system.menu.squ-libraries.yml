@@ -1,0 +1,8 @@
+uuid: 3cb418c5-a88b-48b4-98e3-d73632d515f7
+langcode: en
+status: true
+dependencies: {  }
+id: squ-libraries
+label: 'SQU Libraries'
+description: 'Strategic / Direct-Acess Portal SQU Libraries Main Menus.'
+locked: false
