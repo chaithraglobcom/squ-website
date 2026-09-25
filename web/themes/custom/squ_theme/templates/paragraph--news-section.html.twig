@@ -1,0 +1,19 @@
+{#
+  "News" section. Bundle: news_section. Fields: field_news_heading,
+  field_news_section_image, field_news_items (entity reference to
+  news_item paragraphs), field_more_link.
+#}
+<section class="squ-news">
+  <div class="squ-news__grid">
+    <div class="squ-news__list">
+      <h2 class="squ-news__heading">{{ content.field_news_heading }}</h2>
+      {{ content.field_news_items }}
+      {% if content.field_more_link %}
+        <div class="squ-news__more">{{ content.field_more_link }}</div>
+      {% endif %}
+    </div>
+    {% if content.field_news_section_image %}
+      <div class="squ-news__image">{{ content.field_news_section_image }}</div>
+    {% endif %}
+  </div>
+</section>

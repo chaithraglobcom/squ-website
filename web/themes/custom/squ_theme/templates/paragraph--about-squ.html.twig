@@ -1,0 +1,17 @@
+{#
+  "WE ARE SQU" block. Bundle: about_squ. Fields: field_about_background_image,
+  field_about_squ_heading, field_about_squ_text, field_about_squ_link1,
+  field_about_squ_link2. Reuses the .squ-we-are CSS (homepage.css) so no
+  stylesheet changes were needed - only the field names were wrong.
+#}
+<section class="squ-we-are">
+  <div class="squ-we-are__bg">{{ content.field_about_background_image }}</div>
+  <div class="squ-we-are__card">
+    <h2 class="squ-we-are__heading">{{ content.field_about_squ_heading }}</h2>
+    <div>{{ content.field_about_squ_text }}</div>
+    <div class="squ-we-are__buttons">
+      {{ content.field_about_squ_link1 }}
+      {{ content.field_about_squ_link2 }}
+    </div>
+  </div>
+</section>

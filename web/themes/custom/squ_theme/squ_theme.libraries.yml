@@ -1,4 +1,15 @@
-global-styling:
+global:
   css:
     theme:
       css/style.css: {}
+      css/header.css: {}
+      css/menu-overlay.css: {}
+      css/hero.css: {}
+      css/homepage.css: {}
+      css/footer.css: {}
+  js:
+    js/menu-overlay.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - core/drupal.ajax

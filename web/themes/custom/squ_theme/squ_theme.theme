@@ -1,0 +1,286 @@
+<?php
+
+/**
+ * @file
+ * SQU theme hooks: the global footer.
+ *
+ * The footer is added to the page_bottom of html.html.twig, so it does NOT
+ * depend on Olivero's page template, on block regions, or on placing blocks.
+ *
+ * Everything in it is managed from the Drupal admin:
+ *   Logo + top pattern   : Appearance > SQU Theme > Settings > "Footer images"
+ *                          (falls back to the images bundled in the theme)
+ *   Icon buttons         : Structure > Taxonomy > Footer Icons  (vocabulary
+ *                          machine name footer_icons; fields field_icon_image
+ *                          and field_icon_link; term order = drag & drop)
+ *   Quick LINKS grid     : Structure > Menus > footer-quick-links (the menu's
+ *                          Title is the heading shown above the links)
+ *   Legal links          : Structure > Menus > footer-legal
+ *   Copyright            : current year + Site name (Basic site information)
+ */
+
+use Drupal\Core\Menu\MenuTreeParameters;
+use Drupal\Core\Url;
+use Drupal\file\Entity\File;
+
+/**
+ * Implements hook_theme().
+ */
+function squ_theme_theme($existing, $type, $theme, $path) {
+  return [
+    'squ_footer' => [
+      'variables' => [
+        'home_url' => '/',
+        'logo_url' => '',
+        'pattern_url' => '',
+        'site_name' => '',
+        'icons' => [],
+        'quick_title' => '',
+        'quick_links' => [],
+        'legal_links' => [],
+        'copyright' => '',
+      ],
+      'template' => 'squ-footer',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function squ_theme_preprocess_html(array &$variables) {
+  $theme_path = \Drupal::service('extension.path.resolver')->getPath('theme', 'squ_theme');
+  $year = \Drupal::service('date.formatter')->format(\Drupal::time()->getRequestTime(), 'custom', 'Y');
+  $site_name = (string) \Drupal::config('system.site')->get('name');
+
+  $cache_tags = [
+    'config:squ_theme.settings',
+    'config:system.menu.footer-quick-links',
+    'config:system.menu.footer-legal',
+    'config:system.site',
+    'taxonomy_term_list',
+    'taxonomy_term_list:footer_icons',
+  ];
+
+  // Logo + pattern: uploaded in theme settings, else the bundled defaults -
+  // but only if those bundled defaults actually exist. They don't ship in
+  // this theme yet (only images/hero-default.jpg does), so pointing at them
+  // unconditionally was producing 404s in the browser. Add real files at
+  // images/squ-footer-logo.png and images/squ-footer-pattern.png, or upload
+  // your own via Appearance > SQU Theme > Settings > Footer images.
+  $logo_url = _squ_theme_uploaded_image_url('footer_logo', $cache_tags)
+    ?: _squ_theme_bundled_image_url($theme_path, 'squ-footer-logo.png');
+  $pattern_url = _squ_theme_uploaded_image_url('footer_pattern', $cache_tags)
+    ?: _squ_theme_bundled_image_url($theme_path, 'squ-footer-pattern.png');
+
+  $variables['page_bottom']['squ_footer'] = [
+    '#theme' => 'squ_footer',
+    '#home_url' => Url::fromRoute('<front>')->toString(),
+    '#logo_url' => $logo_url,
+    '#pattern_url' => $pattern_url,
+    '#site_name' => $site_name,
+    '#icons' => _squ_theme_footer_icons($cache_tags),
+    // Heading above the grid = the menu's own Title (translatable in the admin).
+    '#quick_title' => (string) \Drupal::config('system.menu.footer-quick-links')->get('label'),
+    '#quick_links' => _squ_theme_footer_menu('footer-quick-links'),
+    '#legal_links' => _squ_theme_footer_menu('footer-legal'),
+    '#copyright' => t('@year @name. All Rights Reserved.', ['@year' => $year, '@name' => $site_name]),
+    '#cache' => [
+      'contexts' => ['languages:language_interface', 'user.permissions'],
+      'tags' => $cache_tags,
+    ],
+  ];
+}
+
+/**
+ * URL of an image uploaded through the theme settings form, or NULL.
+ */
+function _squ_theme_uploaded_image_url(string $setting, array &$cache_tags): ?string {
+  $value = theme_get_setting($setting, 'squ_theme');
+  $fid = is_array($value) ? reset($value) : $value;
+  if (!$fid) {
+    return NULL;
+  }
+  $file = File::load($fid);
+  if (!$file) {
+    return NULL;
+  }
+  $cache_tags = array_merge($cache_tags, $file->getCacheTags());
+  return \Drupal::service('file_url_generator')->generateString($file->getFileUri());
+}
+
+/**
+ * URL of an image bundled in the theme's own /images folder, or NULL if
+ * that file doesn't actually exist on disk (avoids pointing <img src> at a
+ * path that will 404).
+ */
+function _squ_theme_bundled_image_url(string $theme_path, string $filename): ?string {
+  if (!file_exists(DRUPAL_ROOT . '/' . $theme_path . '/images/' . $filename)) {
+    return NULL;
+  }
+  return Url::fromUri('base:' . $theme_path . '/images/' . $filename)->toString();
+}
+
+/**
+ * Icon buttons from the "Footer Icons" taxonomy vocabulary.
+ *
+ * Each term: name = label/tooltip, field_icon_image = the icon picture,
+ * field_icon_link = where it goes. Unpublished terms are skipped.
+ *
+ * @return array
+ *   Items: ['title' => string, 'url' => string, 'image' => string|NULL].
+ */
+function _squ_theme_footer_icons(array &$cache_tags): array {
+  $entity_type_manager = \Drupal::entityTypeManager();
+  if (!$entity_type_manager->getStorage('taxonomy_vocabulary')->load('footer_icons')) {
+    return [];
+  }
+  $repository = \Drupal::service('entity.repository');
+  $url_generator = \Drupal::service('file_url_generator');
+
+  $icons = [];
+  $terms = $entity_type_manager->getStorage('taxonomy_term')->loadTree('footer_icons', 0, 1, TRUE);
+  foreach ($terms as $term) {
+    $term = $repository->getTranslationFromContext($term);
+    if (!$term->isPublished()) {
+      continue;
+    }
+    $cache_tags = array_merge($cache_tags, $term->getCacheTags());
+
+    $url = '#';
+    if ($term->hasField('field_icon_link') && !$term->get('field_icon_link')->isEmpty()) {
+      $url = $term->get('field_icon_link')->first()->getUrl()->toString();
+    }
+
+    $image = NULL;
+    if ($term->hasField('field_icon_image') && !$term->get('field_icon_image')->isEmpty()) {
+      $file = $term->get('field_icon_image')->entity;
+      if ($file) {
+        $image = $url_generator->generateString($file->getFileUri());
+        $cache_tags = array_merge($cache_tags, $file->getCacheTags());
+      }
+    }
+
+    $icons[] = [
+      'title' => $term->label(),
+      'url' => $url,
+      'image' => $image,
+    ];
+  }
+  return $icons;
+}
+
+/**
+ * Loads the enabled top-level links of a menu, in menu order.
+ *
+ * @return array
+ *   Each item: ['title' => string, 'url' => string]. Empty when the menu
+ *   doesn't exist or has no links.
+ */
+function _squ_theme_footer_menu(string $menu_name): array {
+  $menu_tree = \Drupal::menuTree();
+
+  $parameters = new MenuTreeParameters();
+  $parameters->setMaxDepth(1)->onlyEnabledLinks();
+  $tree = $menu_tree->load($menu_name, $parameters);
+  $tree = $menu_tree->transform($tree, [
+    ['callable' => 'menu.default_tree_manipulators:checkAccess'],
+    ['callable' => 'menu.default_tree_manipulators:generateIndexAndSort'],
+  ]);
+
+  $links = [];
+  foreach ($tree as $element) {
+    if (isset($element->access) && !$element->access->isAllowed()) {
+      continue;
+    }
+    $links[] = [
+      'title' => (string) $element->link->getTitle(),
+      'url' => $element->link->getUrlObject()->toString(),
+    ];
+  }
+  return $links;
+}
+
+/**
+ * Implements hook_preprocess_block().
+ *
+ * Tags the site branding, header quick-links and main menu blocks with the
+ * classes/attributes squ-header and menu-overlay.js need to find them -
+ * keyed off the block PLUGIN, not the block's config ID. Config IDs turned
+ * out not to be stable: the config export had olivero_site_branding /
+ * olivero_headerquicklinks / olivero_main_menu, but the live site actually
+ * has squ_theme_site_branding / squ_theme_headerquicklinks /
+ * squ_theme_main_menu (someone re-placed the blocks under new IDs at some
+ * point). Matching on plugin_id instead means it keeps working even if the
+ * blocks get renamed or replaced again.
+ */
+function squ_theme_preprocess_block(array &$variables) {
+  $plugin_id = $variables['elements']['#plugin_id'] ?? '';
+
+  if ($plugin_id === 'system_branding_block') {
+    $variables['attributes']['class'][] = 'squ-site-branding-block';
+  }
+  elseif ($plugin_id === 'system_menu_block:header-quick-links') {
+    $variables['attributes']['class'][] = 'squ-header__quicklinks';
+  }
+  elseif ($plugin_id === 'system_menu_block:main') {
+    $variables['attributes']['class'][] = 'squ-menu-panel';
+    $variables['attributes']['data-level'] = '1';
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ *
+ * Home Page: the real bundle is "home_page" and the real field is
+ * "field_page_sections" (not "landing_page" / "field_sections" - those
+ * belonged to a different project's content model and matched nothing
+ * here, which is why Page Sections never rendered).
+ *
+ * Builds $variables['squ_sections'] for node--home-page.html.twig: each
+ * paragraph in field_page_sections, rendered via the paragraph view
+ * builder, with any consecutive run of feature_card or statistics_counter
+ * paragraphs collapsed into one group so the template can wrap them in the
+ * shared .squ-tiles / .squ-stats row. There's no "group" paragraph bundle
+ * in this data model - those items sit directly in Page Sections - so the
+ * grouping has to happen here instead of just looping the field.
+ */
+function squ_theme_preprocess_node(array &$variables) {
+  $node = $variables['node'];
+  if ($node->bundle() !== 'home_page' || !$node->hasField('field_page_sections') || $node->get('field_page_sections')->isEmpty()) {
+    return;
+  }
+
+  $view_builder = \Drupal::entityTypeManager()->getViewBuilder('paragraph');
+  $row_bundles = ['feature_card', 'statistics_counter'];
+
+  $groups = [];
+  $current = NULL;
+  foreach ($node->get('field_page_sections')->referencedEntities() as $paragraph) {
+    $bundle = $paragraph->bundle();
+    $render = $view_builder->view($paragraph, 'default');
+
+    if (in_array($bundle, $row_bundles, TRUE)) {
+      if ($current && $current['bundle'] === $bundle) {
+        $current['items'][] = $render;
+        continue;
+      }
+      if ($current) {
+        $groups[] = $current;
+      }
+      $current = ['bundle' => $bundle, 'items' => [$render]];
+      continue;
+    }
+
+    if ($current) {
+      $groups[] = $current;
+      $current = NULL;
+    }
+    $groups[] = ['bundle' => $bundle, 'items' => [$render]];
+  }
+  if ($current) {
+    $groups[] = $current;
+  }
+
+  $variables['squ_sections'] = $groups;
+}

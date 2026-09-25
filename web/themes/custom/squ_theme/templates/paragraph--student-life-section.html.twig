@@ -1,0 +1,11 @@
+{#
+  "Students Life" gallery section. Bundle: student_life_section.
+  Fields: field_student_life_title, field_tiles (entity reference to
+  student_life_gallery_item paragraphs).
+#}
+<section class="squ-gallery">
+  <h2 class="squ-gallery__heading">{{ content.field_student_life_title }}</h2>
+  <div class="squ-gallery__grid">
+    {{ content.field_tiles }}
+  </div>
+</section>
