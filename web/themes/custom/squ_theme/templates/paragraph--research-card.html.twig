@@ -1,0 +1,11 @@
+{#
+  Bundle: research_card. Fields: field_research_image,
+  field_research_card_description, field_research_card_link.
+  There is no field_title/field_image on this bundle - those were the
+  leftover names. The description text doubles as the card's caption.
+#}
+{% set url = paragraph.field_research_card_link.0.url %}
+<{{ url ? 'a' : 'div' }} class="squ-research__card"{% if url %} href="{{ url }}"{% endif %}>
+  <div class="squ-research__card-bg">{{ content.field_research_image }}</div>
+  <span class="squ-research__card-title">{{ content.field_research_card_description }}</span>
+</{{ url ? 'a' : 'div' }}>

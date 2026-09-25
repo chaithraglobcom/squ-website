@@ -1,7 +1,8 @@
-name: SQU Custom Theme
+name: 'SQU Theme'
 type: theme
+description: 'Header, hamburger mega-menu and homepage theme for Sultan Qaboos University.'
+core_version_requirement: ^11
 base theme: olivero
-description: 'Sitewide custom styling for the SQU public website'
-core_version_requirement: ^10 || ^11
+logo: false
 libraries:
-  - squ_theme/global-styling
+  - squ_theme/global

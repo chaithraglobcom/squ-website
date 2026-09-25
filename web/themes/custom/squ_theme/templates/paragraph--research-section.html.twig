@@ -1,0 +1,23 @@
+{#
+  "Research and Innovations" section. Bundle: research_section.
+  Fields: field_research_heading, field_research_description,
+  field_research_card (entity reference to research_card paragraphs -
+  renders through paragraph--research-card.html.twig), field_discover_more.
+
+  Note: field_research_card is currently configured with cardinality 1 in
+  this project's config export, but the reference design shows 2 cards side
+  by side - worth checking Structure > Paragraph types > Research section if
+  a second card doesn't show up.
+#}
+<section class="squ-research">
+  <h2 class="squ-research__heading">{{ content.field_research_heading }}</h2>
+  {% if content.field_research_description %}
+    <div class="squ-research__intro">{{ content.field_research_description }}</div>
+  {% endif %}
+  <div class="squ-research__cards">
+    {{ content.field_research_card }}
+  </div>
+  {% if content.field_discover_more %}
+    <div class="squ-research__more">{{ content.field_discover_more }}</div>
+  {% endif %}
+</section>

@@ -1,0 +1,147 @@
+.squ-hero {
+  position: relative;
+  min-height: clamp(420px, 38.7vw, 620px);
+  /* Fallback banner; an uploaded Background Image overrides it (inline style). */
+  background: #4a4a4a url('../images/hero-default.jpg') center bottom / cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+.squ-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.05) 45%, rgba(0,0,0,0) 70%);
+  pointer-events: none;
+}
+
+/* Frosted-glass card */
+.squ-hero__card {
+  position: relative;
+  z-index: 2;
+  margin-left: clamp(1rem, 4.6vw, 66px);
+  width: min(465px, calc(100% - 2rem));
+  box-sizing: border-box;
+  background: rgba(70, 66, 66, 0.42);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  border-radius: 18px;
+  padding: 40px 36px 28px;
+  color: #fff;
+}
+.squ-hero__eyebrow {
+  display: block;
+  color: #d1a02b;
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1.12;
+  text-transform: uppercase;
+}
+.squ-hero__title {
+  margin: 0 0 2.75rem;
+  color: #fff;
+  font-size: 2.5rem;
+  line-height: 1.12;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.squ-hero__quote,
+.squ-hero__quote p {
+  margin: 0;
+  font-weight: 400;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+.squ-hero__attribution {
+  margin-top: 0.9rem;
+  font-size: 0.7rem;
+  text-align: right;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+/* College / Major selector bar pinned to the bottom edge of the banner */
+.squ-college-major-bar {
+  position: relative;
+  z-index: 3;
+  margin: -2.5rem 3rem 0;
+  background: var(--squ-dark, #2b3138);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.squ-college-major-bar label {
+  color: #c9922a;
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+.squ-college-major-bar select {
+  background: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 0.75rem;
+  min-width: 220px;
+}
+.squ-college-major-bar input[type="submit"] {
+  background: #c9922a;
+  color: #2b2b2b;
+  border: none;
+  font-weight: 700;
+  padding: 0.6rem 1.5rem;
+  border-radius: 3px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Pulls the hero up under the transparent-over-hero header. This must stay
+   scoped to .squ-hero only - it previously also matched .squ-tile,
+   .squ-research__card, .squ-we-are and .squ-gallery__tile, which pulled
+   every one of those sections up by 180px too and made them overlap
+   whatever came before them on the page. */
+.squ-hero {
+    margin-top: -180px;
+    position: relative;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .squ-hero__card { margin: 0 1rem; max-width: none; }
+  .squ-college-major-bar { margin: -1.5rem 1rem 0; flex-direction: column; align-items: stretch; }
+}
+
+/* ==========================================================================
+   Full-width banner on the landing page.
+   Olivero puts page content in a narrow, padded, centred column. On the
+   landing page we drop that so the hero runs edge to edge.
+   ========================================================================== */
+:is(body.path-frontpage, body.page-node-type-home-page) .page-wrapper {
+  max-width: none;
+  background: transparent;
+}
+:is(body.path-frontpage, body.page-node-type-home-page) .layout-main {
+  display: block;
+}
+:is(body.path-frontpage, body.page-node-type-home-page) .main-content {
+  width: 100%;
+  margin: 0;
+}
+:is(body.path-frontpage, body.page-node-type-home-page) .main-content__container {
+  max-width: none;
+  padding: 0;
+}
+:is(body.path-frontpage, body.page-node-type-home-page) .social-bar {
+  display: none;
+}
+:is(body.path-frontpage, body.page-node-type-home-page) .region--content {
+  display: block;
+}
+:is(body.path-frontpage, body.page-node-type-home-page) .region--content > * {
+  width: 100%;
+  grid-column: 1 / -1;
+}
