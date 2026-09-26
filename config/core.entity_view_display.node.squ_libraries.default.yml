@@ -1,0 +1,85 @@
+uuid: 9ecac06f-1711-4b7c-ba5b-211715846af3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.squ_libraries.field_banner
+    - field.field.node.squ_libraries.field_cards
+    - field.field.node.squ_libraries.field_e_resources
+    - field.field.node.squ_libraries.field_library_services
+    - field.field.node.squ_libraries.field_simpleblock
+    - field.field.node.squ_libraries.field_stay_in_touch
+    - field.field.node.squ_libraries.field_upcoming_events
+    - node.type.squ_libraries
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.squ_libraries.default
+targetEntityType: node
+bundle: squ_libraries
+mode: default
+content:
+  field_banner:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_cards:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_e_resources:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_library_services:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_simpleblock:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_stay_in_touch:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_upcoming_events:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }
