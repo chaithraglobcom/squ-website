@@ -6,7 +6,7 @@
   document.querySelector('.squ-menu-panel[data-level="1"]') always came back
   null and the hamburger mega-menu silently did nothing.
 #}
-<div class="squ-menu-panel" data-level="1">
+<div{{ attributes.addClass('squ-menu-panel').setAttribute('data-level', '1') }}>
   <div class="block-inner">
     {{ content }}
   </div>

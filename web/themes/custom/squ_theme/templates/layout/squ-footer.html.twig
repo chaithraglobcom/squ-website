@@ -1,0 +1,93 @@
+{#
+/**
+ * @file
+ * Shared site footer.
+ *
+ * Rendered from squ_theme_preprocess_html() into page_bottom so every page
+ * uses the same footer.
+ *
+ * Available variables:
+ * - year, home_url, logo_url
+ * - quick_links: from the footer-quick-links menu (title/url).
+ * - legal_links: from the footer menu (title/url).
+ */
+#}
+{% set quick = quick_links ?: [
+  {title: 'Admissions'|t, url: '#'},
+  {title: 'Careers'|t, url: '#'},
+  {title: 'Research & Innovations'|t, url: '#'},
+  {title: 'Libraries'|t, url: '#'},
+  {title: 'Conferences'|t, url: '#'},
+  {title: 'News & Events'|t, url: '#'},
+  {title: 'Site Map'|t, url: '#'},
+  {title: 'Tenders'|t, url: '#'},
+  {title: 'Contact & Help'|t, url: '#'},
+] %}
+{% set legal = legal_links ?: [
+  {title: 'Privacy Policy'|t, url: '#'},
+  {title: 'Terms of Use'|t, url: '#'},
+  {title: 'Accessibility'|t, url: '#'},
+] %}
+<footer class="site-footer squ-site-footer">
+  <div class="footer-pattern" aria-hidden="true"></div>
+  <div class="footer-main">
+    <div class="footer-brand">
+      {% if logo_url %}
+        <a href="{{ home_url }}" rel="home"><img src="{{ logo_url }}" alt="" width="79" height="98"></a>
+      {% endif %}
+      <div class="footer-ar" lang="ar">جامعة السلطان قابوس</div>
+      <div class="footer-en" dir="ltr">Sultan Qaboos University</div>
+      <div class="social">
+        <a href="https://www.instagram.com/squ_oman/" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
+            <circle cx="12" cy="12" r="3.3" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+            <circle cx="17.1" cy="6.9" r="0.9" fill="currentColor"></circle>
+          </svg>
+        </a>
+        <a href="https://www.squ.edu.om/" aria-label="{{ 'Sultan Qaboos University website'|t }}" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="7.2" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+            <ellipse cx="12" cy="12" rx="3" ry="7.2" fill="none" stroke="currentColor" stroke-width="1.5"></ellipse>
+            <path d="M5 12h14M6.4 8.6h11.2M6.4 15.4h11.2" fill="none" stroke="currentColor" stroke-width="1.4"></path>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/school/sultan-qaboos-university/" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="9" cy="9" r="2.1" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+            <circle cx="15.4" cy="9.4" r="1.7" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+            <path d="M4.6 17.6c.5-2.3 2.2-3.5 4.4-3.5s3.9 1.2 4.4 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            <path d="M13.2 14.4c1.5-.2 3 .5 3.8 2.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+          </svg>
+        </a>
+        <a href="https://www.squ.edu.om/admissions" aria-label="{{ 'Study'|t }}" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 10.2 L12 6.2 L21 10.2 L12 14.2 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+            <path d="M7.2 12.2 v3.2c0 1.3 2.1 2.6 4.8 2.6s4.8-1.3 4.8-2.6v-3.2" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+            <path d="M21 10.2 v4.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="quick">
+      <h2 class="quick-title" data-i18n="quickLinks">{{ 'Quick LINKS'|t }}</h2>
+      <ul class="qgrid">
+        {% for item in quick %}
+          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="legal">
+    <div class="legal-inner">
+      <p data-i18n="copyright">© {{ year }} Sultan Qaboos University. All Rights Reserved.</p>
+      <nav aria-label="{{ 'Legal'|t }}">
+        {% for item in legal %}
+          <a href="{{ item.url }}">{{ item.title }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+  </div>
+</footer>

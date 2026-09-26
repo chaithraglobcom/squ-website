@@ -118,7 +118,10 @@
         if (!level1Panel) {
           return;
         }
-        var level1List = level1Panel.querySelector(':scope > .block-inner > ul, :scope > .block-inner > nav > ul');
+        var level1List = level1Panel.querySelector(':scope > .block-inner > ul, :scope > .block-inner > nav > ul, :scope > .block-inner ul.menu--level-1');
+        if (!level1List) {
+          level1List = level1Panel.querySelector('ul.menu--level-1, ul.menu');
+        }
         var level1Children = extractChildren(level1List);
 
         // Column 1 is the panel Drupal already gave us.
@@ -199,6 +202,10 @@
           overlay.classList.add('is-open');
           document.body.style.overflow = 'hidden';
 
+          if (!level1List) {
+            return;
+          }
+
           // Pre-select whichever level-1 item is in the active trail for
           // the current page; otherwise default to the first item that
           // has children, so columns 2/3 aren't empty on open.
@@ -226,6 +233,7 @@
 
         hamburger.addEventListener('click', openOverlay);
         closeBtn.addEventListener('click', closeOverlay);
+        document.body.classList.add('squ-header-js-ready');
         document.addEventListener('keydown', function (e) {
           if (e.key === 'Escape') {
             closeOverlay();

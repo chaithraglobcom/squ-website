@@ -1,0 +1,8 @@
+uuid: 33216c19-1f2d-42ba-b947-353ea77ee611
+langcode: en
+status: true
+dependencies: {  }
+id: research-innovation
+label: 'Research & Innovation'
+description: 'This menu used for Research & Innovation page'
+locked: false

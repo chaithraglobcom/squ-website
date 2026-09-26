@@ -1,0 +1,23 @@
+uuid: 7a1b2c3d-4e5f-6789-a012-3456789abcde
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - squ_theme
+id: squ_theme_site_branding
+theme: squ_theme
+region: header
+weight: -10
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }
