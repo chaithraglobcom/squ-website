@@ -1,0 +1,25 @@
+uuid: 089c857f-699e-4367-b6d6-399d0201f341
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-quick-links
+  module:
+    - system
+  theme:
+    - squ_theme
+id: squ_theme_footerquicklinks
+theme: squ_theme
+region: footer
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-quick-links'
+settings:
+  id: 'system_menu_block:footer-quick-links'
+  label: 'Footer Quick Links'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

@@ -22,4 +22,8 @@ settings:
   level: 1
   depth: 3
   expand_all_items: true
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/squ_libraries\r\n/squ_libraries/*"

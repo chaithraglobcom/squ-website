@@ -1,14 +1,14 @@
 _core:
   default_config_hash: ijfbzDTN4CbE7Sr-6ubWzy_t1vH4OtU1doNCLssVz-4
 langcode: en
-uuid: ab1c2c05-f5fd-4bd0-948a-c9e304dbb2f3
+uuid: 017eb9bf-38ea-4706-9258-f92f9cf399e2
 name: 'Sultan Qaboos University'
 mail: admin@example.com
-slogan: ''
+slogan: 'جامعة السلطان قابوس'
 page:
   403: ''
   404: ''
-  front: /node/2
+  front: /node/1
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en

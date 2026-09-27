@@ -6,28 +6,20 @@
  * Rendered from squ_theme_preprocess_html() into page_bottom so every page
  * uses the same footer.
  *
+ * Menu sections are only printed when they have links; the theme leaves
+ * them empty while the menu's block is disabled in the Footer region.
+ *
  * Available variables:
  * - year, home_url, logo_url
- * - quick_links: from the footer-quick-links menu (title/url).
- * - legal_links: from the footer menu (title/url).
+ * - quick_links: footer-quick-links menu (title/url/active/below).
+ * - legal_links: footer menu, minus the copyright item.
+ * - copyright: the footer menu's "©…" item title, if it has one.
  */
 #}
-{% set quick = quick_links ?: [
-  {title: 'Admissions'|t, url: '#'},
-  {title: 'Careers'|t, url: '#'},
-  {title: 'Research & Innovations'|t, url: '#'},
-  {title: 'Libraries'|t, url: '#'},
-  {title: 'Conferences'|t, url: '#'},
-  {title: 'News & Events'|t, url: '#'},
-  {title: 'Site Map'|t, url: '#'},
-  {title: 'Tenders'|t, url: '#'},
-  {title: 'Contact & Help'|t, url: '#'},
-] %}
-{% set legal = legal_links ?: [
-  {title: 'Privacy Policy'|t, url: '#'},
-  {title: 'Terms of Use'|t, url: '#'},
-  {title: 'Accessibility'|t, url: '#'},
-] %}
+{% macro menu_link(item) %}
+  <a href="{{ item.url }}"{% if item.active %} aria-current="page"{% endif %}>{{ item.title }}</a>
+{% endmacro %}
+{% import _self as footer %}
 <footer class="site-footer squ-site-footer">
   <div class="footer-pattern" aria-hidden="true"></div>
   <div class="footer-main">
@@ -70,24 +62,32 @@
       </div>
     </div>
 
-    <div class="quick">
-      <h2 class="quick-title" data-i18n="quickLinks">{{ 'Quick LINKS'|t }}</h2>
-      <ul class="qgrid">
-        {% for item in quick %}
-          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-        {% endfor %}
-      </ul>
-    </div>
+    {% if quick_links %}
+      <div class="quick">
+        <h2 class="quick-title" data-i18n="quickLinks">{{ 'Quick LINKS'|t }}</h2>
+        <ul class="qgrid">
+          {% for item in quick_links %}
+            <li>{{ footer.menu_link(item) }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
   </div>
 
   <div class="legal">
     <div class="legal-inner">
-      <p data-i18n="copyright">© {{ year }} Sultan Qaboos University. All Rights Reserved.</p>
-      <nav aria-label="{{ 'Legal'|t }}">
-        {% for item in legal %}
-          <a href="{{ item.url }}">{{ item.title }}</a>
-        {% endfor %}
-      </nav>
+      {% if copyright %}
+        <p>{{ copyright }}</p>
+      {% else %}
+        <p data-i18n="copyright">© {{ year }} Sultan Qaboos University. All Rights Reserved.</p>
+      {% endif %}
+      {% if legal_links %}
+        <nav aria-label="{{ 'Legal'|t }}">
+          {% for item in legal_links %}
+            {{ footer.menu_link(item) }}
+          {% endfor %}
+        </nav>
+      {% endif %}
     </div>
   </div>
 </footer>
