@@ -1,0 +1,31 @@
+uuid: e660f2da-d19e-450a-9bd6-8267fdf90c58
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.research-innovation
+  module:
+    - system
+  theme:
+    - squ_theme
+id: squ_theme_researchinnovation
+theme: squ_theme
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:research-innovation'
+settings:
+  id: 'system_menu_block:research-innovation'
+  label: 'Research & Innovation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      /research
+      /research/*

@@ -1,6 +1,6 @@
 uuid: 4ff94e5f-afc7-47a6-8b4d-ec0726c746bb
 langcode: en
-status: true
+status: false
 dependencies: {  }
 id: squ_site_css
 label: 'SQU Site CSS'

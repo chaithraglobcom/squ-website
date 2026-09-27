@@ -1,0 +1,25 @@
+uuid: 7d811461-5f54-46b4-9fa6-63638e64af15
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.header-quick-links
+  module:
+    - system
+  theme:
+    - squ_theme
+id: squ_theme_headerquicklinks
+theme: squ_theme
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:header-quick-links'
+settings:
+  id: 'system_menu_block:header-quick-links'
+  label: 'Header quick links'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }
