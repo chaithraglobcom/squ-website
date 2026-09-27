@@ -1,0 +1,8 @@
+uuid: a884748f-be44-4a7a-99b7-cbcad4ca6cd0
+langcode: en
+status: true
+dependencies: {  }
+id: postgraduate-menu
+label: 'Postgraduate Menu'
+description: 'This menu used for postgraduate page'
+locked: false

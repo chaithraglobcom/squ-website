@@ -1,0 +1,29 @@
+uuid: 725db9e9-d558-4157-a909-cd3c8a036604
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.undergraduate-menu
+  module:
+    - system
+  theme:
+    - squ_theme
+id: squ_theme_undergraduatemenu
+theme: squ_theme
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:undergraduate-menu'
+settings:
+  id: 'system_menu_block:undergraduate-menu'
+  label: 'Undergraduate menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/ug\r\n/ug/*"
