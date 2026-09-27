@@ -196,28 +196,33 @@
         });
 
         function openOverlay() {
-          overlay.classList.add('is-open');
-          document.body.style.overflow = 'hidden';
+  overlay.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
 
-          // Pre-select whichever level-1 item is in the active trail for
-          // the current page; otherwise default to the first item that
-          // has children, so columns 2/3 aren't empty on open.
-          var activeLink = level1List.querySelector('a.menu__link--active-trail, a.is-active');
-          if (activeLink && level1Children.has(activeLink)) {
-            showColumn2(activeLink);
-          }
-          else {
-            var firstKey = null;
-            level1Children.forEach(function (v, k) {
-              if (!firstKey) {
-                firstKey = k;
-              }
-            });
-            if (firstKey) {
-              showColumn2(firstKey);
-            }
-          }
-        }
+        // function openOverlay() {
+        //   overlay.classList.add('is-open');
+        //   document.body.style.overflow = 'hidden';
+
+        //   // Pre-select whichever level-1 item is in the active trail for
+        //   // the current page; otherwise default to the first item that
+        //   // has children, so columns 2/3 aren't empty on open.
+        //   var activeLink = level1List.querySelector('a.menu__link--active-trail, a.is-active');
+        //   if (activeLink && level1Children.has(activeLink)) {
+        //     showColumn2(activeLink);
+        //   }
+        //   else {
+        //     var firstKey = null;
+        //     level1Children.forEach(function (v, k) {
+        //       if (!firstKey) {
+        //         firstKey = k;
+        //       }
+        //     });
+        //     if (firstKey) {
+        //       showColumn2(firstKey);
+        //     }
+        //   }
+        // }
 
         function closeOverlay() {
           overlay.classList.remove('is-open');

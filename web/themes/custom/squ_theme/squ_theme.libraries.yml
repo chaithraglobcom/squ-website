@@ -7,9 +7,11 @@ global:
       css/hero.css: {}
       css/homepage.css: {}
       css/footer.css: {}
+      css/components/landing-page.css: {}
   js:
     js/menu-overlay.js: {}
   dependencies:
     - core/drupal
     - core/once
     - core/drupal.ajax
+  
