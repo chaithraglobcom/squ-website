@@ -13,6 +13,7 @@ global:
       css/homepage.css: {}
       css/footer.css: {}
       css/squ-chrome.css: {}
+      css/components/landing-page.css: {}
   js:
     js/squ-chrome.js: {}
   dependencies:

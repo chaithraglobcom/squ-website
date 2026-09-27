@@ -255,6 +255,31 @@
   }
 }
 
+/* Account / login menu — vertical stack, ready for more than one item
+   once the account has Profile/Settings/Log out etc. */
+.squ-header__account .menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.squ-header__account .menu__item {
+  width: 100%;
+}
+.squ-header__account a {
+  color: var(--squ-white);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: block;
+}
+.squ-header__account a:hover {
+  color: var(--squ-gold);
+}
+
 /* Hide the admin "top bar" (Home / Published / Edit) on the public site.
    Admin pages use the admin theme and are not affected. */
 .top-bar {
