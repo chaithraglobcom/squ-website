@@ -37,8 +37,9 @@
   padding: 0;
 }
 
-/* Olivero's own (empty / "Powered by Drupal") footer is not used. */
-.site-footer {
+/* Olivero's region footer stays hidden. The shared footer is
+   footer.squ-chrome-footer, rendered in page_bottom. */
+#page > footer.site-footer {
   display: none !important;
 }
 

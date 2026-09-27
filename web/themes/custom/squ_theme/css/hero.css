@@ -129,13 +129,9 @@
   letter-spacing: 0.05em;
 }
 
-/* Pulls the hero up under the transparent-over-hero header. This must stay
-   scoped to .squ-hero only - it previously also matched .squ-tile,
-   .squ-research__card, .squ-we-are and .squ-gallery__tile, which pulled
-   every one of those sections up by 180px too and made them overlap
-   whatever came before them on the page. */
+/* The banner starts below the solid header, never underneath it. */
 .squ-hero {
-    margin-top: -180px;
+    margin-top: 0;
     position: relative;
     overflow: hidden;
 }

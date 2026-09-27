@@ -11,10 +11,28 @@
    two classes below are kept as a defensive fallback in case Olivero
    renders a second "fixed" (sticky-on-scroll) copy under a different
    wrapper - harmless if they don't match anything. */
-#site-header__inner,
+/* Olivero chrome off; keep header region in DOM for menu-overlay.js to relocate. */
 .site-header__fixed,
-.site-header__initial {
+.site-header__initial,
+.site-header__inner .mobile-buttons,
+.site-header__inner .sticky-header-toggle {
   display: none !important;
+}
+
+#header.site-header {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+#site-header__inner {
+  display: block !important;
 }
 
 /* Olivero's Site branding block brings its own blue background/padding,
@@ -49,8 +67,9 @@
   justify-content: space-between;
   background: var(--squ-dark, #2b3138) !important;
   padding: 0.75rem 2rem;
-  position: relative;
-  z-index: 40;
+  position: sticky;
+  top: 0;
+  z-index: 200;
 }
 
 /* Site name next to the logo: small, like the template. (Olivero's branding
