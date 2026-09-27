@@ -9,6 +9,7 @@
  * enabled in Block layout, so disabling the block hides that menu section.
  */
 
+use Drupal\block\Entity\Block;
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Menu\MenuTreeParameters;
 use Drupal\Core\Url;
@@ -24,8 +25,10 @@ function squ_theme_theme($existing, $type, $theme, $path) {
       'variables' => [
         'home_url' => '/',
         'logo_url' => '',
+        'header_links' => [],
         'menu_items' => [],
         'section_items' => [],
+        'section_label' => '',
         'quick_links' => [],
         'search_action' => NULL,
       ],
@@ -38,6 +41,7 @@ function squ_theme_theme($existing, $type, $theme, $path) {
         'logo_url' => '',
         'quick_links' => [],
         'legal_links' => [],
+        'copyright' => '',
       ],
       'template' => 'layout/squ-footer',
     ],
@@ -45,44 +49,42 @@ function squ_theme_theme($existing, $type, $theme, $path) {
 }
 
 /**
- * Section → menu map. Extend for future sections.
- *
- * @return array
- *   Keys: default (string), bundles (node bundle => menu), paths (alias => menu).
+ * Menus that make up the header's top row; every other menu block in the
+ * Header region is a section menu.
  */
-function squ_theme_get_section_menu_map(): array {
-  return [
-    'default' => 'main',
-    'bundles' => [
-      'squ_libraries' => 'squ-libraries',
-    ],
-    'paths' => [
-      '/squ_libraries' => 'squ-libraries',
-    ],
-  ];
-}
+const SQU_THEME_TOP_ROW_MENUS = ['header-quick-links', 'main'];
 
 /**
- * Menu machine name for the current page section.
+ * The section menu bar for this page.
+ *
+ * Picks the first (by block weight) enabled menu block in the Header region,
+ * other than the top-row menus, whose visibility settings (Pages, Content
+ * type, Roles...) allow it on this page. Which section shows where is
+ * managed entirely in Block layout.
+ *
+ * @return array
+ *   label: the block's title. items: menu links ([] when none applies).
  */
-function squ_theme_get_section_menu_name(): string {
-  $map = squ_theme_get_section_menu_map();
+function _squ_theme_section_menu(CacheableMetadata $cacheability): array {
+  $cacheability->addCacheTags(['config:block_list']);
+  $blocks = \Drupal::entityTypeManager()->getStorage('block')->loadByProperties([
+    'theme' => \Drupal::theme()->getActiveTheme()->getName(),
+    'region' => 'header',
+  ]);
+  uasort($blocks, [Block::class, 'sort']);
 
-  $node = _squ_theme_route_node();
-  if ($node && !empty($map['bundles'][$node->bundle()])) {
-    return $map['bundles'][$node->bundle()];
-  }
-
-  $path = \Drupal::service('path.current')->getPath();
-  $alias = '/' . trim(\Drupal::service('path_alias.manager')->getAliasByPath($path), '/');
-  foreach ($map['paths'] as $prefix => $menu_name) {
-    $prefix = '/' . trim($prefix, '/');
-    if ($alias === $prefix || str_starts_with($alias, $prefix . '/')) {
-      return $menu_name;
+  foreach ($blocks as $block) {
+    [$provider, $menu_name] = explode(':', $block->getPluginId(), 2) + [1 => ''];
+    if ($provider !== 'system_menu_block' || in_array($menu_name, SQU_THEME_TOP_ROW_MENUS, TRUE)) {
+      continue;
+    }
+    $access = $block->access('view', NULL, TRUE);
+    $cacheability->addCacheableDependency($block)->addCacheableDependency($access);
+    if ($access->isAllowed() && ($items = _squ_theme_menu_items($menu_name, $cacheability))) {
+      return ['label' => $block->label(), 'items' => $items];
     }
   }
-
-  return $map['default'];
+  return ['label' => '', 'items' => []];
 }
 
 /**
@@ -115,14 +117,23 @@ function squ_theme_preprocess_html(array &$variables) {
   $home_url = Url::fromRoute('<front>')->toString();
 
   $header_cache = (new CacheableMetadata())->addCacheContexts(['url.path']);
-  $default_menu = squ_theme_get_section_menu_map()['default'];
-  $section_menu = squ_theme_get_section_menu_name();
-  $menu_items = _squ_theme_block_menu_items($default_menu, $header_cache);
-  $section_items = $section_menu !== $default_menu ? _squ_theme_block_menu_items($section_menu, $header_cache) : [];
+  $header_links = _squ_theme_block_menu_items('header-quick-links', $header_cache);
+  $menu_items = _squ_theme_block_menu_items('main', $header_cache);
+  $section = _squ_theme_section_menu($header_cache);
 
   $footer_cache = new CacheableMetadata();
-  $quick_links = _squ_theme_menu_items('footer-quick-links', $footer_cache);
-  $legal_links = _squ_theme_menu_items('footer', $footer_cache);
+  $quick_links = _squ_theme_block_menu_items('footer-quick-links', $footer_cache);
+  $legal_links = _squ_theme_block_menu_items('footer', $footer_cache);
+  // A "©…" link in the footer menu is the editable copyright line, not a link.
+  $copyright = '';
+  foreach ($legal_links as $delta => $link) {
+    if (str_starts_with(trim($link['title']), '©')) {
+      $copyright = $link['title'];
+      unset($legal_links[$delta]);
+      break;
+    }
+  }
+  $legal_links = array_values($legal_links);
 
   $search_action = NULL;
   if (\Drupal::service('router.route_provider')->getRoutesByNames(['search.view_node_search'])) {
@@ -133,8 +144,10 @@ function squ_theme_preprocess_html(array &$variables) {
     '#theme' => 'squ_header',
     '#home_url' => $home_url,
     '#logo_url' => $logo_url,
+    '#header_links' => $header_links,
     '#menu_items' => $menu_items,
-    '#section_items' => $section_items,
+    '#section_items' => $section['items'],
+    '#section_label' => $section['label'],
     '#quick_links' => $quick_links,
     '#search_action' => $search_action,
   ];
@@ -148,6 +161,7 @@ function squ_theme_preprocess_html(array &$variables) {
     '#logo_url' => $logo_url,
     '#quick_links' => $quick_links,
     '#legal_links' => $legal_links,
+    '#copyright' => $copyright,
   ];
   $footer_cache->applyTo($footer);
   $variables['page_bottom']['squ_footer'] = $footer;
@@ -225,11 +239,10 @@ function _squ_theme_menu_tree_items(array $tree, CacheableMetadata $cacheability
  * Implements hook_preprocess_page().
  */
 function squ_theme_preprocess_page(array &$variables): void {
-  if (squ_theme_get_section_menu_name() !== 'squ-libraries') {
-    return;
+  $node = _squ_theme_route_node();
+  if ($node && $node->bundle() === 'squ_libraries') {
+    $variables['#attached']['library'][] = 'squ_theme/squ_libraries';
   }
-  $variables['#attached']['library'][] = 'squ_theme/squ_libraries';
-  $variables['#cache']['contexts'][] = 'url.path';
 }
 
 /**
