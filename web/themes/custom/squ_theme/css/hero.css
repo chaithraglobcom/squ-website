@@ -63,22 +63,47 @@
 }
 
 /* College / Major selector bar pinned to the bottom edge of the banner */
+/* .squ-college-major-bar {
+  position: relative;
+  z-index: 3;
+   margin: -2.5rem auto 0;
+  width: fit-content;
+  max-width: calc(100% - 3rem);
+  background: var(--squ-dark, #2b3138);
+  border-radius: 4px;
+  padding: 0.25rem 1.5rem;
+} */
+
 .squ-college-major-bar {
   position: relative;
   z-index: 3;
-  margin: -2.5rem 3rem 0;
+  margin: -2.5rem auto 0;
+  width: min(1040px, calc(100% - 4rem));   /* was: width: fit-content */
   background: var(--squ-dark, #2b3138);
   border-radius: 4px;
-  padding: 1.25rem 1.5rem;
+  padding: 0.25rem 2rem;
+}
+
+.squ-college-major-bar .field--name-field-filter-form {
+  display: contents;
+}
+.squ-college-major-bar form {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;                                /* was: 1.5rem */
   flex-wrap: wrap;
+}
+.squ-college-major-bar .form-type-select {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 1 1 260px;                          /* lets each field grow to fill the wider bar */
 }
 .squ-college-major-bar label {
   color: #c9922a;
   font-weight: 700;
-  margin-right: 0.5rem;
+  margin: 0;
+  white-space: nowrap;
 }
 .squ-college-major-bar select {
   background: #fff;
@@ -86,6 +111,11 @@
   border-radius: 3px;
   padding: 0.5rem 0.75rem;
   min-width: 220px;
+  flex: 1;                                  /* select itself stretches within its field group */
+}
+.squ-college-major-bar .form-actions {
+  margin: 0;
+  flex: 0 0 auto;                           /* button keeps its own natural width */
 }
 .squ-college-major-bar input[type="submit"] {
   background: #c9922a;
@@ -106,9 +136,21 @@
     overflow: hidden;
 }
 
+
 @media (max-width: 768px) {
-  .squ-hero__card { margin: 0 1rem; max-width: none; }
-  .squ-college-major-bar { margin: -1.5rem 1rem 0; flex-direction: column; align-items: stretch; }
+  .squ-college-major-bar {
+    margin: -1.5rem auto 0;
+    width: auto;
+    max-width: calc(100% - 2rem);
+  }
+  .squ-college-major-bar form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .squ-college-major-bar .form-type-select {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 /* ==========================================================================
