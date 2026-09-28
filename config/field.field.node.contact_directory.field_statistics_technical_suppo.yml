@@ -1,0 +1,19 @@
+uuid: e0a3288e-ecca-4462-9b7b-1fdcb49779a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_statistics_technical_suppo
+    - node.type.contact_directory
+id: node.contact_directory.field_statistics_technical_suppo
+field_name: field_statistics_technical_suppo
+entity_type: node
+bundle: contact_directory
+label: 'Statistics & Technical Support Phone'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

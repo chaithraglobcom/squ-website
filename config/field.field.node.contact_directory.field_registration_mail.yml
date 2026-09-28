@@ -1,0 +1,19 @@
+uuid: 0f4e1c60-520a-4170-bf04-29f5887cc268
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_mail
+    - node.type.contact_directory
+id: node.contact_directory.field_registration_mail
+field_name: field_registration_mail
+entity_type: node
+bundle: contact_directory
+label: 'Registration Email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

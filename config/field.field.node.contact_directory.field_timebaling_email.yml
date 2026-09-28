@@ -1,0 +1,19 @@
+uuid: 2078b8ec-80a7-471d-9e7b-0459e1e17521
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_timebaling_email
+    - node.type.contact_directory
+id: node.contact_directory.field_timebaling_email
+field_name: field_timebaling_email
+entity_type: node
+bundle: contact_directory
+label: 'Timebaling Email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

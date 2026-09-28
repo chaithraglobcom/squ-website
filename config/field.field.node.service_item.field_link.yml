@@ -1,0 +1,23 @@
+uuid: 392d53ec-9055-44e9-9c66-d9bc1f2e3b56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link
+    - node.type.service_item
+  module:
+    - link
+id: node.service_item.field_link
+field_name: field_link
+entity_type: node
+bundle: service_item
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

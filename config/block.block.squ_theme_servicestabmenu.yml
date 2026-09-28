@@ -1,0 +1,29 @@
+uuid: e2e7b61d-823e-48fd-9ae5-1f9ec6ce6cbb
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.services-tab-menu
+  module:
+    - system
+  theme:
+    - squ_theme
+id: squ_theme_servicestabmenu
+theme: squ_theme
+region: sidebar
+weight: 0
+provider: null
+plugin: 'system_menu_block:services-tab-menu'
+settings:
+  id: 'system_menu_block:services-tab-menu'
+  label: 'Services Tab Menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/admissions/Services/STUDENTS\r\n/admissions/Services/FACULTY-STAFF\r\n/admissions/Services/ALUMNI"

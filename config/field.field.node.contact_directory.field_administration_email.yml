@@ -1,0 +1,19 @@
+uuid: 4451a611-93ae-4af8-8a3f-8bdb1a6d1cf1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_administration_email
+    - node.type.contact_directory
+id: node.contact_directory.field_administration_email
+field_name: field_administration_email
+entity_type: node
+bundle: contact_directory
+label: 'Administration Email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

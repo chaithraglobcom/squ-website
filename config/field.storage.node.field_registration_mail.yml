@@ -1,0 +1,18 @@
+uuid: 38b8752b-8a4b-40c7-a8c3-81cf0b216fa6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_registration_mail
+field_name: field_registration_mail
+entity_type: node
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: 0d199eb2-86e8-460a-b0bc-47c4d89d53bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_acadamic_awareness_email
+    - node.type.contact_directory
+id: node.contact_directory.field_acadamic_awareness_email
+field_name: field_acadamic_awareness_email
+entity_type: node
+bundle: contact_directory
+label: 'Acadamic Awareness Email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

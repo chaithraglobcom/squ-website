@@ -1,0 +1,21 @@
+uuid: f8047b97-dd7c-402a-ac0c-f0887ecd74ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_timeline_from_date
+    - node.type.admission
+  module:
+    - datetime
+id: node.admission.field_timeline_from_date
+field_name: field_timeline_from_date
+entity_type: node
+bundle: admission
+label: 'Timeline From Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,9 @@
+uuid: dd946fb8-a002-43ff-be0b-20a580e3bc29
+langcode: en
+status: true
+dependencies: {  }
+name: 'About Section'
+vid: about_squ_terms
+description: 'Categorizes pages under the About SQU section'
+weight: 0
+new_revision: false

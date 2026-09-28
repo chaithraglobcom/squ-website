@@ -1,0 +1,24 @@
+uuid: 935b6bd7-7908-4dcc-aead-efbfdca9f8da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - filter.format.full_html
+    - node.type.transfer_squ
+  module:
+    - text
+id: node.transfer_squ.field_body
+field_name: field_body
+entity_type: node
+bundle: transfer_squ
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long
