@@ -1,0 +1,21 @@
+uuid: 1b219e13-5c83-458d-a00a-8654faeb3f8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_form_category
+    - node.type.squ_forms
+  module:
+    - options
+id: node.squ_forms.field_form_category
+field_name: field_form_category
+entity_type: node
+bundle: squ_forms
+label: 'Form Category'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
