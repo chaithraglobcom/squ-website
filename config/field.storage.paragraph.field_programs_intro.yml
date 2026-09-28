@@ -1,0 +1,19 @@
+uuid: 625ea292-b7b9-46fa-9baa-a762b1ba303d
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_programs_intro
+field_name: field_programs_intro
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

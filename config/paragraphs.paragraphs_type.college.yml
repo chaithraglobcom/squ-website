@@ -1,0 +1,10 @@
+uuid: 5e4e1680-edf2-4247-a47b-d3a6be457a2b
+langcode: en
+status: true
+dependencies: {  }
+id: college
+label: 'College Hero'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

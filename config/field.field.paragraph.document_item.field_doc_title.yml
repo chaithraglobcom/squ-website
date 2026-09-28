@@ -1,0 +1,19 @@
+uuid: 1cab2aaf-3fea-4454-94d4-b99c03d32c14
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_doc_title
+    - paragraphs.paragraphs_type.document_item
+id: paragraph.document_item.field_doc_title
+field_name: field_doc_title
+entity_type: paragraph
+bundle: document_item
+label: 'Doc Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

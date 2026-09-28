@@ -1,0 +1,23 @@
+uuid: 2eb4e215-9ace-4920-a9d1-7689293991a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_college_link
+    - paragraphs.paragraphs_type.college_tab_item
+  module:
+    - link
+id: paragraph.college_tab_item.field_college_link
+field_name: field_college_link
+entity_type: paragraph
+bundle: college_tab_item
+label: 'College Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

@@ -1,0 +1,10 @@
+uuid: fc807f4d-fd00-4e68-8df9-734db3b312e2
+langcode: en
+status: true
+dependencies: {  }
+id: college_tab_item
+label: 'College Tab Item'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

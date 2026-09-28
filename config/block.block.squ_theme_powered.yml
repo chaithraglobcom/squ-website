@@ -1,0 +1,22 @@
+uuid: 61685953-f91a-4c98-9748-7580a7fd9eae
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - squ_theme
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: squ_theme_powered
+theme: squ_theme
+region: sidebar_first
+weight: -4
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: '© 2026  Sultan Qaboos University. All Rights Reserved'
+  label_display: visible
+  provider: system
+visibility: {  }

@@ -1,0 +1,34 @@
+uuid: 1299e4f3-a6e0-432b-bfc6-d6a5593aebd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_grid.field_grid_cards
+    - field.field.paragraph.card_grid.field_grid_heading
+    - paragraphs.paragraphs_type.card_grid
+  module:
+    - entity_reference_revisions
+id: paragraph.card_grid.default
+targetEntityType: paragraph
+bundle: card_grid
+mode: default
+content:
+  field_grid_cards:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_grid_heading:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

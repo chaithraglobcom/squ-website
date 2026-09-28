@@ -1,0 +1,43 @@
+uuid: 1c0af2c2-c8ef-43fa-a7d2-14ef4767988d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.document_list.field_doclist_heading
+    - field.field.paragraph.document_list.field_doclist_intro
+    - field.field.paragraph.document_list.field_documents
+    - paragraphs.paragraphs_type.document_list
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.document_list.default
+targetEntityType: paragraph
+bundle: document_list
+mode: default
+content:
+  field_doclist_heading:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_doclist_intro:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_documents:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

@@ -1,0 +1,25 @@
+uuid: 03429c93-bac4-4c55-a375-a744fac16196
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_webform
+    - paragraphs.paragraphs_type.map_contact
+  module:
+    - webform
+id: paragraph.map_contact.field_contact_webform
+field_name: field_contact_webform
+entity_type: paragraph
+bundle: map_contact
+label: 'Contact Webform'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: webform

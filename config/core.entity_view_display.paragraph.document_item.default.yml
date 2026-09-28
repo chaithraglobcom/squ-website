@@ -1,0 +1,47 @@
+uuid: edfef1f0-5004-4e96-bbe2-0b4a7c36b563
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.document_item.field_doc_file
+    - field.field.paragraph.document_item.field_doc_link
+    - field.field.paragraph.document_item.field_doc_title
+    - paragraphs.paragraphs_type.document_item
+  module:
+    - file
+    - link
+id: paragraph.document_item.default
+targetEntityType: paragraph
+bundle: document_item
+mode: default
+content:
+  field_doc_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_doc_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_doc_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

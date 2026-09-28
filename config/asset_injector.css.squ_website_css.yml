@@ -1,0 +1,848 @@
+uuid: ea3d78a5-0d00-4f3c-b7df-877ef05ba972
+langcode: en
+status: false
+dependencies: {  }
+id: squ_website_css
+label: 'SQU Website CSS'
+code: |-
+  /* ============================================================
+     GLOBAL
+     ============================================================ */
+  :root {
+    --squ-gold: #c8983a;
+    --squ-dark: #2a2a2a;
+    --squ-blue: #2f6fed;
+  }
+
+  /* Hide Drupal's default field labels used for admin display only */
+  .field--name-field-page-sections .field__label,
+  .field--name-field-background-image .field__label,
+  .field--name-field-quote-text .field__label,
+  .field--name-field-heading .field__label,
+  .field--name-field-quote-author .field__label,
+  .field--name-field-about-background-image .field__label,
+  .field--name-field-about-squ-heading .field__label,
+  .field--name-field-about-squ-text .field__label,
+  .field--name-field-about-squ-link1 .field__label,
+  .field--name-field-about-squ-link2 .field__label {
+    display: none;
+  }
+
+  .main-content__container.container { max-width: 1300px; }
+
+  /* ============================================================
+     HEADER — transparent bar overlaying the hero image
+     ============================================================ */
+  #page-wrapper { position: relative; }
+
+  #header.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 30;
+    background: transparent;
+  }
+
+  #header .site-header__inner {
+    background: rgba(20, 20, 20, 0.45);
+  }
+
+  #header .site-branding__logo img { max-height: 48px; }
+
+  #header .site-branding__name a,
+  #header .menu--header-quick-links .menu__link,
+  #header .primary-nav__menu-link-inner {
+    color: #fff !important;
+  }
+
+  #header .mobile-nav-button__icon,
+  #header .mobile-nav-button__icon::before,
+  #header .mobile-nav-button__icon::after {
+    background-color: #fff !important;
+  }
+
+  /* ============================================================
+     HERO BANNER
+     ============================================================ */
+  .field__item:has(> .paragraph--type--hero-banner) {
+    position: relative;
+  }
+
+  .paragraph--type--hero-banner {
+    position: relative;
+    min-height: 480px;
+    display: flex;
+    align-items: flex-end;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .paragraph--type--hero-banner .field--name-field-background-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .paragraph--type--hero-banner .field--name-field-background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .paragraph--type--hero-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 60%, transparent 100%);
+    z-index: 1;
+  }
+
+  .paragraph--type--hero-banner .field--name-field-heading,
+  .paragraph--type--hero-banner .field--name-field-quote-text,
+  .paragraph--type--hero-banner .field--name-field-quote-author {
+    position: relative;
+    z-index: 2;
+    padding: 0 40px 32px;
+  }
+
+  .paragraph--type--hero-banner .field--name-field-heading {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--squ-gold);
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  .paragraph--type--hero-banner .field--name-field-quote-text {
+    font-size: 1rem;
+    font-style: italic;
+    max-width: 480px;
+    margin-bottom: 4px;
+  }
+
+  .paragraph--type--hero-banner .field--name-field-quote-author {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: 0.85;
+  }
+
+  /* ============================================================
+     SEARCH WIDGET — dark rounded bar overlapping hero bottom edge
+     ============================================================ */
+  .field__item:has(> .paragraph--type--search-widget) {
+    position: relative;
+    z-index: 5;
+    margin-top: -40px;
+    padding: 0 40px;
+  }
+
+  .paragraph--type--search-widget form {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    background: var(--squ-dark);
+    border-radius: 12px;
+    padding: 20px 28px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .paragraph--type--search-widget .form-item__label {
+    color: var(--squ-gold);
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+  }
+
+  .paragraph--type--search-widget select {
+    background: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 10px;
+    min-width: 180px;
+  }
+
+  .paragraph--type--search-widget .webform-button--submit {
+    background: var(--squ-gold);
+    color: #1a1a1a;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    padding: 10px 22px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 700px) {
+    .paragraph--type--search-widget form { flex-direction: column; align-items: stretch; }
+  }
+
+  /* ============================================================
+     FEATURE CARDS — Postgraduate / Undergraduate / International
+     ============================================================ */
+  .field--name-field-page-sections > .field__items { text-align: center; font-size: 0; }
+
+  .field__item:has(> .paragraph--type--feature-card) {
+    display: inline-block;
+    font-size: 1rem;
+    vertical-align: top;
+    width: 31%;
+    margin: 40px 1.15% 0;
+    text-align: left;
+  }
+
+  .paragraph--type--feature-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+  }
+
+  .paragraph--type--feature-card .field--name-field-image,
+  .paragraph--type--feature-card .field--name-field-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .paragraph--type--feature-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .paragraph--type--feature-card .field--name-field-label {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 2;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .field__item:has(> .paragraph--type--feature-card) { width: 100%; margin: 20px 0 0; }
+  }
+
+  /* ============================================================
+     STATISTICS COUNTER — 4 across with vertical dividers
+     ============================================================ */
+  .field__item:has(> .paragraph--type--statistics-counter) {
+    display: inline-block;
+    width: 23%;
+    margin: 60px 1% 0;
+    text-align: center;
+    border-right: 1px solid #ddd;
+  }
+
+  .field__item:has(> .paragraph--type--statistics-counter):last-of-type {
+    border-right: none;
+  }
+
+  .paragraph--type--statistics-counter .field--name-field-statistics-number {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--squ-blue);
+    border-bottom: 3px solid var(--squ-gold);
+    display: inline-block;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+  }
+
+  .paragraph--type--statistics-counter .field--name-field-statistics-label {
+    font-size: 0.95rem;
+    color: #444;
+  }
+
+  @media (max-width: 768px) {
+    .field__item:has(> .paragraph--type--statistics-counter) {
+      width: 48%;
+      border-right: none;
+      margin-bottom: 24px;
+    }
+  }
+
+  /* ============================================================
+     RESEARCH & INNOVATIONS
+     ============================================================ */
+  .field__item:has(> .paragraph--type--research-section) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: flex-start;
+    margin-top: 70px;
+    padding: 0 40px;
+  }
+
+  .paragraph--type--research-section {
+    flex: 1 1 320px;
+  }
+
+  .paragraph--type--research-section .field--name-field-research-heading {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--squ-blue);
+    margin-bottom: 12px;
+  }
+
+  .paragraph--type--research-section .field--name-field-research-description {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  /* Nested research card (R1) lives inside research-section already */
+  .paragraph--type--research-section .field--name-field-research-card {
+    flex: 1 1 220px;
+  }
+
+  /* Fallback fix: the SECOND research card (R2) currently sits as its
+     own sibling item rather than nested with R1 — see note above about
+     moving it into the field in the CMS. This CSS pulls it visually
+     alongside R1 as a stopgap. */
+  .field__item:has(> .paragraph--type--research-section) + .field__item:has(> .paragraph--type--research-card) {
+    flex: 1 1 220px;
+  }
+
+  .paragraph--type--research-card {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .paragraph--type--research-card img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+  }
+
+  .paragraph--type--research-card .field--name-field-research-card-description,
+  .paragraph--type--research-card .field--name-field-research-image ~ .field--name-field-research-card-description {
+    font-size: 0.85rem;
+    margin-top: 10px;
+    color: #444;
+  }
+
+  /* ============================================================
+     ABOUT SQU — dark full-bleed section
+     ============================================================ */
+  .field__item:has(> .paragraph--type--about-squ) {
+    margin-top: 70px;
+  }
+
+  .paragraph--type--about-squ {
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .paragraph--type--about-squ .field--name-field-about-background-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .paragraph--type--about-squ .field--name-field-about-background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .paragraph--type--about-squ::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(20,20,20,0.55);
+    z-index: 1;
+  }
+
+  .paragraph--type--about-squ .field--name-field-about-squ-heading,
+  .paragraph--type--about-squ .field--name-field-about-squ-text,
+  .paragraph--type--about-squ .field--name-field-about-squ-link1,
+  .paragraph--type--about-squ .field--name-field-about-squ-link2 {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    max-width: 420px;
+    margin-left: 60px;
+  }
+
+  .paragraph--type--about-squ .field--name-field-about-squ-heading {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--squ-gold);
+    margin-bottom: 14px;
+  }
+
+  .paragraph--type--about-squ .field--name-field-about-squ-text {
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+
+  .paragraph--type--about-squ .field--name-field-about-squ-link1 a,
+  .paragraph--type--about-squ .field--name-field-about-squ-link2 a {
+    display: inline-block;
+    margin-right: 16px;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid var(--squ-gold);
+    padding-bottom: 3px;
+  }
+
+  /* ============================================================
+     NEWS SECTION
+     ============================================================ */
+  .field__item:has(> .paragraph--type--news-section) {
+    margin-top: 70px;
+    padding: 0 40px;
+  }
+
+  .paragraph--type--news-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .paragraph--type--news-section .field--name-field-news-heading {
+    flex: 1 1 100%;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--squ-blue);
+  }
+
+  .paragraph--type--news-section .field--name-field-news-items {
+    flex: 1 1 320px;
+  }
+
+  .paragraph--type--news-section .field--name-field-news-section-image {
+    flex: 1 1 320px;
+    order: 3;
+  }
+
+  .paragraph--type--news-section .field--name-field-news-section-image img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .paragraph--type--news-item {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .paragraph--type--news-item .field--name-field-news-title {
+    color: var(--squ-gold);
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+  }
+
+  .paragraph--type--news-item .field--name-field-news-date {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 6px;
+  }
+
+  .paragraph--type--news-item .field--name-field-news-description {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  .paragraph--type--news-section .field--name-field-more-link {
+    flex: 1 1 100%;
+    order: 4;
+  }
+
+  .paragraph--type--news-section .field--name-field-more-link a {
+    display: inline-block;
+    background: var(--squ-gold);
+    color: #1a1a1a;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  /* ============================================================
+     STUDENT LIFE — masonry-style gallery grid
+     ============================================================ */
+  .field__item:has(> .paragraph--type--student-life-section) {
+    margin-top: 70px;
+    padding: 0 40px 60px;
+  }
+
+  .paragraph--type--student-life-section .field--name-field-student-life-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--squ-blue);
+    margin-bottom: 20px;
+  }
+
+  .paragraph--type--student-life-section .field--name-field-tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .paragraph--type--student-life-gallery-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+
+  .paragraph--type--student-life-gallery-item .field--name-field-images,
+  .paragraph--type--student-life-gallery-item .field--name-field-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .paragraph--type--student-life-gallery-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
+  }
+
+  .paragraph--type--student-life-gallery-item .field--name-field-image-caption {
+    position: absolute;
+    bottom: 12px;
+    left: 14px;
+    z-index: 2;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .paragraph--type--student-life-section .field--name-field-tiles {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  .site-footer {
+    background: #201f1f !important;
+    color: #ffffff !important;
+    position: relative;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden;
+  }
+
+  .site-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 32px;
+    background-image: url('/sites/default/files/website_pattern-05_1.png');
+    background-repeat: repeat-x;
+    background-position: top center;
+    background-size: auto 32px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .site-footer__inner {
+    width: 100% !important;
+    max-width: 1035px !important;
+    margin: 0 auto !important;
+    padding: 95px 0 52px !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 2.25fr) minmax(300px, 1fr) !important;
+    column-gap: 0 !important;
+    row-gap: 0 !important;
+    align-items: start !important;
+    box-sizing: border-box;
+  }
+
+  .region--footer-top {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .region--footer-bottom {
+    display: contents !important;
+  }
+
+  /* --- Logo / crest --- */
+  .field--name-field-footer-logo {
+    margin: 0 0 7px 0 !important;
+    padding: 0 !important;
+  }
+  .field--name-field-footer-logo img {
+    display: block !important;
+    width: 232px !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+
+  /* --- University name (EN/AR) --- */
+  .field--name-field-university-name-en {
+    margin: 3px 0 0 0 !important;
+    padding: 0 !important;
+    font-size: 13px !important;
+    line-height: 1.25 !important;
+    color: #ffffff !important;
+    font-weight: 400 !important;
+  }
+  .field--name-field-university-name-ar {
+    margin: 2px 0 0 0 !important;
+    padding: 0 !important;
+    direction: rtl !important;
+    text-align: right !important;
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+    color: #ffffff !important;
+  }
+
+  /* --- Footer icons --- */
+  .field--name-field-footer-icon.field__items {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin: 25px 0 0 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+  .field--name-field-footer-icon .field__item {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .paragraph--type--footer-icons {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .paragraph--type--footer-icons img {
+    display: block !important;
+    width: 28px !important;
+    height: 28px !important;
+    object-fit: contain;
+  }
+
+  /* --- Quick Links --- */
+  #block-olivero-footerquicklinks {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 0 0 34px !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-sizing: border-box;
+  }
+  #block-olivero-footerquicklinks .block__title {
+    color: #c9a227 !important;
+    text-transform: uppercase !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px !important;
+    margin: 0 0 19px 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+  }
+  #block-olivero-footerquicklinks ul.menu {
+    display: grid !important;
+    grid-template-columns: minmax(70px, 1fr) minmax(70px, 1fr) minmax(110px, 1.3fr) !important;
+    grid-template-rows: repeat(3, auto) !important;
+    grid-auto-flow: column !important;
+    column-gap: 26px !important;
+    row-gap: 15px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  #block-olivero-footerquicklinks ul.menu li {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-width: 0 !important;
+  }
+  #block-olivero-footerquicklinks ul.menu a {
+    display: block !important;
+    color: #a9a9a9 !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    line-height: 1.3 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+  }
+  #block-olivero-footerquicklinks ul.menu a:hover {
+    color: #c9a227 !important;
+  }
+
+  /* --- Copyright + privacy links bar (one combined block) --- */
+  #block-olivero-c2026sultanqaboosuniversityallrightsreserved {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    background: #282626 !important;
+    border: 0 !important;
+    margin: 0 !important;
+    padding: 17px 0 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap;
+    gap: 20px !important;
+  }
+  #block-olivero-c2026sultanqaboosuniversityallrightsreserved .block__title {
+    margin: 0 !important;
+    color: #aaa6a6 !important;
+    font-size: 11px !important;
+    font-weight: 400 !important;
+  }
+  #block-olivero-c2026sultanqaboosuniversityallrightsreserved .text-content a {
+    color: #aaa6a6 !important;
+    font-size: 11px !important;
+    text-decoration: none !important;
+  }
+  #block-olivero-c2026sultanqaboosuniversityallrightsreserved .text-content a:hover {
+    color: #c9a227 !important;
+  }
+
+  .site-footer .block,
+  .site-footer .field {
+    margin-block: 0 !important;
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 1199px) {
+    .site-footer__inner {
+      max-width: calc(100% - 80px) !important;
+      grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr) !important;
+    }
+  }
+  @media (max-width: 900px) {
+    .site-footer__inner {
+      max-width: calc(100% - 60px) !important;
+      grid-template-columns: 1fr !important;
+      padding-top: 80px !important;
+      padding-bottom: 40px !important;
+    }
+    #block-olivero-footerquicklinks {
+      grid-column: 1 !important;
+      grid-row: 2 !important;
+      margin-top: 35px !important;
+      padding: 30px 0 0 0 !important;
+      border-left: 0 !important;
+      border-top: 1px solid rgba(255,255,255,0.12) !important;
+    }
+    #block-olivero-c2026sultanqaboosuniversityallrightsreserved {
+      grid-column: 1 !important;
+      grid-row: 3 !important;
+    }
+  }
+  @media (max-width: 600px) {
+    .site-footer__inner {
+      max-width: calc(100% - 40px) !important;
+      padding-top: 70px !important;
+      padding-bottom: 30px !important;
+    }
+    #block-olivero-footerquicklinks ul.menu {
+      grid-template-columns: repeat(2, 1fr) !important;
+      grid-auto-flow: row !important;
+      column-gap: 20px !important;
+      row-gap: 14px !important;
+    }
+    #block-olivero-c2026sultanqaboosuniversityallrightsreserved {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      padding: 15px 20px !important;
+    }
+  }
+  @media (max-width: 400px) {
+    #block-olivero-footerquicklinks ul.menu {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+
+
+
+
+
+
+
+  /*.field--name-field-footer-logo img {*/
+  /*  display: block !important;*/
+  /*  width: 100px !important;*/
+  /*  height: auto !important;*/
+  /*  margin: 0 0 4px 0 !important;*/
+  /*}*/
+
+  .field--name-field-university-name-en {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    color: #ffffff !important;
+  }
+
+  .field--name-field-university-name-ar {
+    display: block !important;
+    margin: 0 0 20px 0 !important;
+    padding: 0 !important;
+    direction: rtl !important;
+    text-align: left !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    color: #ffffff !important;
+    width: 100%;
+    clear: both;
+  }
+
+  #block-olivero-footerquicklinks .block__title {
+    color: #c9a227 !important;
+    text-transform: none !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px !important;
+    margin: 0 0 19px 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .site-footer {
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    background: #201f1f !important;
+  }
+
+  .site-footer__inner {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+    box-sizing: border-box;
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

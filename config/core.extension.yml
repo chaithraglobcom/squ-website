@@ -47,6 +47,6 @@ module:
   standard: 1000
 theme:
   olivero: 0
-  squ_theme: 0
   claro: 0
+  squ_theme: 0
 profile: standard

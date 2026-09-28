@@ -1,0 +1,88 @@
+uuid: 1334a26f-2686-4843-98ff-e2ceae42bea2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_program_colleges
+    - paragraphs.paragraphs_type.college_tab_item
+    - paragraphs.paragraphs_type.program_tabs
+  module:
+    - entity_reference_revisions
+id: paragraph.program_tabs.field_program_colleges
+field_name: field_program_colleges
+entity_type: paragraph
+bundle: program_tabs
+label: 'Program Colleges'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      college_tab_item: college_tab_item
+    negate: 0
+    target_bundles_drag_drop:
+      about_squ:
+        weight: 21
+        enabled: false
+      card_grid:
+        weight: 22
+        enabled: false
+      card_item:
+        weight: 23
+        enabled: false
+      college:
+        weight: 24
+        enabled: false
+      college_tab_item:
+        weight: 25
+        enabled: true
+      feature_card:
+        weight: 26
+        enabled: false
+      footer_icons:
+        weight: 27
+        enabled: false
+      hero_banner:
+        weight: 28
+        enabled: false
+      hero_carousel:
+        weight: 29
+        enabled: false
+      hero_slide:
+        weight: 30
+        enabled: false
+      news_item:
+        weight: 31
+        enabled: false
+      news_section:
+        weight: 32
+        enabled: false
+      page_intro:
+        weight: 33
+        enabled: false
+      program_tabs:
+        weight: 34
+        enabled: false
+      research_card:
+        weight: 35
+        enabled: false
+      research_section:
+        weight: 36
+        enabled: false
+      search_widget:
+        weight: 37
+        enabled: false
+      statistics_counter:
+        weight: 38
+        enabled: false
+      student_life_gallery_item:
+        weight: 39
+        enabled: false
+      student_life_section:
+        weight: 40
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,23 @@
+uuid: 1c6ae297-5f1c-4515-87ad-c43a3d578b82
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_doc_link
+    - paragraphs.paragraphs_type.document_item
+  module:
+    - link
+id: paragraph.document_item.field_doc_link
+field_name: field_doc_link
+entity_type: paragraph
+bundle: document_item
+label: 'Doc Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

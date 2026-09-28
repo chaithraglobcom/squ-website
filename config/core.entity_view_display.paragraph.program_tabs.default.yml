@@ -1,0 +1,43 @@
+uuid: 7d855909-272d-454e-9d5a-5be948f409d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.program_tabs.field_program_colleges
+    - field.field.paragraph.program_tabs.field_programs_heading
+    - field.field.paragraph.program_tabs.field_programs_intro
+    - paragraphs.paragraphs_type.program_tabs
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.program_tabs.default
+targetEntityType: paragraph
+bundle: program_tabs
+mode: default
+content:
+  field_program_colleges:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_programs_heading:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_programs_intro:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

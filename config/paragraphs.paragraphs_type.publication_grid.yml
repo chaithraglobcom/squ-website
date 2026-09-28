@@ -1,0 +1,10 @@
+uuid: f08d3bc5-2fc2-4a9d-980a-d4136328b005
+langcode: en
+status: true
+dependencies: {  }
+id: publication_grid
+label: 'Publication Grid'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

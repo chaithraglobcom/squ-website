@@ -1,0 +1,19 @@
+uuid: fd5647c7-4cbb-45b0-8f8a-7372a35f36c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_college_name
+    - paragraphs.paragraphs_type.college_tab_item
+id: paragraph.college_tab_item.field_college_name
+field_name: field_college_name
+entity_type: paragraph
+bundle: college_tab_item
+label: 'College Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

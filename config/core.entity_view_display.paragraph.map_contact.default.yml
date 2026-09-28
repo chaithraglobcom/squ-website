@@ -1,0 +1,56 @@
+uuid: ae959597-190a-4ea9-aab5-c1007148c2c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.map_contact.field_contact_email
+    - field.field.paragraph.map_contact.field_contact_phone
+    - field.field.paragraph.map_contact.field_contact_webform
+    - field.field.paragraph.map_contact.field_map_embed_url
+    - paragraphs.paragraphs_type.map_contact
+  module:
+    - link
+    - webform
+id: paragraph.map_contact.default
+targetEntityType: paragraph
+bundle: map_contact
+mode: default
+content:
+  field_contact_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_contact_phone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_contact_webform:
+    type: webform_entity_reference_entity_view
+    label: above
+    settings:
+      source_entity: true
+      lazy: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_map_embed_url:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

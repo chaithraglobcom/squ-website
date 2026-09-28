@@ -1,0 +1,32 @@
+uuid: 6963332c-3231-4a16-8fa4-23670bf1eecc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.admission.field_banner_image
+    - node.type.admission
+  module:
+    - image
+    - user
+id: node.admission.default
+targetEntityType: node
+bundle: admission
+mode: default
+content:
+  field_banner_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

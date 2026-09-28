@@ -1,0 +1,100 @@
+uuid: 842a7bd3-e3f8-421c-a44b-a3e8fbe11120
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_publications
+    - paragraphs.paragraphs_type.publication_grid
+    - paragraphs.paragraphs_type.publication_item
+  module:
+    - entity_reference_revisions
+id: paragraph.publication_grid.field_publications
+field_name: field_publications
+entity_type: paragraph
+bundle: publication_grid
+label: Publications
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      publication_item: publication_item
+    negate: 0
+    target_bundles_drag_drop:
+      about_squ:
+        weight: 25
+        enabled: false
+      card_grid:
+        weight: 26
+        enabled: false
+      card_item:
+        weight: 27
+        enabled: false
+      college:
+        weight: 28
+        enabled: false
+      college_tab_item:
+        weight: 29
+        enabled: false
+      document_item:
+        weight: 30
+        enabled: false
+      document_list:
+        weight: 31
+        enabled: false
+      feature_card:
+        weight: 32
+        enabled: false
+      footer_icons:
+        weight: 33
+        enabled: false
+      hero_banner:
+        weight: 34
+        enabled: false
+      hero_carousel:
+        weight: 35
+        enabled: false
+      hero_slide:
+        weight: 36
+        enabled: false
+      news_item:
+        weight: 37
+        enabled: false
+      news_section:
+        weight: 38
+        enabled: false
+      page_intro:
+        weight: 39
+        enabled: false
+      program_tabs:
+        weight: 40
+        enabled: false
+      publication_grid:
+        weight: 41
+        enabled: false
+      publication_item:
+        weight: 42
+        enabled: true
+      research_card:
+        weight: 43
+        enabled: false
+      research_section:
+        weight: 44
+        enabled: false
+      search_widget:
+        weight: 45
+        enabled: false
+      statistics_counter:
+        weight: 46
+        enabled: false
+      student_life_gallery_item:
+        weight: 47
+        enabled: false
+      student_life_section:
+        weight: 48
+        enabled: false
+field_type: entity_reference_revisions

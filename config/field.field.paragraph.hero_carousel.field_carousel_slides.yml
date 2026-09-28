@@ -1,0 +1,73 @@
+uuid: ae59a7ad-7d2d-49c0-ba09-275ebdd631fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_carousel_slides
+    - paragraphs.paragraphs_type.hero_carousel
+    - paragraphs.paragraphs_type.hero_slide
+  module:
+    - entity_reference_revisions
+id: paragraph.hero_carousel.field_carousel_slides
+field_name: field_carousel_slides
+entity_type: paragraph
+bundle: hero_carousel
+label: 'Carousel Slides'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      hero_slide: hero_slide
+    negate: 0
+    target_bundles_drag_drop:
+      about_squ:
+        weight: 16
+        enabled: false
+      college:
+        weight: 17
+        enabled: false
+      feature_card:
+        weight: 18
+        enabled: false
+      footer_icons:
+        weight: 19
+        enabled: false
+      hero_banner:
+        weight: 20
+        enabled: false
+      hero_carousel:
+        weight: 21
+        enabled: false
+      hero_slide:
+        weight: 22
+        enabled: true
+      news_item:
+        weight: 23
+        enabled: false
+      news_section:
+        weight: 24
+        enabled: false
+      research_card:
+        weight: 25
+        enabled: false
+      research_section:
+        weight: 26
+        enabled: false
+      search_widget:
+        weight: 27
+        enabled: false
+      statistics_counter:
+        weight: 28
+        enabled: false
+      student_life_gallery_item:
+        weight: 29
+        enabled: false
+      student_life_section:
+        weight: 30
+        enabled: false
+field_type: entity_reference_revisions

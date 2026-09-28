@@ -1,0 +1,26 @@
+uuid: 0e1ece84-8f4b-4aeb-b85f-ec64ac3f975c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.college.field_college_hero_image
+    - paragraphs.paragraphs_type.college
+  module:
+    - image
+id: paragraph.college.default
+targetEntityType: paragraph
+bundle: college
+mode: default
+content:
+  field_college_hero_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }
