@@ -1,0 +1,8 @@
+uuid: 04c5d97f-24e9-4a60-bf07-a8419286a198
+langcode: en
+status: true
+dependencies: {  }
+id: about-squ
+label: 'About SQU'
+description: 'This menu show on about SQU page.'
+locked: false

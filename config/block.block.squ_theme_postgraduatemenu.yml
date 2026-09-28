@@ -1,0 +1,29 @@
+uuid: fe08e347-4bf6-401e-ab2e-d29606856bc5
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.postgraduate-menu
+  module:
+    - system
+  theme:
+    - squ_theme
+id: squ_theme_postgraduatemenu
+theme: squ_theme
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:postgraduate-menu'
+settings:
+  id: 'system_menu_block:postgraduate-menu'
+  label: 'Postgraduate Menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/pg\r\n/pg/*"
