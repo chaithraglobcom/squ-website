@@ -1,6 +1,6 @@
 uuid: 0d16f181-74bc-4ab1-ab36-a5ba6ba9b1bf
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.students-menu
@@ -10,7 +10,7 @@ dependencies:
     - squ_theme
 id: squ_theme_studentsmenu
 theme: squ_theme
-region: sidebar
+region: sidebar_first
 weight: 0
 provider: null
 plugin: 'system_menu_block:students-menu'

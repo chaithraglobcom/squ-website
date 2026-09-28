@@ -1,0 +1,8 @@
+uuid: 6afa97ca-c3e6-4829-8767-99f3521d0981
+langcode: en
+status: true
+dependencies: {  }
+id: news-events-footer-menu
+label: 'News&Events Footer Menu'
+description: ''
+locked: false

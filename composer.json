@@ -1,4 +1,4 @@
-﻿{
+{
     "name": "drupal/recommended-project",
     "description": "Project template for Drupal projects with a relocated document root",
     "type": "project",
@@ -21,9 +21,12 @@
         "drupal/core-project-message": "^11.4",
         "drupal/core-recipe-unpack": "^11.4",
         "drupal/core-recommended": "^11.4",
+        "drupal/field_group": "^4.0",
+        "drupal/lite_youtube_embed": "^1.0",
         "drupal/paragraphs": "^1.23",
         "drupal/webform": "^6.3",
         "drupal/webform_ui": "^6.3",
+        "drupal/youtube": "^3.0@beta",
         "drush/drush": "^13.8"
     },
     "conflict": {

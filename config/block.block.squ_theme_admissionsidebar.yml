@@ -1,6 +1,6 @@
 uuid: fc478044-fe3c-40a4-a437-afbcca84c53c
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.admission-sidebar
@@ -10,7 +10,7 @@ dependencies:
     - squ_theme
 id: squ_theme_admissionsidebar
 theme: squ_theme
-region: sidebar
+region: sidebar_first
 weight: 0
 provider: null
 plugin: 'system_menu_block:admission-sidebar'

@@ -1,0 +1,38 @@
+uuid: 82b1aa6a-be09-4d69-ae10-8cdabd095445
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news_events_image
+    - node.type.news_events
+  module:
+    - image
+id: node.news_events.field_news_events_image
+field_name: field_news_events_image
+entity_type: node
+bundle: news_events
+label: 'News&Events Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg webp'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

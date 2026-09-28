@@ -1,0 +1,25 @@
+uuid: e89e17c2-654d-4c28-b86d-0aacef249f89
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.news-events-footer-menu
+  module:
+    - system
+  theme:
+    - squ_theme
+id: squ_theme_newseventsfootermenu
+theme: squ_theme
+region: footer
+weight: 0
+provider: null
+plugin: 'system_menu_block:news-events-footer-menu'
+settings:
+  id: 'system_menu_block:news-events-footer-menu'
+  label: 'News&Events Footer Menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

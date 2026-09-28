@@ -1,0 +1,8 @@
+uuid: cdf02da9-0363-4f0b-9495-3e53867c5310
+langcode: en
+status: true
+dependencies: {  }
+id: news-events
+label: 'News&Events'
+description: ''
+locked: false

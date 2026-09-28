@@ -1,0 +1,25 @@
+uuid: 45723db2-565f-47bf-bbd9-2386badc3098
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.news-events
+  module:
+    - system
+  theme:
+    - squ_theme
+id: squ_theme_newsevents
+theme: squ_theme
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:news-events'
+settings:
+  id: 'system_menu_block:news-events'
+  label: 'News&Events'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

@@ -1,6 +1,6 @@
 uuid: e2e7b61d-823e-48fd-9ae5-1f9ec6ce6cbb
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.services-tab-menu
@@ -10,7 +10,7 @@ dependencies:
     - squ_theme
 id: squ_theme_servicestabmenu
 theme: squ_theme
-region: sidebar
+region: sidebar_first
 weight: 0
 provider: null
 plugin: 'system_menu_block:services-tab-menu'
