@@ -1,0 +1,19 @@
+uuid: 3e41aa00-b090-49bd-a37a-549241f4060d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_graduation_email
+    - node.type.contact_directory
+id: node.contact_directory.field_graduation_email
+field_name: field_graduation_email
+entity_type: node
+bundle: contact_directory
+label: 'Graduation Email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

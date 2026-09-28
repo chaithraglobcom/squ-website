@@ -1,0 +1,50 @@
+uuid: 85ad0a45-e5b1-4069-9a86-8e804dd6c8d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.about_squ_pages.field_about_section
+    - field.field.node.about_squ_pages.field_body
+    - field.field.node.about_squ_pages.field_hero_image
+    - node.type.about_squ_pages
+  module:
+    - image
+    - text
+    - user
+id: node.about_squ_pages.default
+targetEntityType: node
+bundle: about_squ_pages
+mode: default
+content:
+  field_about_section:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_hero_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

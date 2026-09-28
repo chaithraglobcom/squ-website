@@ -1,0 +1,28 @@
+uuid: 3b7b55ca-0b6e-4bef-8020-f4e639e361bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ps_about.field_body
+    - node.type.ps_about
+  module:
+    - text
+    - user
+id: node.ps_about.default
+targetEntityType: node
+bundle: ps_about
+mode: default
+content:
+  field_body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

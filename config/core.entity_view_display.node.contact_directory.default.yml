@@ -1,0 +1,285 @@
+uuid: fb1c6d26-69cd-490f-9c30-44421cf3688b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.contact_directory.field_acadamic_awareness_email
+    - field.field.node.contact_directory.field_academic_development_and_a
+    - field.field.node.contact_directory.field_administration_email
+    - field.field.node.contact_directory.field_administration_phone
+    - field.field.node.contact_directory.field_admission_and_transfer_ema
+    - field.field.node.contact_directory.field_admission_and_transfer_pho
+    - field.field.node.contact_directory.field_graduation_email
+    - field.field.node.contact_directory.field_graduation_phone
+    - field.field.node.contact_directory.field_registration_mail
+    - field.field.node.contact_directory.field_registration_phone
+    - field.field.node.contact_directory.field_statistics_technical_suppo
+    - field.field.node.contact_directory.field_suuport_email
+    - field.field.node.contact_directory.field_timebaling_email
+    - field.field.node.contact_directory.field_timetabling_academic_degre
+    - node.type.contact_directory
+  module:
+    - field_group
+    - user
+third_party_settings:
+  field_group:
+    group_departments:
+      children:
+        - group_administration
+        - group_admission_and_transfer
+        - group_academic_development_and_a
+        - group_graduation
+        - group_registration
+        - group_statistics_technical_suppo
+        - group_timetabling_academic_degre
+      label: ' Departments'
+      parent_name: ''
+      region: content
+      weight: 15
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+        direction: vertical
+        width_breakpoint: 640
+    group_administration:
+      children:
+        - field_administration_phone
+        - field_administration_email
+      label: Administration
+      parent_name: group_departments
+      region: content
+      weight: 16
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+        direction: vertical
+        width_breakpoint: 640
+    group_admission_and_transfer:
+      children:
+        - field_admission_and_transfer_pho
+        - field_admission_and_transfer_ema
+      label: 'Admission and Transfer'
+      parent_name: group_departments
+      region: content
+      weight: 17
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+    group_academic_development_and_a:
+      children:
+        - field_academic_development_and_a
+        - field_acadamic_awareness_email
+      label: 'Academic Development and Awareness'
+      parent_name: group_departments
+      region: content
+      weight: 18
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+    group_graduation:
+      children:
+        - field_graduation_phone
+        - field_graduation_email
+      label: ' Graduation'
+      parent_name: group_departments
+      region: content
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+    group_registration:
+      children:
+        - field_registration_phone
+        - field_registration_mail
+      label: Registration
+      parent_name: group_departments
+      region: content
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+    group_statistics_technical_suppo:
+      children:
+        - field_statistics_technical_suppo
+        - field_suuport_email
+      label: 'Statistics & Technical Support'
+      parent_name: group_departments
+      region: content
+      weight: 22
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+    group_timetabling_academic_degre:
+      children:
+        - field_timetabling_academic_degre
+        - field_timebaling_email
+      label: 'Timetabling & Academic Degree Plans'
+      parent_name: group_departments
+      region: content
+      weight: 23
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+id: node.contact_directory.default
+targetEntityType: node
+bundle: contact_directory
+mode: default
+content:
+  field_acadamic_awareness_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_academic_development_and_a:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 19
+    region: content
+  field_administration_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_administration_phone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_admission_and_transfer_ema:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_admission_and_transfer_pho:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_graduation_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_graduation_phone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_registration_mail:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_registration_phone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_statistics_technical_suppo:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_suuport_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_timebaling_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_timetabling_academic_degre:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

@@ -1,0 +1,179 @@
+uuid: 66b73e85-50f6-46d3-b9de-4a46987f803b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.contact_directory.field_acadamic_awareness_email
+    - field.field.node.contact_directory.field_academic_development_and_a
+    - field.field.node.contact_directory.field_administration_email
+    - field.field.node.contact_directory.field_administration_phone
+    - field.field.node.contact_directory.field_admission_and_transfer_ema
+    - field.field.node.contact_directory.field_admission_and_transfer_pho
+    - field.field.node.contact_directory.field_graduation_email
+    - field.field.node.contact_directory.field_graduation_phone
+    - field.field.node.contact_directory.field_registration_mail
+    - field.field.node.contact_directory.field_registration_phone
+    - field.field.node.contact_directory.field_statistics_technical_suppo
+    - field.field.node.contact_directory.field_suuport_email
+    - field.field.node.contact_directory.field_timebaling_email
+    - field.field.node.contact_directory.field_timetabling_academic_degre
+    - node.type.contact_directory
+  module:
+    - path
+id: node.contact_directory.default
+targetEntityType: node
+bundle: contact_directory
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_acadamic_awareness_email:
+    type: email_default
+    weight: 126
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_academic_development_and_a:
+    type: string_textfield
+    weight: 125
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_administration_email:
+    type: email_default
+    weight: 122
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_administration_phone:
+    type: string_textfield
+    weight: 121
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_admission_and_transfer_ema:
+    type: email_default
+    weight: 124
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_admission_and_transfer_pho:
+    type: string_textfield
+    weight: 123
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_graduation_email:
+    type: email_default
+    weight: 128
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_graduation_phone:
+    type: string_textfield
+    weight: 127
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_registration_mail:
+    type: email_default
+    weight: 130
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_registration_phone:
+    type: string_textfield
+    weight: 129
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_statistics_technical_suppo:
+    type: string_textfield
+    weight: 131
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_suuport_email:
+    type: email_default
+    weight: 132
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_timebaling_email:
+    type: email_default
+    weight: 134
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_timetabling_academic_degre:
+    type: string_textfield
+    weight: 133
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 120
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  promote: true
+  sticky: true

@@ -1,0 +1,19 @@
+uuid: 00c49441-b714-47a4-ad0a-e9d148ea6360
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_admission_and_transfer_ema
+    - node.type.contact_directory
+id: node.contact_directory.field_admission_and_transfer_ema
+field_name: field_admission_and_transfer_ema
+entity_type: node
+bundle: contact_directory
+label: 'Admission and Transfer Email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

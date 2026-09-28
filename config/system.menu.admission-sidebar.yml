@@ -1,0 +1,8 @@
+uuid: b068651d-c026-409f-a591-c7d9c0b7bbfb
+langcode: en
+status: true
+dependencies: {  }
+id: admission-sidebar
+label: 'Admission Sidebar'
+description: ''
+locked: false

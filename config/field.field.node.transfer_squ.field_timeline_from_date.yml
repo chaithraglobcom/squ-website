@@ -1,0 +1,21 @@
+uuid: ba76a9e2-5d56-485d-84d3-13e30c34ca3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_timeline_from_date
+    - node.type.transfer_squ
+  module:
+    - datetime
+id: node.transfer_squ.field_timeline_from_date
+field_name: field_timeline_from_date
+entity_type: node
+bundle: transfer_squ
+label: 'Timeline From Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

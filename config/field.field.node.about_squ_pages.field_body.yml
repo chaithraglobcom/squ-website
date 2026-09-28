@@ -1,0 +1,24 @@
+uuid: 6aa087c7-0f6e-44c9-80a1-2d2f65acf5bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - filter.format.full_html
+    - node.type.about_squ_pages
+  module:
+    - text
+id: node.about_squ_pages.field_body
+field_name: field_body
+entity_type: node
+bundle: about_squ_pages
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

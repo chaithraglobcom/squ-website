@@ -1,0 +1,29 @@
+uuid: 81685b8c-3c7d-422f-9fc1-a0d39b97b191
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.ps-about-menu
+  module:
+    - system
+  theme:
+    - squ_theme
+id: squ_theme_psaboutmenu
+theme: squ_theme
+region: sidebar
+weight: 0
+provider: null
+plugin: 'system_menu_block:ps-about-menu'
+settings:
+  id: 'system_menu_block:ps-about-menu'
+  label: 'PS About menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/ps/en-us/deans-message\r\n/ps/en-us/values-and-goals\r\n/ps/Tasks-and-Attributes"

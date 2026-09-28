@@ -1,0 +1,21 @@
+uuid: 7d49b308-7844-4f9b-be2c-1dce252fa5ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_timeline_to_date
+    - node.type.admission
+  module:
+    - datetime
+id: node.admission.field_timeline_to_date
+field_name: field_timeline_to_date
+entity_type: node
+bundle: admission
+label: 'Timeline To Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

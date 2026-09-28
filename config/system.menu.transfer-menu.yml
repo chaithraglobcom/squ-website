@@ -1,0 +1,8 @@
+uuid: 4454ca0d-2c27-4d1b-97fc-a5fe5455dc64
+langcode: en
+status: true
+dependencies: {  }
+id: transfer-menu
+label: 'Transfer menu'
+description: ''
+locked: false

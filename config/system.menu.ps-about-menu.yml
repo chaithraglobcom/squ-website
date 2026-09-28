@@ -1,0 +1,8 @@
+uuid: 9e158377-004c-4f75-a243-c5e5bef36e8b
+langcode: en
+status: true
+dependencies: {  }
+id: ps-about-menu
+label: 'PS About menu'
+description: ''
+locked: false

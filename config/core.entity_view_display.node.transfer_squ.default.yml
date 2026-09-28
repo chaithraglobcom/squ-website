@@ -1,0 +1,171 @@
+uuid: cca9cc2d-ca79-4355-a390-28410998a7d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.basic
+    - field.field.node.transfer_squ.field_apply_link
+    - field.field.node.transfer_squ.field_body
+    - field.field.node.transfer_squ.field_timeline_from_date
+    - field.field.node.transfer_squ.field_timeline_to_date
+    - node.type.transfer_squ
+    - system.menu.transfer-menu
+  module:
+    - field_group
+    - layout_builder
+    - system
+    - user
+third_party_settings:
+  field_group:
+    group_timeline:
+      children: {  }
+      label: Timeline
+      parent_name: ''
+      region: hidden
+      weight: 20
+      format_type: html_element
+      format_settings:
+        classes: timeline-box
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_threecol_section
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          column_widths: 33-34-33
+        components:
+          32285ace-0150-4960-8ccf-51d858eed281:
+            uuid: 32285ace-0150-4960-8ccf-51d858eed281
+            region: first
+            configuration:
+              id: 'system_menu_block:transfer-menu'
+              label: 'Transfer menu'
+              label_display: '0'
+              provider: system
+              context_mapping: {  }
+              level: 1
+              depth: null
+              expand_all_items: false
+            weight: 0
+            additional: {  }
+          36119f84-c7c0-43b4-9fe9-3435d2df782e:
+            uuid: 36119f84-c7c0-43b4-9fe9-3435d2df782e
+            region: third
+            configuration:
+              id: 'field_block:node:transfer_squ:field_timeline_to_date'
+              label: TO
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: datetime_default
+                label: above
+                settings:
+                  timezone_override: ''
+                  format_type: short_numeric
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          d47eaf6b-eb1a-43a9-a494-8931402cf996:
+            uuid: d47eaf6b-eb1a-43a9-a494-8931402cf996
+            region: second
+            configuration:
+              id: 'field_block:node:transfer_squ:field_body'
+              label: Body
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          2fff9893-9865-480a-a248-ea4b0628db31:
+            uuid: 2fff9893-9865-480a-a248-ea4b0628db31
+            region: third
+            configuration:
+              id: 'field_block:node:transfer_squ:field_apply_link'
+              label: 'Apply Link'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: link
+                label: above
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: '0'
+                  target: '0'
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          c147f085-66f8-40d5-b86f-db490c66b0a8:
+            uuid: c147f085-66f8-40d5-b86f-db490c66b0a8
+            region: third
+            configuration:
+              id: 'field_block:node:transfer_squ:field_timeline_from_date'
+              label: FROM
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: datetime_default
+                label: above
+                settings:
+                  timezone_override: ''
+                  format_type: short_numeric
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          b9ecd07b-0381-4fb3-8e9e-c8a4a4c35290:
+            uuid: b9ecd07b-0381-4fb3-8e9e-c8a4a4c35290
+            region: third
+            configuration:
+              id: 'inline_block:basic'
+              label: Timeline
+              label_display: visible
+              provider: layout_builder
+              context_mapping: {  }
+              view_mode: full
+              block_id: 6
+              block_revision_id: 6
+              block_serialized: null
+            weight: 2
+            additional: {  }
+        third_party_settings: {  }
+id: node.transfer_squ.default
+targetEntityType: node
+bundle: transfer_squ
+mode: default
+content: {  }
+hidden:
+  field_apply_link: true
+  field_body: true
+  field_timeline_from_date: true
+  field_timeline_to_date: true
+  links: true

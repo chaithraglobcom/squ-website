@@ -1,0 +1,8 @@
+uuid: 396bf3a1-73c9-4190-8b2a-2003d72bce34
+langcode: en
+status: true
+dependencies: {  }
+id: students-menu
+label: 'Students menu'
+description: ''
+locked: false
