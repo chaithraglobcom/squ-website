@@ -1,0 +1,22 @@
+uuid: 4020e1a6-048a-49fe-bb09-fc912088630e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - squ_theme
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: squ_theme_content
+theme: squ_theme
+region: content
+weight: -6
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

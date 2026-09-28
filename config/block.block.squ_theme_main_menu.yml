@@ -1,6 +1,6 @@
-uuid: 8b2c3d4e-5f60-7890-b123-456789abcdef
+uuid: e510bf2a-363c-4b7f-8056-bd514b390f7a
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - system.menu.main
@@ -8,9 +8,11 @@ dependencies:
     - system
   theme:
     - squ_theme
+_core:
+  default_config_hash: KWAiziL39uEzmOJEql_wbUP2RtqGceL3WM2CfxhMelE
 id: squ_theme_main_menu
 theme: squ_theme
-region: header
+region: primary_menu
 weight: 0
 provider: null
 plugin: 'system_menu_block:main'
@@ -20,6 +22,6 @@ settings:
   label_display: '0'
   provider: system
   level: 1
-  depth: 3
+  depth: 2
   expand_all_items: true
 visibility: {  }

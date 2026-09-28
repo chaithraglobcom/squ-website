@@ -1,0 +1,82 @@
+uuid: 837088bf-1633-4686-b1d8-5fe960ff06af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_grid_cards
+    - paragraphs.paragraphs_type.card_grid
+    - paragraphs.paragraphs_type.card_item
+  module:
+    - entity_reference_revisions
+id: paragraph.card_grid.field_grid_cards
+field_name: field_grid_cards
+entity_type: paragraph
+bundle: card_grid
+label: 'Grid Cards'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      card_item: card_item
+    negate: 0
+    target_bundles_drag_drop:
+      about_squ:
+        weight: 19
+        enabled: false
+      card_grid:
+        weight: 20
+        enabled: false
+      card_item:
+        weight: 21
+        enabled: true
+      college:
+        weight: 22
+        enabled: false
+      feature_card:
+        weight: 23
+        enabled: false
+      footer_icons:
+        weight: 24
+        enabled: false
+      hero_banner:
+        weight: 25
+        enabled: false
+      hero_carousel:
+        weight: 26
+        enabled: false
+      hero_slide:
+        weight: 27
+        enabled: false
+      news_item:
+        weight: 28
+        enabled: false
+      news_section:
+        weight: 29
+        enabled: false
+      page_intro:
+        weight: 30
+        enabled: false
+      research_card:
+        weight: 31
+        enabled: false
+      research_section:
+        weight: 32
+        enabled: false
+      search_widget:
+        weight: 33
+        enabled: false
+      statistics_counter:
+        weight: 34
+        enabled: false
+      student_life_gallery_item:
+        weight: 35
+        enabled: false
+      student_life_section:
+        weight: 36
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,32 @@
+uuid: e6a89fec-a096-44d0-9de5-17532f21c71b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.page_intro.field_intro_heading
+    - field.field.paragraph.page_intro.field_intro_text
+    - paragraphs.paragraphs_type.page_intro
+  module:
+    - text
+id: paragraph.page_intro.default
+targetEntityType: paragraph
+bundle: page_intro
+mode: default
+content:
+  field_intro_heading:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_intro_text:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

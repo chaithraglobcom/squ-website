@@ -1,0 +1,27 @@
+uuid: 4d2c07ae-18dc-4ccf-b405-007d85d6b16a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_doc_file
+    - paragraphs.paragraphs_type.document_item
+  module:
+    - file
+id: paragraph.document_item.field_doc_file
+field_name: field_doc_file
+entity_type: paragraph
+bundle: document_item
+label: 'Doc File'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: txt
+  max_filesize: ''
+  description_field: false
+field_type: file

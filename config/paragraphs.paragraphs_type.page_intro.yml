@@ -1,0 +1,10 @@
+uuid: c334a925-dccf-4577-8124-d91a857c04f2
+langcode: en
+status: true
+dependencies: {  }
+id: page_intro
+label: 'Page Intro'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

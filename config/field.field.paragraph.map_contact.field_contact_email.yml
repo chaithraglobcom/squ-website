@@ -1,0 +1,19 @@
+uuid: f6634d9a-bb05-4320-839a-5889801eac59
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_email
+    - paragraphs.paragraphs_type.map_contact
+id: paragraph.map_contact.field_contact_email
+field_name: field_contact_email
+entity_type: paragraph
+bundle: map_contact
+label: 'Contact Email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

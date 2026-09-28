@@ -1,0 +1,36 @@
+uuid: 213f515d-3368-499b-8d3b-f2d919059079
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.publication_item.field_pub_link
+    - field.field.paragraph.publication_item.field_pub_thumbnail
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.publication_item
+  module:
+    - image
+    - link
+id: paragraph.publication_item.default
+targetEntityType: paragraph
+bundle: publication_item
+mode: default
+content:
+  field_pub_link:
+    type: link_default
+    weight: 1
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_pub_thumbnail:
+    type: image_image
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

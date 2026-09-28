@@ -1,0 +1,19 @@
+uuid: c9b9cc1f-4980-44f2-bf3e-316af5589417
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_intro_heading
+    - paragraphs.paragraphs_type.page_intro
+id: paragraph.page_intro.field_intro_heading
+field_name: field_intro_heading
+entity_type: paragraph
+bundle: page_intro
+label: 'Intro Heading'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

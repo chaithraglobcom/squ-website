@@ -1,0 +1,10 @@
+uuid: 67bbcbda-b7d1-4247-bba1-8d3c763aeff3
+langcode: en
+status: true
+dependencies: {  }
+id: program_tabs
+label: 'Program Tabs'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

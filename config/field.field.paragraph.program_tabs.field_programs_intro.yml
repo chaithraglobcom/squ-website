@@ -1,0 +1,22 @@
+uuid: 32a725e8-ef12-44ae-bdb7-3ff3f6d167ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_programs_intro
+    - paragraphs.paragraphs_type.program_tabs
+  module:
+    - text
+id: paragraph.program_tabs.field_programs_intro
+field_name: field_programs_intro
+entity_type: paragraph
+bundle: program_tabs
+label: 'Programs Intro'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

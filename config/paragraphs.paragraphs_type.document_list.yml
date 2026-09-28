@@ -1,0 +1,10 @@
+uuid: 4b1698f0-91b7-44bf-9d83-1a72896d112d
+langcode: en
+status: true
+dependencies: {  }
+id: document_list
+label: 'Document List'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

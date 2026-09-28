@@ -1,0 +1,20 @@
+uuid: 361d378b-02ae-4099-81cf-2f3b4eb7e968
+langcode: en
+status: true
+dependencies:
+  theme:
+    - squ_theme
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: squ_theme_primary_admin_actions
+theme: squ_theme
+region: highlighted
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

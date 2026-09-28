@@ -1,0 +1,19 @@
+uuid: 47070fe8-3f6c-489e-842f-40808b1e335a
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_college_link
+field_name: field_college_link
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

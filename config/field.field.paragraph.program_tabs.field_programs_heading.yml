@@ -1,0 +1,19 @@
+uuid: 762a350f-cd88-4087-8e39-0cda8f291fb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_programs_heading
+    - paragraphs.paragraphs_type.program_tabs
+id: paragraph.program_tabs.field_programs_heading
+field_name: field_programs_heading
+entity_type: paragraph
+bundle: program_tabs
+label: 'Programs Heading'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

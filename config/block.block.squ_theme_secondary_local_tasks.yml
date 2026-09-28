@@ -1,0 +1,22 @@
+uuid: 5aace5b8-e68b-42fc-b7c6-6f342f89b8f7
+langcode: en
+status: true
+dependencies:
+  theme:
+    - squ_theme
+_core:
+  default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
+id: squ_theme_secondary_local_tasks
+theme: squ_theme
+region: highlighted
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

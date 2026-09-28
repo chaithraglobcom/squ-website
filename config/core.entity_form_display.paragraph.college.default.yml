@@ -1,0 +1,26 @@
+uuid: afd01865-6b38-45c4-a4f3-f686f27381c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.college.field_college_hero_image
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.college
+  module:
+    - image
+id: paragraph.college.default
+targetEntityType: paragraph
+bundle: college
+mode: default
+content:
+  field_college_hero_image:
+    type: image_image
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

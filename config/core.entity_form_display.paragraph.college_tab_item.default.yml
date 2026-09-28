@@ -1,0 +1,45 @@
+uuid: 0f1604d4-3256-43fc-887e-29a693fee5ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.college_tab_item.field_college_icon
+    - field.field.paragraph.college_tab_item.field_college_link
+    - field.field.paragraph.college_tab_item.field_college_name
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.college_tab_item
+  module:
+    - image
+    - link
+id: paragraph.college_tab_item.default
+targetEntityType: paragraph
+bundle: college_tab_item
+mode: default
+content:
+  field_college_icon:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_college_link:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_college_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

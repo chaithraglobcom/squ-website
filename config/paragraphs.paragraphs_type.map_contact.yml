@@ -1,0 +1,10 @@
+uuid: 1634bbe2-200f-4ce2-a1f7-8877233a812b
+langcode: en
+status: true
+dependencies: {  }
+id: map_contact
+label: 'Map Contact'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

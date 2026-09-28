@@ -1,0 +1,19 @@
+uuid: f3eac2b6-f2d1-4715-8428-10a9166766c2
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_pub_more_link
+field_name: field_pub_more_link
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

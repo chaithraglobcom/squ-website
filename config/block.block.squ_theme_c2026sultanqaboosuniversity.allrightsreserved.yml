@@ -1,0 +1,23 @@
+uuid: 83312721-409f-4107-abd3-b9fe9bc870f2
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:1837b389-46ed-4cae-867c-18a55a853b44'
+  module:
+    - block_content
+  theme:
+    - squ_theme
+id: squ_theme_c2026sultanqaboosuniversity.allrightsreserved
+theme: squ_theme
+region: sidebar_first
+weight: -8
+provider: null
+plugin: 'block_content:1837b389-46ed-4cae-867c-18a55a853b44'
+settings:
+  id: 'block_content:1837b389-46ed-4cae-867c-18a55a853b44'
+  label: ' © 2026 Sultan Qaboos University. All Rights Reserved'
+  label_display: visible
+  provider: block_content
+  view_mode: full
+visibility: {  }

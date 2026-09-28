@@ -1,0 +1,22 @@
+uuid: 0ea61369-9c50-4323-ba11-38388f6efe11
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_intro_text
+    - paragraphs.paragraphs_type.page_intro
+  module:
+    - text
+id: paragraph.page_intro.field_intro_text
+field_name: field_intro_text
+entity_type: paragraph
+bundle: page_intro
+label: 'Intro Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

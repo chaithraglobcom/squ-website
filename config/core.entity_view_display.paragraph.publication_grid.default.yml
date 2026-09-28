@@ -1,0 +1,48 @@
+uuid: b4ccb355-641f-4a42-b0bb-6805985eb1c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.publication_grid.field_pub_heading
+    - field.field.paragraph.publication_grid.field_pub_more_link
+    - field.field.paragraph.publication_grid.field_publications
+    - paragraphs.paragraphs_type.publication_grid
+  module:
+    - entity_reference_revisions
+    - link
+id: paragraph.publication_grid.default
+targetEntityType: paragraph
+bundle: publication_grid
+mode: default
+content:
+  field_pub_heading:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_pub_more_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_publications:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

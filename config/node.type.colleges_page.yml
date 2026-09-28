@@ -1,0 +1,18 @@
+uuid: 73bc0141-9b27-4973-927c-f23f63f3ceab
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Colleges Page'
+type: colleges_page
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,8 @@
+uuid: 21378631-02d6-4132-83f4-bd182f9a7e7e
+langcode: en
+status: true
+dependencies: {  }
+id: undergraduate-menus
+label: 'Undergraduate Menus'
+description: ''
+locked: false

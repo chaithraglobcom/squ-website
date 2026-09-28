@@ -1,0 +1,10 @@
+uuid: 4f553485-e7fb-47e5-938a-67ff374e0821
+langcode: en
+status: true
+dependencies: {  }
+id: document_item
+label: 'Document Item'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

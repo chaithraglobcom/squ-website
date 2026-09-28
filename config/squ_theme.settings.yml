@@ -1,0 +1,17 @@
+favicon:
+  use_default: true
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+logo:
+  path: 'public://squ_logo_with_text-removebg-preview_3.png'
+  use_default: false
+footer_logo:
+  - 53
+footer_pattern:
+  - 54
+mobile_menu_all_widths: 0
+site_branding_bg_color: default
+base_primary_color: '#1b9ae4'

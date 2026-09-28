@@ -1,0 +1,22 @@
+uuid: 043a13fd-fc60-4ba3-ae10-4417ea75cf03
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_doclist_intro
+    - paragraphs.paragraphs_type.document_list
+  module:
+    - text
+id: paragraph.document_list.field_doclist_intro
+field_name: field_doclist_intro
+entity_type: paragraph
+bundle: document_list
+label: 'Doclist Intro'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

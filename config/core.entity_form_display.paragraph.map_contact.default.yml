@@ -1,0 +1,53 @@
+uuid: 56be406d-a786-4650-bd4d-e93f6712a0eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.map_contact.field_contact_email
+    - field.field.paragraph.map_contact.field_contact_phone
+    - field.field.paragraph.map_contact.field_contact_webform
+    - field.field.paragraph.map_contact.field_map_embed_url
+    - paragraphs.paragraphs_type.map_contact
+  module:
+    - link
+    - webform
+id: paragraph.map_contact.default
+targetEntityType: paragraph
+bundle: map_contact
+mode: default
+content:
+  field_contact_email:
+    type: email_default
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_contact_phone:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_contact_webform:
+    type: webform_entity_reference_select
+    weight: 3
+    region: content
+    settings:
+      default_data: true
+      webforms: {  }
+    third_party_settings: {  }
+  field_map_embed_url:
+    type: link_default
+    weight: 0
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
