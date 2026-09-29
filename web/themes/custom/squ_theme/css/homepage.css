@@ -342,6 +342,8 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 3rem 4.5rem 3.5rem;
+  padding-left: 73px;
+  padding-right: 73px;
 }
 
 .squ-news__grid {
@@ -703,9 +705,11 @@
 .ri-section {
   background: #fff;
   padding: 2.5rem 2rem;
-  max-width: 1100px;
+  max-width: 1280px;
   margin: 2rem auto;
   color: var(--ri-text);
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 /* Left text | Right cards */
