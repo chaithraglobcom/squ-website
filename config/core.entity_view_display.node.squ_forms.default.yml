@@ -1,0 +1,38 @@
+uuid: c41dfea4-0868-40bc-8b0f-fa0fca1b25b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.squ_forms.field_form_category
+    - field.field.node.squ_forms.field_form_link
+    - node.type.squ_forms
+  module:
+    - link
+    - options
+    - user
+id: node.squ_forms.default
+targetEntityType: node
+bundle: squ_forms
+mode: default
+content:
+  field_form_category:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_form_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  links: true

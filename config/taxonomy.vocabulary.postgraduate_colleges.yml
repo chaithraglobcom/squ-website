@@ -1,0 +1,9 @@
+uuid: 927f51ed-38bf-4097-9550-b914933bb679
+langcode: en
+status: true
+dependencies: {  }
+name: 'Postgraduate Colleges'
+vid: postgraduate_colleges
+description: null
+weight: 0
+new_revision: false

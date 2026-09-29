@@ -1,0 +1,9 @@
+uuid: a1ba7fa2-d071-4fcf-9a58-dc7a0d1dd943
+langcode: en
+status: true
+dependencies: {  }
+name: Colleges
+vid: colleges
+description: null
+weight: 0
+new_revision: false

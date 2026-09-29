@@ -1,0 +1,29 @@
+uuid: 340581f1-5131-484a-8074-d1eae69612c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_program_college
+    - node.type.postgraduate_program
+    - taxonomy.vocabulary.postgraduate_colleges
+id: node.postgraduate_program.field_program_college
+field_name: field_program_college
+entity_type: node
+bundle: postgraduate_program
+label: College
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      postgraduate_colleges: postgraduate_colleges
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

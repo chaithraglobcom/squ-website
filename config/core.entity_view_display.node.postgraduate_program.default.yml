@@ -1,0 +1,57 @@
+uuid: 38651a84-dd04-4e42-b6ed-2a8a855c34b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.postgraduate_program.field_pg_program_description
+    - field.field.node.postgraduate_program.field_program_code
+    - field.field.node.postgraduate_program.field_program_college
+    - field.field.node.postgraduate_program.field_program_level
+    - field.field.node.postgraduate_program.field_program_link
+    - field.field.node.postgraduate_program.field_program_title
+    - node.type.postgraduate_program
+  module:
+    - link
+    - user
+id: node.postgraduate_program.default
+targetEntityType: node
+bundle: postgraduate_program
+mode: default
+content:
+  field_pg_program_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_program_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_program_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_program_code: true
+  field_program_college: true
+  field_program_level: true

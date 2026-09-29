@@ -1,0 +1,26 @@
+uuid: e483e4d1-7132-4636-8215-c3f56cc3a4ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_program_description
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.program
+  module:
+    - text
+id: node.program.field_program_description
+field_name: field_program_description
+entity_type: node
+bundle: program
+label: 'Program Description'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text_long
