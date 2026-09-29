@@ -1,11 +1,10 @@
 /**
- * SQU global footer - matches the dark footer design (pattern border, crest +
- * icon buttons on the left, "Quick LINKS" grid on the right, copyright bar).
+ * SQU global footer - dark footer (pattern border, crest + name + icon
+ * buttons on the left, "Quick LINKS" grid on the right, copyright bar).
  * Markup: templates/squ-footer.html.twig. Uses logical properties, so the
  * layout mirrors automatically on Arabic (dir="rtl") pages.
  */
 .squ-footer {
-      padding-top: 1px;  
   --squ-footer-bg: #201f1f;
   --squ-footer-bar: #282626;
   --squ-footer-gold: #cf9f2a;
@@ -13,6 +12,7 @@
   --squ-footer-line: #474646;
   --squ-footer-pad: clamp(1.25rem, 6.7vw, 9rem);
 
+  padding-top: 1px;
   background: var(--squ-footer-bg);
   color: var(--squ-footer-text);
   font-size: 1rem;
@@ -67,20 +67,47 @@
   padding-inline: var(--squ-footer-pad);
 }
 
-/* Brand: logo + 4 icon buttons */
+/* Brand: logo + Arabic/English name + 4 icon buttons, all centered */
+.squ-footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 .squ-footer__logo {
   display: inline-block;
-  margin-inline-start: -6px; /* logo image has a little built-in margin */
+  margin-inline-start: 0;
 }
 .squ-footer__logo img {
   display: block;
+  width: 92px;
   max-width: 100%;
   height: auto;
 }
+
+.squ-footer__name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  color: #fff;
+}
+.squ-footer__name-ar {
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.squ-footer__name-en {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
 .squ-footer__icons {
   display: flex;
+  justify-content: center;
   gap: 23px;
-  margin-top: 2.75rem;
+  margin-top: 1.6rem;
 }
 .squ-footer__icon {
   display: flex;
@@ -125,8 +152,8 @@
 }
 .squ-footer__quick-list {
   display: grid;
-  grid-template-columns: 131px 140px auto;
-  column-gap: 0;
+  grid-template-columns: repeat(3, max-content);
+  column-gap: 2.5rem;
   row-gap: 23px;
 }
 .squ-footer__quick-list a {
@@ -234,5 +261,6 @@
   .squ-footer__legal li + li::before {
     display: none;
   }
+  .squ-footer__name-ar { font-size: 1.6rem; }
+  .squ-footer__name-en { font-size: 1rem; }
 }
-
