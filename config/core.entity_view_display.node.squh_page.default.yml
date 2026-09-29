@@ -1,0 +1,37 @@
+uuid: 311ae8a0-52c9-4c81-a135-354ac839be76
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.squh_page
+  module:
+    - layout_builder
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          96049437-15d0-4fc8-a3d0-99d852435417:
+            uuid: 96049437-15d0-4fc8-a3d0-99d852435417
+            region: content
+            configuration:
+              id: 'extra_field_block:node:squh_page:links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+id: node.squh_page.default
+targetEntityType: node
+bundle: squh_page
+mode: default
+content: {  }
+hidden:
+  links: true

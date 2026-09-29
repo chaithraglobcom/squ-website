@@ -1,0 +1,37 @@
+uuid: 7ee256ac-74fd-4264-8c0e-59288001af5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.squh-menu
+  module:
+    - node
+    - system
+  theme:
+    - squ_theme
+id: squ_theme_squhmenu
+theme: squ_theme
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:squh-menu'
+settings:
+  id: 'system_menu_block:squh-menu'
+  label: 'squh menu'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /squh
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      squh_page: squh_page

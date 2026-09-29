@@ -1,0 +1,8 @@
+uuid: 49db7b08-1ceb-43f3-8c7b-96de52e09738
+langcode: en
+status: true
+dependencies: {  }
+id: squh-menu
+label: 'squh menu'
+description: ''
+locked: false
