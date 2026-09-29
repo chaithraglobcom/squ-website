@@ -4,21 +4,8 @@
  * Shared site header: brand, search, primary nav, language toggle and the
  * slide-in menu drawer.
  *
- * Rendered from squ_theme_preprocess_html() into page_top so every page
- * uses the same header. A menu section is only printed when it has links;
- * the theme leaves it empty while its menu block is disabled.
- *
- * Available variables:
- * - home_url, logo_url
- * - header_links: header-quick-links menu (title/url/active/below), first in
- *   the top row on every page.
- * - menu_items: main menu, after header_links in the top row.
- * - section_items: menu of the Header-region menu block visible on this page
- *   (set via the block's Pages / Content type visibility), in a bar under
- *   the header.
- * - section_label: that block's title, used as the drawer heading.
- * - quick_links: same shape, from the footer-quick-links menu.
- * - search_action: node search URL, or NULL when the search module is off.
+ * Variables: home_url, logo_url, header_links, menu_items, section_items,
+ * section_label, quick_links, search_action.
  */
 #}
 {% macro drawer_links(items) %}
@@ -73,12 +60,22 @@
     </a>
 
     <div class="header-tools">
-      <button class="icon-btn" id="squ-search-toggle" type="button" aria-expanded="false" aria-controls="squ-search-panel" aria-label="{{ 'Search'|t }}">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="11" cy="11" r="6.25" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
-          <path d="M16 16.5 L20 20.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-        </svg>
-      </button>
+
+      {# Search: input icon ke left me khulta hai #}
+      <div class="search-wrap">
+  <div class="search-panel" id="squ-search-panel" hidden>
+    <form id="squ-search-form" role="search"{% if search_action %} action="{{ search_action }}" method="get"{% endif %}>
+      <input id="squ-search-input" type="search" name="keys" placeholder="{{ 'Search'|t }}" aria-label="{{ 'Search'|t }}" data-i18n-placeholder="searchPlaceholder">
+    </form>
+  </div>
+
+  <button class="icon-btn" id="squ-search-toggle" type="button" aria-expanded="false" aria-controls="squ-search-panel" aria-label="{{ 'Search'|t }}">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="11" cy="11" r="6.25" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+      <path d="M16 16.5 L20 20.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+    </svg>
+  </button>
+</div>
 
       {% set top_links = header_links|merge(menu_items) %}
       {% if top_links %}
@@ -105,13 +102,6 @@
       {{ menus.primary_nav(section_items) }}
     </div>
   {% endif %}
-
-  <div class="search-panel" id="squ-search-panel" hidden>
-    <form id="squ-search-form" role="search"{% if search_action %} action="{{ search_action }}" method="get"{% endif %}>
-      <input id="squ-search-input" type="search" name="keys" placeholder="{{ 'Search'|t }}" aria-label="{{ 'Search'|t }}" data-i18n-placeholder="searchPlaceholder">
-      <button type="submit" data-i18n="search">{{ 'Search'|t }}</button>
-    </form>
-  </div>
 </header>
 
 <div class="squ-backdrop" id="squ-backdrop" hidden></div>

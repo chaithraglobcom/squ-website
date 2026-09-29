@@ -285,3 +285,86 @@
 .top-bar {
   display: none !important;
 }
+/* ===== Search: icon ke left me inline input ===== */
+.squ-site-header .header-tools {
+  position: relative;
+}
+
+.squ-site-header .search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.squ-site-header .search-wrap .search-panel {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  left: auto;
+  bottom: auto;
+  transform: translateY(-50%);
+  width: 420px;
+  margin: 0 12px 0 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  z-index: 20;
+}
+.squ-site-header .search-wrap .search-panel[hidden] {
+  display: none !important;
+}
+
+.squ-site-header .search-panel form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+.squ-site-header .search-panel input[type="search"] {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  padding: 0 1rem;
+  border: 0;
+  border-radius: 8px;
+  background: #fff;
+  color: #222;
+  font-size: 1rem;
+  outline: none;
+}
+.squ-site-header .search-panel button[type="submit"] {
+  height: 44px;
+  padding: 0 1.3rem;
+  border: 0;
+  border-radius: 8px;
+  background: #d4a22a;
+  color: #2b2b2b;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Arabic (RTL): input icon ke right me khule */
+[dir="rtl"] .squ-site-header .search-wrap .search-panel {
+  right: auto;
+  left: 100%;
+  margin: 0 0 0 12px;
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+  .squ-site-header .search-wrap .search-panel { width: 300px; }
+}
+
+/* Mobile: header ke neeche full width (left me jagah nahi hoti) */
+@media (max-width: 600px) {
+  .squ-site-header .search-wrap .search-panel {
+    position: fixed;
+    top: 72px;
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+    margin: 0;
+    transform: none;
+  }
+}

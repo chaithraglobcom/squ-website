@@ -1,12 +1,85 @@
-<section class="squ-research">
-  <div class="squ-research__intro-col">
-    <h2 class="squ-research__heading">{{ content.field_research_heading }}</h2>
-    {% if content.field_research_description %}
-      <div class="squ-research__intro">{{ content.field_research_description }}</div>
-    {% endif %}
-    {% if content.field_discover_more %}
-      <div class="squ-research__more">{{ content.field_discover_more }}</div>
-    {% endif %}
+{#
+  Paragraph bundle: research_section
+
+  Parent fields:
+    - field_research_heading      (Short text)
+    - field_research_description  (Long text)
+    - field_discover_more         (Link)
+    - field_research_card         (research_card, unlimited)
+
+  Child (research_card) fields:
+    - field_research_image             (Image)
+    - field_research_card_title        (Short text)
+    - field_research_card_description  (Long text)
+    - field_research_card_link         (Link)
+
+  Card order: 1 = cover (image + description), 2 = flood, 3 = solar, 4 = food.
+  Grid 2x2 me ye order khud hi sahi jagah par aata hai.
+#}
+{% set heading     = paragraph.field_research_heading.value %}
+{% set description = paragraph.field_research_description.value %}
+{% set more_url    = paragraph.field_discover_more.0.url %}
+{% set more_title  = paragraph.field_discover_more.0.title %}
+
+<section class="ri-section">
+  <div class="ri-grid">
+
+    {# LEFT: heading + description + button #}
+    <div class="ri-left">
+      {% if heading %}
+        <h2 class="ri-heading">{{ heading }}</h2>
+      {% endif %}
+
+      {% if description %}
+        <div class="ri-desc">{{ description|raw }}</div>
+      {% endif %}
+
+      {% if more_url %}
+        <a href="{{ more_url }}" class="ri-btn">{{ more_title ?: 'Find Out More' }}</a>
+      {% endif %}
+    </div>
+
+    {# RIGHT: cards wrapper (2x2 grid) #}
+    <div class="ri-cards">
+      {% for item in paragraph.field_research_card %}
+        {% set card = item.entity %}
+        {% if card and card.status.value %}
+          {% set image_file = card.field_research_image.entity %}
+          {% set card_title = card.field_research_card_title.value %}
+          {% set card_desc = loop.first ? '' : card.field_research_card_description.value %}
+          {% set card_link  = card.field_research_card_link.0.url %}
+
+          <div class="ri-card{{ loop.first ? ' ri-card--cover' : '' }}">
+
+            {% if image_file %}
+              <img class="ri-card__img"
+                   src="{{ file_url(image_file.uri.value) }}"
+                   alt="{{ card.field_research_image.alt ?: card_title }}"
+                   loading="lazy">
+            {% endif %}
+
+            {% if card_title or card_desc %}
+              <div class="ri-card__body">
+                {% if card_title %}
+                  <p class="ri-card__title">
+                    {% if card_link %}
+                      <a href="{{ card_link }}">{{ card_title }}</a>
+                    {% else %}
+                      {{ card_title }}
+                    {% endif %}
+                  </p>
+                {% endif %}
+
+                {% if card_desc %}
+                  <div class="ri-card__text">{{ card_desc|raw }}</div>
+                {% endif %}
+              </div>
+            {% endif %}
+
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
   </div>
-  <div class="squ-research__cards">{{ content.field_research_card }}</div>
 </section>
