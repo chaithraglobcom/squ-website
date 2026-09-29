@@ -1,0 +1,29 @@
+uuid: eca2c355-47f8-423e-a9dc-0860874e4bb2
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.study-at-squ
+  module:
+    - system
+  theme:
+    - squ_theme
+id: squ_theme_studyatsqu
+theme: squ_theme
+region: header
+weight: -7
+provider: null
+plugin: 'system_menu_block:study-at-squ'
+settings:
+  id: 'system_menu_block:study-at-squ'
+  label: 'Study at SQU'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /about
