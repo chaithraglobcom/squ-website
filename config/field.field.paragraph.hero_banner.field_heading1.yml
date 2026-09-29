@@ -1,0 +1,19 @@
+uuid: eec2c9a4-c0ac-4c15-ac90-bfb5153ad67f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading1
+    - paragraphs.paragraphs_type.hero_banner
+id: paragraph.hero_banner.field_heading1
+field_name: field_heading1
+entity_type: paragraph
+bundle: hero_banner
+label: Heading1
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -4,14 +4,12 @@
   --squ-white: #ffffff;
 }
 
-/* Hide Olivero's own header chrome entirely - squ_theme builds its own
-   header fresh via JS (see menu-overlay.js), relocating the actual block
-   elements out of wherever Olivero's inherited page template put them.
+/* Hide Olivero's own header chrome — the theme renders squ-header.html.twig.
    #site-header__inner is the confirmed real wrapper ID on this site; the
    two classes below are kept as a defensive fallback in case Olivero
    renders a second "fixed" (sticky-on-scroll) copy under a different
    wrapper - harmless if they don't match anything. */
-/* Olivero chrome off; keep header region in DOM for menu-overlay.js to relocate. */
+/* Olivero chrome off; header region may stay in DOM for block placement. */
 .site-header__fixed,
 .site-header__initial,
 .site-header__inner .mobile-buttons,

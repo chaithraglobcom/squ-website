@@ -45,10 +45,34 @@
           var langToggle = header.querySelector("#squ-lang-toggle");
           var langLabel = header.querySelector("#squ-lang-label");
           var drawer = document.getElementById("squ-drawer");
-          var backdrop = document.getElementById("squ-backdrop");
           var drawerClose = document.getElementById("squ-drawer-close");
           var root = document.documentElement;
           var lang = "en";
+
+          function syncMenuOverlayMetrics() {
+            root.style.setProperty(
+              "--squ-header-h",
+              header.offsetHeight + "px",
+            );
+            var hero = document.querySelector(".squ-hero");
+            if (hero) {
+              root.style.setProperty(
+                "--squ-overlay-height",
+                hero.offsetHeight + "px",
+              );
+            }
+          }
+          syncMenuOverlayMetrics();
+          if (typeof ResizeObserver !== "undefined") {
+            var overlayObserver = new ResizeObserver(syncMenuOverlayMetrics);
+            overlayObserver.observe(header);
+            var heroEl = document.querySelector(".squ-hero");
+            if (heroEl) {
+              overlayObserver.observe(heroEl);
+            }
+          } else {
+            window.addEventListener("resize", syncMenuOverlayMetrics);
+          }
 
           try {
             lang =
@@ -121,11 +145,10 @@
             drawer.inert = !open;
             drawer.setAttribute("aria-hidden", String(!open));
             menuToggle.setAttribute("aria-expanded", String(open));
-            if (backdrop) {
-              backdrop.hidden = !open;
-            }
+            document.body.classList.toggle("squ-menu-open", open);
             document.body.style.overflow = open ? "hidden" : "";
             if (open) {
+              syncMenuOverlayMetrics();
               if (drawerClose) {
                 drawerClose.focus();
               }
@@ -180,13 +203,20 @@
               setMenu(!drawer.classList.contains("open"));
             });
           }
+          header.addEventListener("click", function (event) {
+            if (!drawer || !drawer.classList.contains("open")) {
+              return;
+            }
+            if (
+              menuToggle &&
+              (menuToggle === event.target || menuToggle.contains(event.target))
+            ) {
+              return;
+            }
+            setMenu(false);
+          });
           if (drawerClose) {
             drawerClose.addEventListener("click", function () {
-              setMenu(false);
-            });
-          }
-          if (backdrop) {
-            backdrop.addEventListener("click", function () {
               setMenu(false);
             });
           }

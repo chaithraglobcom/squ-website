@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.hero_banner.field_background_image
     - field.field.paragraph.hero_banner.field_heading
+    - field.field.paragraph.hero_banner.field_heading1
     - field.field.paragraph.hero_banner.field_quote_author
     - field.field.paragraph.hero_banner.field_quote_text
     - paragraphs.paragraphs_type.hero_banner
@@ -34,6 +35,15 @@ content:
       link_rel: canonical
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_heading1:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 5
     region: content
   field_quote_author:
     type: string

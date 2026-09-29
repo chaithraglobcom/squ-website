@@ -14,8 +14,23 @@
   pointer-events: none;
 }
 
-/* Frosted-glass card */
 .squ-hero__card {
+    width: 434px;
+    padding: 20px;
+    left: 66px;
+    /* top: 204px; */
+    position: absolute;
+    background: rgba(255, 255, 255, 0.29);
+    border-radius: 30px;
+    backdrop-filter: blur(4px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    display: inline-flex;
+}
+/* Frosted-glass card */
+/* .squ-hero__card {
   position: relative;
   z-index: 2;
   margin-left: clamp(1rem, 4.6vw, 66px);
@@ -29,7 +44,7 @@
   border-radius: 18px;
   padding: 40px 36px 28px;
   color: #fff;
-}
+} */
 .squ-hero__eyebrow {
   display: block;
   color: #d1a02b;
@@ -38,15 +53,43 @@
   line-height: 1.12;
   text-transform: uppercase;
 }
-.squ-hero__title {
+/* .squ-hero__title {
   margin: 0 0 2.75rem;
   color: #fff;
   font-size: 2.5rem;
   line-height: 1.12;
   font-weight: 700;
   text-transform: uppercase;
+} */
+
+.squ-hero__title{
+    color: #CFA02A;
+    font-size: 43px;
+    font-family: IBM Plex Sans;
+    font-weight: 700;
+    word-wrap: break-word;
 }
-.squ-hero__quote,
+.squ-hero__title1  {
+    color: white;
+    font-size: 43px;
+    margin-right: 22%;
+    font-family: IBM Plex Sans;
+    font-weight: 700;
+    word-wrap: break-word;
+}
+.squ-hero__quote {
+    align-self: stretch;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 16px;
+    font-family: IBM Plex Sans;
+    font-weight: 600;
+    word-wrap: break-word;
+    margin-left: 10%;
+
+}
 .squ-hero__quote p {
   margin: 0;
   font-weight: 400;
@@ -60,6 +103,8 @@
   text-align: right;
   text-transform: uppercase;
   opacity: 0.9;
+  margin-left: 50%;
+  color: #111111;
 }
 
 /* College / Major selector bar pinned to the bottom edge of the banner */
@@ -79,7 +124,7 @@
   z-index: 3;
   margin: -2.5rem auto 0;
   width: min(1040px, calc(100% - 4rem));   /* was: width: fit-content */
-  background: var(--squ-dark, #2b3138);
+  background: #211F1F;
   border-radius: 4px;
   padding: 0.25rem 2rem;
 }
@@ -105,13 +150,29 @@
   margin: 0;
   white-space: nowrap;
 }
-.squ-college-major-bar select {
+/* .squ-college-major-bar select {
   background: #fff;
   border: none;
   border-radius: 3px;
   padding: 0.5rem 0.75rem;
   min-width: 220px;
   flex: 1;                                  /* select itself stretches within its field group */
+ /* } */
+.squ-college-major-bar select {
+    width: 237px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 12px;
+    padding-right: 8px;
+    overflow: hidden;
+    border-radius: 2px;
+    outline: 1px #CFA02A solid;
+    outline-offset: -0.50px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    background: #211F1F;
+  color: white;
 }
 .squ-college-major-bar .form-actions {
   margin: 0;

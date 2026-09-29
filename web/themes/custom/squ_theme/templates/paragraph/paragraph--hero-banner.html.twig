@@ -13,7 +13,10 @@
 <section class="squ-hero"{% if bg %} style="background-image:url('{{ file_url(bg) }}')"{% endif %}>
   <div class="squ-hero__card">
     {% if paragraph.field_heading.value %}
-      <h1 class="squ-hero__title">{{ paragraph.field_heading.value }}</h1>
+      <span class="squ-hero__title">{{ paragraph.field_heading.value }}</span>
+    {% endif %}
+     {% if paragraph.field_heading1.value %}
+      <span class="squ-hero__title1">{{ paragraph.field_heading1.value }}</span>
     {% endif %}
     {% if paragraph.field_quote_text.value %}
       <div class="squ-hero__quote">{{ paragraph.field_quote_text.value }}</div>

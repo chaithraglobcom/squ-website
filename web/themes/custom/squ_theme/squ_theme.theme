@@ -30,6 +30,7 @@ function squ_theme_theme($existing, $type, $theme, $path) {
         'section_items' => [],
         'section_label' => '',
         'quick_links' => [],
+        'hamburger_menu_items' => [],
         'search_action' => NULL,
       ],
       'template' => 'layout/squ-header',
@@ -49,10 +50,13 @@ function squ_theme_theme($existing, $type, $theme, $path) {
 }
 
 /**
- * Menus that make up the header's top row; every other menu block in the
- * Header region is a section menu.
+ * Header-region menu blocks that are not the section bar (top row + drawer).
  */
-const SQU_THEME_TOP_ROW_MENUS = ['header-quick-links', 'main'];
+const SQU_THEME_HEADER_NON_SECTION_MENUS = [
+  'header-quick-links',
+  'main',
+  'hamburger-menu',
+];
 
 /**
  * The section menu bar for this page.
@@ -75,7 +79,7 @@ function _squ_theme_section_menu(CacheableMetadata $cacheability): array {
 
   foreach ($blocks as $block) {
     [$provider, $menu_name] = explode(':', $block->getPluginId(), 2) + [1 => ''];
-    if ($provider !== 'system_menu_block' || in_array($menu_name, SQU_THEME_TOP_ROW_MENUS, TRUE)) {
+    if ($provider !== 'system_menu_block' || in_array($menu_name, SQU_THEME_HEADER_NON_SECTION_MENUS, TRUE)) {
       continue;
     }
     $access = $block->access('view', NULL, TRUE);
@@ -120,6 +124,7 @@ function squ_theme_preprocess_html(array &$variables) {
   $header_links = _squ_theme_block_menu_items('header-quick-links', $header_cache);
   $menu_items = _squ_theme_block_menu_items('main', $header_cache);
   $section = _squ_theme_section_menu($header_cache);
+  $hamburger_menu_items = _squ_theme_menu_items('hamburger-menu', $header_cache);
 
   $footer_cache = new CacheableMetadata();
   $quick_links = _squ_theme_block_menu_items('footer-quick-links', $footer_cache);
@@ -149,6 +154,7 @@ function squ_theme_preprocess_html(array &$variables) {
     '#section_items' => $section['items'],
     '#section_label' => $section['label'],
     '#quick_links' => $quick_links,
+    '#hamburger_menu_items' => $hamburger_menu_items,
     '#search_action' => $search_action,
   ];
   $header_cache->merge($footer_cache)->applyTo($header);

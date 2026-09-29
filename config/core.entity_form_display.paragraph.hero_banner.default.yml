@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.hero_banner.field_background_image
     - field.field.paragraph.hero_banner.field_heading
+    - field.field.paragraph.hero_banner.field_heading1
     - field.field.paragraph.hero_banner.field_quote_author
     - field.field.paragraph.hero_banner.field_quote_text
     - image.style.thumbnail
@@ -27,6 +28,14 @@ content:
   field_heading:
     type: string_textfield
     weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_heading1:
+    type: string_textfield
+    weight: 5
     region: content
     settings:
       size: 60
