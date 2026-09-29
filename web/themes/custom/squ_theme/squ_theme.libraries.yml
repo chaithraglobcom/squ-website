@@ -15,7 +15,7 @@ global:
       css/squ-chrome.css: {}
       css/components/landing-page.css: {}
   js:
-    js/squ-chrome.js: {}
+    js/search-toggle.js: {}
   dependencies:
     - core/drupal
     - core/once
