@@ -1,0 +1,37 @@
+uuid: eee20c45-6c3f-461b-abac-5d75458486e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.student_department.field_about_section
+    - field.field.node.student_department.field_body
+    - node.type.student_department
+  module:
+    - text
+    - user
+id: node.student_department.default
+targetEntityType: node
+bundle: student_department
+mode: default
+content:
+  field_about_section:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

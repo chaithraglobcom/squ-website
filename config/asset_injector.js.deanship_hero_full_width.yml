@@ -1,0 +1,40 @@
+uuid: 83aa04d3-78a2-42e4-a2df-c6bdbd4d1c86
+langcode: en
+status: true
+dependencies: {  }
+id: deanship_hero_full_width
+label: 'Deanship hero full width'
+code: |
+  (function () {
+    // Load Roboto
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap';
+    document.head.appendChild(link);
+
+    function fitHero() {
+      var quote = document.querySelector('.field--name-field-quote');
+      if (!quote) return;
+      var block = quote.closest('.block') || quote.parentElement;
+
+      // reset, measure, then stretch to the full screen width
+      block.style.marginLeft = '0';
+      block.style.width = 'auto';
+      block.style.maxWidth = 'none';
+      var left = block.getBoundingClientRect().left;
+      block.style.marginLeft = (-left) + 'px';
+      block.style.width = document.documentElement.clientWidth + 'px';
+    }
+
+    window.addEventListener('load', fitHero);
+    window.addEventListener('resize', fitHero);
+    document.addEventListener('DOMContentLoaded', fitHero);
+  })();
+noscript: ''
+noscriptRegion: {  }
+jquery: false
+header: false
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

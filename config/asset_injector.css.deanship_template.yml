@@ -1,0 +1,103 @@
+uuid: ab3417ed-a2d1-4204-a11b-215447b19c98
+langcode: en
+status: true
+dependencies: {  }
+id: deanship_template
+label: 'Deanship template'
+code: |-
+  /* ---------- Hero ---------- */
+  div:has(> .field--name-field-quote) {
+    position: relative;
+    min-height: 425px;
+    padding-top: 203px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .field--name-field-background-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    margin: 0 !important;
+  }
+  .field--name-field-background-image .field__item { height: 100%; }
+  .field--name-field-background-image img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover;
+    display: block;
+  }
+  .field--name-field-quote,
+  .field--name-field-attribution {
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    width: min(528px, 90%);
+    margin: 0 0 0 calc(55% - 264px) !important;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    text-align: center;
+    font-family: Roboto, Arial, sans-serif;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+  }
+  .field--name-field-quote {
+    padding: 14px 24px 36px;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: .95;
+  }
+  .field--name-field-attribution {
+    padding: 0 24px 18px;
+    font-size: 1rem;
+  }
+  @media (max-width: 700px) {
+    div:has(> .field--name-field-quote) { padding-top: 120px; }
+    .field--name-field-quote,
+    .field--name-field-attribution { margin: 0 auto !important; }
+    .field--name-field-quote { font-size: 1.4rem; }
+  }
+
+  /* ---------- "Information for you" heading ---------- */
+  .block:has(.view-info-card) h2 {
+    text-align: center;
+    font: 400 2rem Roboto, sans-serif;
+    color: #333;
+    margin: 40px 0 30px;
+  }
+
+  /* ---------- Four cards ---------- */
+  .view-info-card .view-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 1140px;
+    margin: 0 auto 50px;
+  }
+  .view-info-card .views-row a {
+    display: block;
+    text-decoration: none;
+  }
+  .view-info-card .views-row img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .view-info-card .views-row span {
+    display: block;
+    background: #232b5c;
+    color: #fff;
+    padding: 14px 6px;
+    font: 500 1rem Roboto, sans-serif;
+  }
+
+  @media (max-width: 900px) {
+    .view-info-card .view-content { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 500px) {
+    .view-info-card .view-content { grid-template-columns: 1fr; }
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

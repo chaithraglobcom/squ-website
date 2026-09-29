@@ -1,0 +1,29 @@
+uuid: deb1c5a1-1221-42fd-b21c-56f8e5bab67a
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.student-department-menu
+  module:
+    - system
+  theme:
+    - squ_theme
+id: squ_theme_studentdepartmentmenu
+theme: squ_theme
+region: sidebar
+weight: 0
+provider: null
+plugin: 'system_menu_block:student-department-menu'
+settings:
+  id: 'system_menu_block:student-department-menu'
+  label: 'student department menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/student-affairs/Departments/*'

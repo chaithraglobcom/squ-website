@@ -1,0 +1,8 @@
+uuid: 28996932-ddcd-410b-84bf-9e700db2e97f
+langcode: en
+status: true
+dependencies: {  }
+id: student-department-menu
+label: 'student department menu'
+description: ''
+locked: false
