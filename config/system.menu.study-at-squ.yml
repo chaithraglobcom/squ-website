@@ -1,0 +1,8 @@
+uuid: b3cd0fdd-5927-4f05-91ca-0dd38014574f
+langcode: en
+status: true
+dependencies: {  }
+id: study-at-squ
+label: 'Study at SQU'
+description: ''
+locked: false
