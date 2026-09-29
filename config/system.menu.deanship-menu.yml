@@ -1,0 +1,8 @@
+uuid: 1cb47a56-586e-4ce1-b295-7aba80538a08
+langcode: en
+status: true
+dependencies: {  }
+id: deanship-menu
+label: 'Deanship menu'
+description: ''
+locked: false

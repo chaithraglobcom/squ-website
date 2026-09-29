@@ -1,0 +1,15 @@
+uuid: 43209ecb-09a4-4e33-bcc2-8a9eb8c9601e
+langcode: en
+status: true
+dependencies: {  }
+name: card_4x3
+label: card_4x3
+effects:
+  acfb9dd8-8bf2-4f49-9bf7-ff6fcb7d493e:
+    uuid: acfb9dd8-8bf2-4f49-9bf7-ff6fcb7d493e
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 540
+      height: 400
+      anchor: center-center
