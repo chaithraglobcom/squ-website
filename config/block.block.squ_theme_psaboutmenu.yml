@@ -1,6 +1,6 @@
 uuid: 81685b8c-3c7d-422f-9fc1-a0d39b97b191
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.ps-about-menu
@@ -10,7 +10,7 @@ dependencies:
     - squ_theme
 id: squ_theme_psaboutmenu
 theme: squ_theme
-region: sidebar
+region: sidebar_first
 weight: 0
 provider: null
 plugin: 'system_menu_block:ps-about-menu'

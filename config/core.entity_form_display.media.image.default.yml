@@ -1,17 +1,19 @@
-uuid: 0a1e6095-f5de-475f-9ef5-8438a602d55c
+uuid: 2e7588f3-74a4-474a-9678-4ccf8251a42c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.admission.field_banner_image
+    - field.field.media.image.field_media_image
     - image.style.thumbnail
-    - node.type.admission
+    - media.type.image
   module:
     - image
     - path
-id: node.admission.default
-targetEntityType: node
-bundle: admission
+_core:
+  default_config_hash: JSY4-JPyNZBiYYo6imdRYF6_SdtWQexPndrLvn3-vw4
+id: media.image.default
+targetEntityType: media
+bundle: image
 mode: default
 content:
   created:
@@ -20,9 +22,9 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_banner_image:
+  field_media_image:
     type: image_image
-    weight: 121
+    weight: 0
     region: content
     settings:
       progress_indicator: throbber
@@ -36,18 +38,10 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 120
+    weight: 100
     region: content
     settings:
       display_label: true
-    third_party_settings: {  }
-  title:
-    type: string_textfield
-    weight: -5
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
@@ -60,9 +54,4 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
-  field_apply_link: true
-  field_body: true
-  field_timeline_from_date: true
-  field_timeline_to_date: true
-  promote: true
-  sticky: true
+  name: true
