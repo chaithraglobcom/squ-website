@@ -1,0 +1,56 @@
+uuid: 322740d3-8550-4073-9811-b2ec30fb4166
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.info_card.field_dean_image
+    - field.field.node.info_card.field_dean_link
+    - field.field.node.info_card.field_order
+    - node.type.info_card
+  module:
+    - image
+    - link
+    - user
+id: node.info_card.default
+targetEntityType: node
+bundle: info_card
+mode: default
+content:
+  field_dean_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_dean_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_order:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

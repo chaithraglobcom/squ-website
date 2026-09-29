@@ -1,0 +1,38 @@
+uuid: 67c53bc6-36a2-479b-98b3-dc1aa72e93ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_banner
+    - field.storage.block_content.field_background_image
+  module:
+    - image
+id: block_content.hero_banner.field_background_image
+field_name: field_background_image
+entity_type: block_content
+bundle: hero_banner
+label: 'Background image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg webp'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image
