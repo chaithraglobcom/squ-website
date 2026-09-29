@@ -15,7 +15,7 @@ use Drupal\Core\Menu\MenuTreeParameters;
 use Drupal\Core\Url;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
-
+use Drupal\views\Views;
 /**
  * Implements hook_theme().
  */
@@ -242,6 +242,26 @@ function squ_theme_preprocess_page(array &$variables): void {
   $node = _squ_theme_route_node();
   if ($node && $node->bundle() === 'squ_libraries') {
     $variables['#attached']['library'][] = 'squ_theme/squ_libraries';
+  }
+  //news_events view blocks for anwaar page
+  $display_ids = [
+    'block_1',
+    'block_2',
+    'block_3',
+    'block_4',
+    'block_5',
+    'block_6',
+  ];
+  foreach ($display_ids as $display_id) {
+    $view = Views::getView('news_events');
+    if (!$view) {
+      continue;
+    }
+    $view->setDisplay($display_id);
+    // Build the view with the display configuration.
+    $view->preExecute();
+    $view->execute();
+    $variables['news_events_' . $display_id] = $view->render();
   }
 }
 

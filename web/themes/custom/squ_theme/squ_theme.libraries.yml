@@ -14,6 +14,7 @@ global:
       css/footer.css: {}
       css/squ-chrome.css: {}
       css/components/landing-page.css: {}
+      css/news-events.css: {}
   js:
     js/search-toggle.js: {}
   dependencies:

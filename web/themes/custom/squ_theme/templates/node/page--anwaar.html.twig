@@ -1,0 +1,79 @@
+<div class="site">
+  <div class="top-rule"></div>
+  {% include '@squ_theme/templates/layout/news_event-header.html.twig' %}
+  <main>
+    {% if news_events_block_1 %}
+    <section class="hero">
+      {{ news_events_block_1 }}
+    </section>
+    {% endif %}
+    {% if news_events_block_2 %}
+    <section class="block latest-news-section">
+      <div class="section-heading">
+        <h2>LATEST <span>NEWS</span></h2>
+        <i></i>
+      </div>
+      <div class="latest-grid">
+        {{ news_events_block_2 }}
+      </div>
+    </section>
+    {% endif %}
+    {% if news_events_block_3 or news_events_block_4 %}
+    <section class="middle">
+      {% if news_events_block_3 %}
+      <div class="column femto-column">
+        <div class="section-heading">
+          <h2>FEMTO<span>SECOND</span></h2>
+          <i></i>
+        </div>
+        <div class="femto-content">
+          {{ news_events_block_3 }}
+        </div>
+      </div>
+      {% endif %}
+      {% if news_events_block_3 %}
+      <div class="column femto-list-column">
+      </div>
+      {% endif %}
+      {% if news_events_block_4 %}
+      <div class="column events-column">
+        <div class="section-heading">
+          <h2>SQU <span>EVENTS</span></h2>
+          <i></i>
+        </div>
+        <div class="events-content">
+          {{ news_events_block_4 }}
+        </div>
+      </div>
+      {% endif %}
+    </section>
+    {% endif %}
+    {% if news_events_block_5 or news_events_block_6 %}
+    <section class="lower">
+      {% if news_events_block_5 %}
+      <div class="column videos-column">
+        <div class="section-heading">
+          <h2>VIDEOS</h2>
+          <i></i>
+        </div>
+        <div class="video-cards">
+          {{ news_events_block_5 }}
+        </div>
+      </div>
+      {% endif %}
+      {% if news_events_block_6 %}
+      <div class="column outreach-column">
+        <div class="section-heading">
+          <h2>OUTREACH</h2>
+          <i></i>
+        </div>
+        <div class="outreach-content">
+          {{ news_events_block_6 }}
+        </div>
+      </div>
+      {% endif %}
+    </section>
+    {% endif %}
+  </main>
+  {% include '@squ_theme/templates/layout/news_event-footer.html.twig' %}
+</div>

@@ -1,0 +1,436 @@
+* {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: #151515
+    }
+
+    .site {
+      width: 73%;
+      max-width: 1000px;
+      margin: 0 auto
+    }
+
+    .top-rule {
+      height: 33px;
+      border-top: 1px solid #eee;
+      margin-top: 31px
+    }
+
+    .header {
+      background: #fff
+    }
+
+    .brand-row {
+      height: 117px;
+      display: flex;
+      align-items: flex-start;
+      gap: 17px
+    }
+
+    .anwaar-logo {
+      width: 82px;
+      height: 68px;
+      object-fit: cover
+    }
+
+    .squ-banner {
+      height: 70px;
+      flex: 1;
+      min-width: 0;
+      object-fit: fill
+    }
+
+    .main-nav {
+      height: 53px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+      white-space: nowrap
+    }
+
+    .main-nav a {
+      font-size: 9.2px;
+      line-height: 10px;
+      font-weight: 700;
+      color: #182b65;
+      text-decoration: none;
+      text-align: center
+    }
+
+    .main-nav a.active {
+      color: #25a8df
+    }
+
+    .main-nav a:hover {
+      color: #25a8df
+    }
+
+    .main-nav .arabic {
+      font-size: 11px
+    }
+
+    .search {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      color: #16306e;
+      margin-left: 1px;
+      transform: rotate(-15deg)
+    }
+
+    .hero {
+      margin-top: 0;
+      width: 100%
+    }
+
+    .hero img {
+      width: 100%;
+      display: block
+    }
+
+    .block {
+      margin-top: 27px
+    }
+
+    .section-heading {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      gap: 17px
+    }
+
+    .section-heading h2 {
+      font-size: 17px;
+      line-height: 1;
+      font-weight: 700;
+      white-space: nowrap;
+      margin: 0
+    }
+
+    .section-heading h2 span {
+      color: #d39c2c
+    }
+
+    .section-heading i {
+      height: 1px;
+      background: #d5a650;
+      display: block;
+      flex: 1;
+      margin-top: 2px
+    }
+
+    .latest-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      height: auto;
+      gap: 3px
+    }
+
+    .latest-grid img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      min-width: 0
+    }
+
+    .latest-main {
+      grid-row: 1 / span 2;
+      grid-column: 1
+    }
+
+    .latest-grid img:nth-child(2) {
+      grid-column: 2;
+      grid-row: 1
+    }
+
+    .latest-grid img:nth-child(3) {
+      grid-column: 3;
+      grid-row: 1
+    }
+
+    .latest-grid img:nth-child(4) {
+      grid-column: 2;
+      grid-row: 2
+    }
+
+    .latest-grid img:nth-child(5) {
+      grid-column: 3;
+      grid-row: 2
+    }
+
+    .middle {
+      display: grid;
+      grid-template-columns: 1.08fr .86fr 1fr;
+      gap: 16px;
+      margin-top: 49px
+    }
+
+    .column {
+      min-width: 0
+    }
+
+    .full-crop {
+      width: 100%;
+      height: auto;
+      display: block
+    }
+
+    .femto-column .section-heading,
+    .events-column .section-heading {
+      margin-bottom: 3px
+    }
+
+    .femto-list-column {
+      padding-top: 34px
+    }
+
+    .femto-copy h3 {
+      font-size: 12px;
+      line-height: 14px;
+      margin: 10px 0 7px
+    }
+
+    .femto-copy p {
+      font-size: 9px;
+      line-height: 13px;
+      margin: 0;
+      color: #555
+    }
+
+    .lower {
+      display: grid;
+      grid-template-columns: 1.08fr 1fr;
+      gap: 16px;
+      margin-top: 67px;
+      margin-bottom: 22px
+    }
+
+    .video-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px
+    }
+
+    .video-cards img {
+      width: 100%;
+      display: block
+    }
+
+    .outreach-column .section-heading {
+      margin-bottom: 3px
+    }
+
+    footer {
+      margin-left: calc((73vw - 100vw)/2);
+      margin-right: calc((73vw - 100vw)/2);
+      margin-top: 0;
+      color: #fff
+    }
+
+    .footer-main {
+      background: #28317e;
+      height: 282px
+    }
+
+    .footer-inner {
+      width: 73%;
+      max-width: 1000px;
+      height: 100%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.05fr 1.25fr .95fr;
+      gap: 45px;
+      align-items: center
+    }
+
+    .footer-brand img {
+      width: 155px;
+      height: auto;
+      display: block;
+      margin-left: 10px
+    }
+
+    .footer-links h3,
+    .subscribe h3 {
+      color: #2fa9df;
+      font-size: 14px;
+      margin: 0 0 19px
+    }
+
+    .link-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px
+    }
+
+    .link-cols div {
+      display: flex;
+      flex-direction: column;
+      gap: 11px
+    }
+
+    .footer a {
+      font-size: 8px;
+      color: #fff;
+      text-decoration: none
+    }
+
+    .subscribe p {
+      font-size: 8px;
+      margin: 0 0 13px
+    }
+
+    .subscribe input {
+      display: block;
+      width: 100%;
+      height: 27px;
+      border: 0;
+      border-radius: 2px;
+      background: #fff;
+      margin-bottom: 10px
+    }
+
+    .subscribe button {
+      border: 0;
+      background: #d9a329;
+      color: #fff;
+      padding: 8px 17px;
+      font-family: Georgia, serif;
+      font-size: 8px;
+      border-radius: 2px
+    }
+
+    .footer-bottom {
+      height: 52px;
+      background: #222a6b;
+      width: 100vw;
+      margin-left: calc((73vw - 100vw)/2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 calc((100vw - min(73vw, 1000px))/2);
+      font-size: 8px;
+      color: #fff
+    }
+
+    .social {
+      font-family: Arial, sans-serif;
+      font-size: 11px
+    }
+
+    @media(max-width:800px) {
+      .site {
+        width: 92%
+      }
+
+      .top-rule {
+        margin-top: 15px
+      }
+
+      .brand-row {
+        height: 90px;
+        gap: 8px
+      }
+
+      .anwaar-logo {
+        width: 65px;
+        height: 54px
+      }
+
+      .squ-banner {
+        height: 55px
+      }
+
+      .main-nav {
+        height: auto;
+        min-height: 42px;
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 12px;
+        padding: 7px 0
+      }
+
+      .main-nav a {
+        font-size: 8px
+      }
+
+      .middle {
+        grid-template-columns: 1fr;
+        gap: 30px
+      }
+
+      .femto-list-column {
+        padding-top: 0
+      }
+
+      .lower {
+        grid-template-columns: 1fr
+      }
+
+      .footer-main {
+        height: auto;
+        padding: 35px 0
+      }
+
+      .footer-inner {
+        width: 92%;
+        grid-template-columns: 1fr;
+        gap: 30px
+      }
+
+      .footer-bottom {
+        margin-left: calc((92vw - 100vw)/2);
+        padding: 0 4%;
+        height: auto;
+        min-height: 45px
+      }
+    }
+
+    @media(max-width:480px) {
+      .latest-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto
+      }
+
+      .latest-main {
+        grid-column: 1 / span 2;
+        grid-row: 1
+      }
+
+      .latest-grid img:nth-child(2) {
+        grid-column: 1;
+        grid-row: 2
+      }
+
+      .latest-grid img:nth-child(3) {
+        grid-column: 2;
+        grid-row: 2
+      }
+
+      .latest-grid img:nth-child(4) {
+        grid-column: 1;
+        grid-row: 3
+      }
+
+      .latest-grid img:nth-child(5) {
+        grid-column: 2;
+        grid-row: 3
+      }
+
+      .section-heading h2 {
+        font-size: 15px
+      }
+    }
