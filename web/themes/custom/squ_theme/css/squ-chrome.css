@@ -7,7 +7,7 @@
  * .site-header / .site-footer / .footer-main rules that would otherwise leak in.
  */
 :root {
-  --squ-header: #66706f;
+  --squ-header: #01111999;
   --squ-header-deep: #5b6463;
   --squ-gold: #d0a02a;
   --squ-gold-deep: #b8891f;
