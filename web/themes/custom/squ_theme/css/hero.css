@@ -25,8 +25,8 @@
     backdrop-filter: blur(4px);
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 30px;
+    align-items: flex-start;
+    gap: 20px;
     display: inline-flex;
 }
 /* Frosted-glass card */
@@ -84,10 +84,10 @@
     flex-direction: column;
     color: white;
     font-size: 16px;
-    font-family: IBM Plex Sans;
+    font-family: IBM Plex Sans Arabic;
     font-weight: 600;
     word-wrap: break-word;
-    margin-left: 10%;
+    padding-top: 8px;
 
 }
 .squ-hero__quote p {
@@ -98,8 +98,7 @@
   text-transform: uppercase;
 }
 .squ-hero__attribution {
-  margin-top: 0.9rem;
-  font-size: 0.7rem;
+  font-size: 12px;
   text-align: right;
   text-transform: uppercase;
   opacity: 0.9;
