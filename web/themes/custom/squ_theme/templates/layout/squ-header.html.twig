@@ -5,7 +5,7 @@
  * slide-in menu drawer.
  *
  * Variables: home_url, logo_url, header_links, menu_items, section_items,
- * section_label, quick_links, search_action.
+ * section_label, quick_links, hamburger_menu_items, search_action.
  */
 #}
 {% macro drawer_links(items) %}
@@ -27,8 +27,8 @@
   {% endfor %}
 {% endmacro %}
 
-{% macro primary_nav(items) %}
-  <nav class="primary-nav" aria-label="{{ 'Primary'|t }}">
+{% macro primary_nav(items, nav_class) %}
+  <nav class="primary-nav{{ nav_class ? ' ' ~ nav_class : '' }}" aria-label="{{ 'Primary'|t }}">
     {% for item in items %}
       {% if item.below %}
         <div class="primary-nav__item has-children">
@@ -77,9 +77,11 @@
   </button>
 </div>
 
-      {% set top_links = header_links|merge(menu_items) %}
-      {% if top_links %}
-        {{ menus.primary_nav(top_links) }}
+      {% if header_links %}
+        {{ menus.primary_nav(header_links, 'primary-nav--header-links') }}
+      {% endif %}
+      {% if menu_items %}
+        {{ menus.primary_nav(menu_items) }}
       {% endif %}
 
       <button class="lang-btn" id="squ-lang-toggle" type="button" aria-label="العربية">
@@ -104,22 +106,15 @@
   {% endif %}
 </header>
 
-<div class="squ-backdrop" id="squ-backdrop" hidden></div>
-<aside class="squ-drawer" id="squ-drawer" aria-hidden="true" aria-label="{{ 'Menu'|t }}" inert>
-  <div class="drawer-head">
-    <strong lang="ar">جامعة السلطان قابوس</strong>
-    <button class="drawer-close" id="squ-drawer-close" type="button" aria-label="{{ 'Close menu'|t }}">&times;</button>
-  </div>
-  <nav aria-label="{{ 'Menu'|t }}">
-    {{ menus.drawer_links(header_links) }}
-    {{ menus.drawer_links(menu_items) }}
-    {% if section_items %}
-      <p class="group-label">{{ section_label }}</p>
-      {{ menus.drawer_links(section_items) }}
-    {% endif %}
-    {% if quick_links %}
-      <p class="group-label" data-i18n="quickLinks">{{ 'Quick LINKS'|t }}</p>
-      {{ menus.drawer_links(quick_links) }}
-    {% endif %}
-  </nav>
-</aside>
+<div class="squ-menu-shell">
+  <aside class="squ-drawer" id="squ-drawer" aria-hidden="true" aria-label="{{ 'Menu'|t }}" inert>
+    <div class="drawer-head">
+      <button class="drawer-close" id="squ-drawer-close" type="button" aria-label="{{ 'Close menu'|t }}">&times;</button>
+    </div>
+    <nav class="squ-drawer__nav squ-drawer__nav--hamburger" aria-label="{{ 'Menu'|t }}">
+      {% if hamburger_menu_items %}
+        {{ menus.drawer_links(hamburger_menu_items) }}
+      {% endif %}
+    </nav>
+  </aside>
+</div>

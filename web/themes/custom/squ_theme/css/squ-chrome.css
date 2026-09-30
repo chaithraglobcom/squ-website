@@ -2,7 +2,7 @@
  * Shared header, menu drawer and footer
  * (templates/layout/squ-header.html.twig, templates/layout/squ-footer.html.twig).
  *
- * Everything is scoped to .squ-site-header / .squ-drawer / .squ-backdrop /
+ * Everything is scoped to .squ-site-header / .squ-drawer /
  * .squ-site-footer: Olivero and squ-libraries.css both ship unscoped
  * .site-header / .site-footer / .footer-main rules that would otherwise leak in.
  */
@@ -16,6 +16,10 @@
   --squ-pad: clamp(20px, 4.6vw, 72px);
   --squ-sans: "Manrope", "Liberation Sans", "Nimbus Sans", "Segoe UI", Arial, sans-serif;
   --squ-ar: "Noto Kufi Arabic", Tahoma, sans-serif;
+  --squ-header-h: 76px;
+  --squ-overlay-top: calc(var(--drupal-displace-offset-top, 0px) + var(--squ-header-h));
+  /* Matches .squ-hero min-height; JS overrides when a hero is on the page. */
+  --squ-overlay-height: clamp(420px, 38.7vw, 620px);
 }
 
 .squ-site-header,
@@ -60,7 +64,7 @@
   position: sticky;
   /* Drupal sets this when the admin toolbar is fixed at the top. */
   top: var(--drupal-displace-offset-top, 0px);
-  z-index: 40;
+  z-index: 570;
   margin: 0;
   padding: 0;
   min-height: 0;
@@ -96,6 +100,7 @@
   flex-direction: column;
   min-width: 0;
   line-height: 1.15;
+  margin-top: 12px;
 }
 .squ-site-header .brand-ar {
   font-family: var(--squ-ar);
@@ -113,8 +118,11 @@
 .squ-site-header .header-tools {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 22px;
   flex: none;
+  padding: 8px 22px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .squ-site-header .icon-btn {
@@ -149,6 +157,19 @@
 .squ-site-header .primary-nav a:hover,
 .squ-site-header .primary-nav a.is-active {
   color: var(--squ-gold);
+}
+
+.squ-site-header .header-tools .primary-nav--header-links a {
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+.squ-site-header .header-tools .primary-nav--header-links > a:hover,
+.squ-site-header .header-tools .primary-nav--header-links > .primary-nav__item > a:hover,
+.squ-site-header .header-tools .primary-nav--header-links > a.is-active,
+.squ-site-header .header-tools .primary-nav--header-links > .primary-nav__item > a.is-active {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: #c9922a;
 }
 
 .squ-site-header .primary-nav__item {
@@ -278,87 +299,123 @@
 }
 
 /* ---------------------------------------------------------------------------
-   Menu drawer
+   Menu overlay (full width under header, covers hero / banner)
    ------------------------------------------------------------------------ */
-.squ-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 550;
-  background: rgba(0, 0, 0, 0.45);
-}
-.squ-backdrop[hidden] {
-  display: none;
+.squ-menu-shell {
+  position: relative;
+  z-index: 560;
 }
 
 .squ-drawer {
   position: fixed;
-  top: 0;
-  bottom: 0;
-  inset-inline-end: 0;
+  top: var(--squ-overlay-top);
+  inset-inline: 0;
   z-index: 560;
-  width: min(400px, 100%);
-  padding: 22px 28px 32px;
-  overflow: auto;
-  background: #1c1c1c;
+  width: 100%;
+  height: var(--squ-overlay-height);
+  max-height: calc(100vh - var(--squ-overlay-top));
+  margin: 0;
+  padding: 48px var(--squ-pad) 40px;
+  overflow-x: hidden;
+  overflow-y: auto;
   color: #fff;
-  transform: translateX(100%);
-  transition: transform 0.28s ease;
+  pointer-events: none;
+  background: rgba(24, 28, 28, 0.58);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px);
+  transition: opacity 0.28s ease, transform 0.28s ease, visibility 0s linear 0.28s;
 }
-html[dir="rtl"] .squ-drawer {
-  transform: translateX(-100%);
+.squ-drawer.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: none;
+  transition: opacity 0.28s ease, transform 0.28s ease, visibility 0s;
 }
-.squ-drawer.open,
-html[dir="rtl"] .squ-drawer.open {
-  transform: translateX(0);
+html[dir="rtl"] .squ-drawer:not(.open) {
+  transform: translateY(-12px);
 }
 
 .squ-drawer .drawer-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 18px;
+  position: absolute;
+  top: 28px;
+  inset-inline-end: var(--squ-pad);
+  margin: 0;
 }
 .squ-drawer .drawer-head strong {
-  font-family: var(--squ-ar);
-  font-weight: 700;
-  font-size: 16px;
+  display: none;
 }
 .squ-drawer .drawer-close {
-  width: 36px;
-  height: 36px;
+  width: 48px;
+  height: 48px;
   padding: 0;
   border: 0;
   background: transparent;
   color: #fff;
-  font-size: 28px;
+  font-size: 48px;
+  font-weight: 300;
   line-height: 1;
+}
+.squ-drawer .drawer-close:hover {
+  color: #fff;
 }
 
 .squ-drawer nav {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  max-width: 720px;
 }
+
+/* Hamburger menu (hamburger-menu): top-level items */
+.squ-drawer__nav--hamburger > a,
+.squ-drawer__nav--hamburger > details.drawer-group > summary {
+  display: inline-flex;
+  width: 286px;
+  min-width: 286px;
+  padding: 2px 10px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
 .squ-drawer a,
 .squ-drawer summary {
   display: block;
-  padding: 12px 0;
-  border-bottom: 1px solid #333;
+  padding: 10px 0;
+  border: 0;
   color: #fff;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
   text-decoration: none;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 2px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  transition: text-decoration-color 0.2s ease;
 }
 .squ-drawer a:hover,
-.squ-drawer summary:hover,
+.squ-drawer summary:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: #c9922a;
+}
 .squ-drawer a[aria-current="page"] {
-  color: var(--squ-gold);
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: #c9922a;
 }
 
 .squ-drawer summary {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 14px;
   cursor: pointer;
   list-style: none;
 }
@@ -367,8 +424,8 @@ html[dir="rtl"] .squ-drawer.open {
 }
 .squ-drawer summary::after {
   content: "";
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-right: 2px solid currentColor;
   border-bottom: 2px solid currentColor;
   transform: rotate(45deg);
@@ -380,20 +437,24 @@ html[dir="rtl"] .squ-drawer.open {
 .squ-drawer .drawer-sub {
   display: flex;
   flex-direction: column;
-  padding-inline-start: 16px;
+  padding-inline-start: 22px;
+  margin-bottom: 6px;
+  border-inline-start: 2px solid rgba(208, 160, 42, 0.75);
 }
 .squ-drawer .drawer-sub a,
 .squ-drawer .drawer-sub summary {
-  font-size: 15px;
-  color: #d8d8d8;
+  padding: 6px 0;
+  font-size: clamp(17px, 1.8vw, 22px);
+  font-weight: 500;
+  color: #ececec;
 }
 
 .squ-drawer .group-label {
-  margin: 22px 0 6px;
+  margin: 26px 0 4px;
   color: var(--squ-gold);
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
@@ -617,6 +678,20 @@ html[dir="rtl"] .squ-drawer.open {
   .squ-site-header .header-inner {
     min-height: 64px;
   }
+  .squ-site-header .header-tools {
+    padding: 6px 14px;
+    gap: 10px;
+  }
+  .squ-drawer {
+    height: calc(100vh - var(--squ-overlay-top));
+    padding-top: 64px;
+  }
+  .squ-drawer .drawer-head {
+    top: 12px;
+  }
+  .squ-drawer .drawer-close {
+    font-size: 40px;
+  }
   .squ-site-footer .qgrid {
     grid-template-columns: 1fr 1fr;
     row-gap: 12px;
@@ -634,7 +709,8 @@ html[dir="rtl"] .squ-drawer.open {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .squ-drawer {
+  .squ-drawer,
+  .squ-drawer.open {
     transition: none;
   }
 }

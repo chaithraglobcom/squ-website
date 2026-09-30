@@ -1,0 +1,8 @@
+uuid: 538a0aeb-5494-4a34-9086-427687629f34
+langcode: en
+status: true
+dependencies: {  }
+id: hamburger-menu
+label: Hamburger_menu
+description: 'This menu is use in quick header section.'
+locked: false

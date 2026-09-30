@@ -1,0 +1,25 @@
+uuid: 2d6932f8-e377-42b7-98ff-30f1b10ea83b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.hamburger-menu
+  module:
+    - system
+  theme:
+    - squ_theme
+id: squ_theme_hamburger_menu
+theme: squ_theme
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:hamburger-menu'
+settings:
+  id: 'system_menu_block:hamburger-menu'
+  label: Hamburger_menu
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }
