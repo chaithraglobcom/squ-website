@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_frequency
+    - node.type.open_data_item
+id: node.open_data_item.field_data_frequency
+field_name: field_data_frequency
+entity_type: node
+bundle: open_data_item
+label: 'Update frequency'
+description: 'e.g. Yearly in April.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

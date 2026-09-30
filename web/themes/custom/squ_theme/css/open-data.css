@@ -1,0 +1,144 @@
+/* ===== Open Data section (theme file: themes/custom/squ_theme/css/open-data.css) ===== */
+
+/* Layout: sidebar left, content right (targets the element that directly holds the sidebar block) */
+*:has(> [id*="open-data-categories"]) {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+  column-gap: 40px;
+  row-gap: 0;
+  align-items: start;
+}
+*:has(> [id*="open-data-categories"]) > * {
+  grid-column: 2;
+}
+*:has(> [id*="open-data-categories"]) > [id*="open-data-categories"] {
+  grid-column: 1;
+  grid-row: 1 / span 20;
+}
+@media (max-width: 800px) {
+  *:has(> [id*="open-data-categories"]) {
+    display: block;
+  }
+  *:has(> [id*="open-data-categories"]) > [id*="open-data-categories"] {
+    margin-bottom: 24px;
+  }
+}
+
+/* Sidebar tabs */
+ul.open-data-sidebar,
+.open-data-sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.open-data-sidebar li {
+  list-style: none;
+  margin: 0 0 6px;
+  padding: 0;
+}
+.open-data-sidebar li a {
+  display: block;
+  padding: 16px 25px;
+  background: #f0f0f0;
+  color: #333;
+  font-size: 1rem;
+  text-decoration: none;
+  border-inline-start: 4px solid transparent;
+}
+.open-data-sidebar li a:hover,
+.open-data-sidebar li a:focus {
+  background: #e2e2e2;
+  border-inline-start-color: #2a6fb0;
+}
+.open-data-sidebar li a.is-active {
+  background: #2a6fb0;
+  color: #fff;
+  border-inline-start-color: #1f5a92;
+}
+
+/* Centered page title with diamond divider */
+body:has(.open-data-sidebar) h1 {
+  text-align: center;
+  font-weight: 400;
+}
+body:has(.open-data-sidebar) h1::after {
+  content: "";
+  display: block;
+  width: 140px;
+  height: 16px;
+  margin: 14px auto 24px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='16' viewBox='0 0 140 16'%3E%3Cline x1='0' y1='8' x2='56' y2='8' stroke='%23bbb'/%3E%3Cpath d='M70 2 L78 8 L70 14 L62 8 Z' fill='none' stroke='%23333'/%3E%3Cline x1='84' y1='8' x2='140' y2='8' stroke='%23bbb'/%3E%3C/svg%3E") center no-repeat;
+}
+
+/* Accordion items */
+.view-open-data-items .od-item {
+  border-bottom: 1px solid #ddd;
+}
+.view-open-data-items .od-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  cursor: pointer;
+  list-style: none;
+  color: #666;
+  font-size: 1.05rem;
+}
+.view-open-data-items .od-item summary::-webkit-details-marker {
+  display: none;
+}
+.view-open-data-items .od-item summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  border: 1.5px solid #888;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  line-height: 1;
+  color: #555;
+}
+.view-open-data-items .od-item[open] summary::after {
+  content: "\2212";
+}
+.view-open-data-items .od-body {
+  padding-bottom: 24px;
+}
+.view-open-data-items .od-body h4 {
+  margin: 20px 0 12px;
+  color: #2a6fb0;
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+.view-open-data-items .od-table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  max-width: 100%;
+}
+.view-open-data-items .od-table th,
+.view-open-data-items .od-table td {
+  border: 1px solid #222;
+  padding: 12px;
+  text-align: center;
+  vertical-align: middle;
+  hyphens: none;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+.view-open-data-items .od-download a {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px solid #999;
+  background: #f3f3f3;
+  color: #2a6fb0;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: .9rem;
+}
+.view-open-data-items .od-download a:hover {
+  background: #e6e6e6;
+}

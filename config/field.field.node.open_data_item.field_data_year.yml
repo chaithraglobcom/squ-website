@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_year
+    - node.type.open_data_item
+id: node.open_data_item.field_data_year
+field_name: field_data_year
+entity_type: node
+bundle: open_data_item
+label: Year
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1970
+  max: 2100
+  prefix: ''
+  suffix: ''
+field_type: integer

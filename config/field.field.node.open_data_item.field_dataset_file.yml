@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dataset_file
+    - node.type.open_data_item
+  module:
+    - file
+id: node.open_data_item.field_dataset_file
+field_name: field_dataset_file
+entity_type: node
+bundle: open_data_item
+label: 'Dataset files'
+description: 'Upload CSV, Excel, PDF, JSON or XML files.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: 'open-data/[date:custom:Y]'
+  file_extensions: 'csv xls xlsx pdf json xml zip'
+  max_filesize: ''
+  description_field: true
+field_type: file
