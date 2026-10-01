@@ -168,4 +168,5 @@ hidden:
   field_body: true
   field_timeline_from_date: true
   field_timeline_to_date: true
+  langcode: true
   links: true

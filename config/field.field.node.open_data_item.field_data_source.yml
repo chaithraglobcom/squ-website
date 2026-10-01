@@ -1,3 +1,4 @@
+uuid: b256c490-9f62-4fa1-9126-eccc42dd9392
 langcode: en
 status: true
 dependencies:
@@ -8,7 +9,7 @@ id: node.open_data_item.field_data_source
 field_name: field_data_source
 entity_type: node
 bundle: open_data_item
-label: 'Source'
+label: Source
 description: 'Organisation that published the data, e.g. Sultan Qaboos University.'
 required: false
 translatable: true

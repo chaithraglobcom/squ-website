@@ -3,7 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.admission.field_apply_link
     - field.field.node.admission.field_banner_image
+    - field.field.node.admission.field_body
+    - field.field.node.admission.field_timeline_from_date
+    - field.field.node.admission.field_timeline_to_date
     - node.type.admission
   module:
     - image
@@ -34,3 +38,4 @@ hidden:
   field_body: true
   field_timeline_from_date: true
   field_timeline_to_date: true
+  langcode: true

@@ -1,0 +1,18 @@
+uuid: 9ba8b6c5-6893-487d-b77a-733b9c29b93c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.squ_forms
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.squ_forms
+target_entity_type_id: node
+target_bundle: squ_forms
+default_langcode: site_default
+language_alterable: true

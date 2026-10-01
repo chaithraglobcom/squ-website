@@ -1,0 +1,18 @@
+uuid: d412f537-7270-46b6-9882-76b7bdc770bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.research_innovation
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.research_innovation
+target_entity_type_id: node
+target_bundle: research_innovation
+default_langcode: site_default
+language_alterable: true

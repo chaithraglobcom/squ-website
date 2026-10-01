@@ -55,3 +55,4 @@ hidden:
   field_program_code: true
   field_program_college: true
   field_program_level: true
+  langcode: true

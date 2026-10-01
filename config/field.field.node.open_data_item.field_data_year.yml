@@ -1,3 +1,4 @@
+uuid: 676950a5-06cd-4298-b155-9ad4c5f96527
 langcode: en
 status: true
 dependencies:
@@ -11,7 +12,7 @@ bundle: open_data_item
 label: Year
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

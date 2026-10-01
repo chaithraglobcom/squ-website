@@ -1,0 +1,18 @@
+uuid: c7aeabc4-ce71-458b-aa45-7b111271088b
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.map_contact
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.map_contact
+target_entity_type_id: paragraph
+target_bundle: map_contact
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,18 @@
+uuid: 5d9e6e2b-8af9-492f-9b2a-d5536e5af098
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.student_life_section
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.student_life_section
+target_entity_type_id: paragraph
+target_bundle: student_life_section
+default_langcode: site_default
+language_alterable: false

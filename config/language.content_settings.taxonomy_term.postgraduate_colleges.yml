@@ -1,0 +1,18 @@
+uuid: f118f8bf-e5d8-46ac-a53d-00087ee4d72d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.postgraduate_colleges
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.postgraduate_colleges
+target_entity_type_id: taxonomy_term
+target_bundle: postgraduate_colleges
+default_langcode: site_default
+language_alterable: true

@@ -12,7 +12,7 @@ bundle: contact_directory
 label: 'Statistics & Technical Support Phone'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
