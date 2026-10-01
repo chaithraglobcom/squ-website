@@ -1,6 +1,6 @@
 /**
  * Shared header, menu drawer and footer
- * (templates/layout/page.html.twig and includes).
+ * (templates/layout/squ-header.html.twig, templates/layout/squ-footer.html.twig).
  *
  * Everything is scoped to .squ-site-header / .squ-drawer /
  * .squ-site-footer: Olivero and squ-libraries.css both ship unscoped
@@ -123,19 +123,6 @@
   padding: 8px 22px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.1);
-}
-
-.squ-region--header-tools,
-.squ-region--header-tools > .block {
-  display: contents;
-}
-
-.squ-drawer__nav--hamburger > .block {
-  display: contents;
-}
-
-.squ-region--header-section > .block {
-  display: contents;
 }
 
 .squ-site-header .icon-btn {

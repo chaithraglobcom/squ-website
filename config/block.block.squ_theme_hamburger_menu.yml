@@ -10,7 +10,7 @@ dependencies:
     - squ_theme
 id: squ_theme_hamburger_menu
 theme: squ_theme
-region: header_drawer
+region: header
 weight: 0
 provider: null
 plugin: 'system_menu_block:hamburger-menu'

@@ -34,5 +34,4 @@ bundle: squh_page
 mode: default
 content: {  }
 hidden:
-  layout_builder__layout: true
   links: true
