@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Open Data Item'
+type: open_data_item
+description: 'A dataset or document published under a category in the Open Data section.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

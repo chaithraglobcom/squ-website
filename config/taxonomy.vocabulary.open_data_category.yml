@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Open Data Category'
+vid: open_data_category
+description: 'Categories for the SQU Open Data section (sidebar).'
+weight: 0

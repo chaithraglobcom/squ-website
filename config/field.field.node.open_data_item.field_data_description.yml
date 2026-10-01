@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_description
+    - node.type.open_data_item
+  module:
+    - text
+id: node.open_data_item.field_data_description
+field_name: field_data_description
+entity_type: node
+bundle: open_data_item
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,0 +1,14 @@
+{% if items %}
+  <nav class="squ-footer__legal" aria-label="{{ 'Legal'|t }}">
+    <ul>
+      {% for item in items %}
+        {% set title = item.title|striptags|trim %}
+        {% if title|slice(0, 1) != '©' %}
+          <li>
+            <a href="{{ item.url }}"{% if item.in_active_trail %} aria-current="page"{% endif %}>{{ item.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}

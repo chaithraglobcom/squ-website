@@ -1,13 +1,8 @@
 {#
-  Section/header menus: outer .squ-menu-panel comes from preprocess attributes.
+  Default menu block wrapper (header tools, section bar, drawer).
 #}
 <div{{ attributes }}>
   {{ title_prefix }}
-  {% if label_display == 'visible' %}
-    <h2{{ title_attributes }}>{{ label }}</h2>
-  {% endif %}
   {{ title_suffix }}
-  <div class="block-inner">
-    {{ content }}
-  </div>
+  {{ content }}
 </div>

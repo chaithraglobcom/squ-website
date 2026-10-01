@@ -4,7 +4,7 @@
   --squ-white: #ffffff;
 }
 
-/* Hide Olivero's own header chrome — the theme renders squ-header.html.twig.
+/* Hide Olivero's own header chrome — SQU header is in page.html.twig regions.
    #site-header__inner is the confirmed real wrapper ID on this site; the
    two classes below are kept as a defensive fallback in case Olivero
    renders a second "fixed" (sticky-on-scroll) copy under a different

@@ -13,8 +13,10 @@ global:
       css/footer.css: {}
       css/squ-chrome.css: {}
       css/components/landing-page.css: {}
+      css/open-data.css: {}
   js:
     js/search-toggle.js: {}
+    js/open-data.js: {}
   dependencies:
     - core/drupal
     - core/once

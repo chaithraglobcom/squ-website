@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - squ_theme
+id: squ_theme_open_data_page_title
+theme: squ_theme
+region: content
+weight: -20
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/open-data/category/*'

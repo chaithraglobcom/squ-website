@@ -1,0 +1,13 @@
+<div class="search-wrap">
+  <div class="search-panel" id="squ-search-panel" hidden>
+    <form id="squ-search-form" role="search"{% if search_action %} action="{{ search_action }}" method="get"{% endif %}>
+      <input id="squ-search-input" type="search" name="keys" placeholder="{{ 'Search'|t }}" aria-label="{{ 'Search'|t }}">
+    </form>
+  </div>
+  <button class="icon-btn" id="squ-search-toggle" type="button" aria-expanded="false" aria-controls="squ-search-panel" aria-label="{{ 'Search'|t }}">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="11" cy="11" r="6.25" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+      <path d="M16 16.5 L20 20.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+    </svg>
+  </button>
+</div>
