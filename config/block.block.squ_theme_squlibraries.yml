@@ -10,7 +10,7 @@ dependencies:
     - squ_theme
 id: squ_theme_squlibraries
 theme: squ_theme
-region: header_section
+region: header
 weight: 1
 provider: null
 plugin: 'system_menu_block:squ-libraries'

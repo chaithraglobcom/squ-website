@@ -1,6 +1,6 @@
 uuid: a28edd62-2858-4f82-ad96-a283fee374ba
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - system
@@ -10,7 +10,7 @@ _core:
   default_config_hash: '-OAAZDw1OR_UyAEPEKX0Hu4LaZD149vW9PmMnIC-v0o'
 id: squ_theme_site_branding
 theme: squ_theme
-region: header_brand
+region: header
 weight: -6
 provider: null
 plugin: system_branding_block
