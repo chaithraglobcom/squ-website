@@ -10,8 +10,8 @@ dependencies:
     - squ_theme
 id: squ_theme_footer
 theme: squ_theme
-region: footer
-weight: 0
+region: footer_bar
+weight: 5
 provider: null
 plugin: 'system_menu_block:footer'
 settings:

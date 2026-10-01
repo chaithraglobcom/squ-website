@@ -6,3 +6,16 @@ base theme: olivero
 logo: false
 libraries:
   - squ_theme/global
+regions:
+  header_brand: 'Header: Brand'
+  header_tools: 'Header: Tools'
+  header_section: 'Header: Section menu'
+  header_drawer: 'Header: Drawer menu'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  content: Content
+  sidebar_first: Sidebar
+  footer_brand: 'Footer: Brand'
+  footer: 'Footer: Quick links'
+  footer_bar: 'Footer: Bar'
+  secondary_menu: Secondary menu

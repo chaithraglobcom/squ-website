@@ -78,11 +78,24 @@
   display: inline-block;
   margin-inline-start: 0;
 }
-.squ-footer__logo img {
+.squ-footer__logo img,
+.squ-footer__brand .field--name-field-footer-logo img {
   display: block;
   width: 92px;
   max-width: 100%;
   height: auto;
+}
+
+.squ-footer__brand .field,
+.squ-footer__brand .field__item {
+  margin: 0;
+  padding: 0;
+}
+
+.squ-footer__icon img {
+  display: block;
+  width: 22px;
+  height: 22px;
 }
 
 .squ-footer__name {
@@ -175,7 +188,8 @@
   display: flex;
   align-items: center;
 }
-.squ-footer__bar-inner {
+.squ-footer__bar-inner,
+.squ-footer__bar-blocks {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -186,6 +200,14 @@
   font-size: 0.875rem;
   color: #cacaca;
 }
+.squ-footer__bar-blocks .block-block-content {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: 0.875rem;
+  color: #cacaca;
+}
+
 .squ-footer__copyright {
   display: flex;
   align-items: center;
