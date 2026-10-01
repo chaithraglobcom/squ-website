@@ -1,0 +1,14 @@
+{#
+  Custom block type: footer_brand (logo, university names, social icons).
+  Edit at Structure → Block layout → Footer: Brand, or the block content entity.
+#}
+<div{{ attributes.addClass('block', 'squ-footer__brand') }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+  {{ content.field_footer_logo }}
+  <div class="squ-footer__name">
+    {{ content.field_university_name_ar }}
+    {{ content.field_university_name_en }}
+  </div>
+  {{ content.field_footer_icon }}
+</div>

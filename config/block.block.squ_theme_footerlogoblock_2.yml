@@ -6,8 +6,8 @@ dependencies:
     - squ_theme
 id: squ_theme_footerlogoblock_2
 theme: squ_theme
-region: sidebar_first
-weight: -6
+region: footer_brand
+weight: 0
 provider: null
 plugin: 'block_content:6fcbee7f-d268-4cf9-a48a-452b26e8b934'
 settings:
