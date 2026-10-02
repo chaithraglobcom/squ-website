@@ -1,0 +1,53 @@
+uuid: 89779fdc-124f-4996-aa68-bc16c2a37884
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.cps_highlights.field_body_text
+    - field.field.node.cps_highlights.field_csp_bottom_image
+    - field.field.node.cps_highlights.field_csp_image
+    - node.type.cps_highlights
+  module:
+    - image
+    - text
+    - user
+id: node.cps_highlights.default
+targetEntityType: node
+bundle: cps_highlights
+mode: default
+content:
+  field_body_text:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_csp_bottom_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_csp_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }
