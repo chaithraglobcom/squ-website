@@ -3,7 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.admission.field_apply_link
     - field.field.node.admission.field_banner_image
+    - field.field.node.admission.field_body
+    - field.field.node.admission.field_timeline_from_date
+    - field.field.node.admission.field_timeline_to_date
     - image.style.thumbnail
     - node.type.admission
   module:
@@ -27,6 +31,13 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
   path:
     type: path

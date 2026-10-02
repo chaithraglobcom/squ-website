@@ -1,3 +1,4 @@
+uuid: 985fc8d5-e143-4957-944c-9ab7c753bc68
 langcode: en
 status: true
 dependencies:
@@ -148,8 +149,8 @@ display:
       pager:
         type: mini
         options:
-          items_per_page: 20
           offset: 0
+          items_per_page: 20
       exposed_form:
         type: basic
       access:
@@ -184,11 +185,11 @@ display:
           plugin_id: numeric
           default_action: 'not found'
           default_argument_type: fixed
+          summary_options: {  }
           summary:
             sort_order: asc
             number_of_records: 0
             format: default_summary
-          summary_options: {  }
           specify_validation: true
           validate:
             type: 'entity:taxonomy_term'
@@ -244,5 +245,5 @@ display:
     position: 1
     display_options:
       display_description: ''
-      path: open-data/category/%
       display_extenders: {  }
+      path: open-data/category/%

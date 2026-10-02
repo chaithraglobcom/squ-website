@@ -1,0 +1,18 @@
+uuid: 2c3f5b3f-8878-4b92-99eb-1bd6efe03f54
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.colleges
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.colleges
+target_entity_type_id: taxonomy_term
+target_bundle: colleges
+default_langcode: site_default
+language_alterable: true

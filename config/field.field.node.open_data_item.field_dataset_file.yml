@@ -1,3 +1,4 @@
+uuid: 8e13cbb4-37e0-42bc-a670-2516441b24a8
 langcode: en
 status: true
 dependencies:
@@ -5,7 +6,14 @@ dependencies:
     - field.storage.node.field_dataset_file
     - node.type.open_data_item
   module:
+    - content_translation
     - file
+third_party_settings:
+  content_translation:
+    translation_sync:
+      target_id: target_id
+      display: display
+      description: description
 id: node.open_data_item.field_dataset_file
 field_name: field_dataset_file
 entity_type: node

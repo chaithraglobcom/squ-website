@@ -1,0 +1,18 @@
+uuid: 7f69b7a9-2b57-4cf8-b85e-72c5b797b1ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.about_squ_pages
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.about_squ_pages
+target_entity_type_id: node
+target_bundle: about_squ_pages
+default_langcode: site_default
+language_alterable: true

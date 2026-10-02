@@ -1,3 +1,4 @@
+uuid: 53c27124-1bba-4ea9-a524-7d961cc4dd14
 langcode: en
 status: true
 dependencies:
@@ -131,6 +132,6 @@ display:
     position: 1
     display_options:
       display_description: ''
+      display_extenders: {  }
       block_description: 'Open Data categories sidebar'
       block_hide_empty: true
-      display_extenders: {  }
