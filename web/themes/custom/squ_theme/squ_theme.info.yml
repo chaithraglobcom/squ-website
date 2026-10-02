@@ -1,8 +1,24 @@
 name: 'SQU Theme'
 type: theme
-description: 'Header, hamburger mega-menu and homepage theme for Sultan Qaboos University.'
+description: 'Custom header, hamburger mega-menu, Layout Builder-ready homepage and footer theme for Sultan Qaboos University.'
+package: Custom
 core_version_requirement: ^11
 base theme: olivero
-logo: false
+
 libraries:
   - squ_theme/global
+
+libraries-override:
+  olivero/global-styling: false
+
+regions:
+  header_brand: 'Header Brand'
+  header_tools: 'Header Tools'
+  header_section: 'Header Section menu'
+  header_drawer: 'Header Drawer menu'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  content: Content
+  sidebar_first: Sidebar
+  footer_top: 'Footer Top'
+  footer_bottom: 'Footer Bottom'

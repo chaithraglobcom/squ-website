@@ -1,0 +1,26 @@
+{% extends "block.html.twig" %}
+{#
+/**
+ * @file
+ * Site branding in the header brand region.
+ */
+#}
+{% set squ_brand_fallback = base_path ~ directory ~ '/images/EnglishSQUlogo-100.png' %}
+{% set squ_brand_logo = site_logo ?: squ_brand_fallback %}
+{% block content %}
+  <a class="brand" href="{{ path('<front>') }}" rel="home">
+    <img src="{{ squ_brand_logo }}" data-squ-brand-fallback="{{ squ_brand_fallback }}" alt="{{ site_name|default('Sultan Qaboos University')|t }}" width="79" height="98" fetchpriority="high" class="squ-brand-logo" onerror="if (this.dataset.squBrandFallback) { this.onerror = null; this.src = this.dataset.squBrandFallback; }">
+    <span class="brand-name">
+      {% if site_slogan %}
+        <span class="brand-ar" lang="ar" dir="rtl">{{ site_slogan }}</span>
+      {% else %}
+        <span class="brand-ar" lang="ar" dir="rtl">جامعة السلطان قابوس</span>
+      {% endif %}
+      {% if site_name %}
+        <span class="brand-en" dir="ltr">{{ site_name }}</span>
+      {% else %}
+        <span class="brand-en" dir="ltr">Sultan Qaboos University</span>
+      {% endif %}
+    </span>
+  </a>
+{% endblock %}

@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Footer Brand custom block (Content → Blocks → Footer Logo Block).
+ */
+#}
+{% set squ_footer_logo_html = content.field_footer_logo|render %}
+{% set squ_footer_logo_fallback = base_path ~ directory ~ '/images/EnglishSQUlogo-100.png' %}
+{% set squ_name_ar = content.field_university_name_ar|render|striptags|trim %}
+{% set squ_name_en = content.field_university_name_en|render|striptags|trim %}
+{% set squ_icons_html = content.field_footer_icon|render %}
+
+<div{{ attributes.addClass('squ-footer__brand', 'block-footer-brand') }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+
+  <div class="squ-footer__logo">
+    {% if squ_footer_logo_html|trim %}
+      {{ squ_footer_logo_html }}
+    {% else %}
+      <img src="{{ squ_footer_logo_fallback }}" alt="{{ squ_name_en|default('Sultan Qaboos University')|t }}" width="230" height="73" loading="lazy" class="squ-footer__logo-img">
+    {% endif %}
+  </div>
+
+  <div class="squ-footer__name">
+    <span class="squ-footer__name-ar" lang="ar" dir="rtl">{{ squ_name_ar|default('جامعة السلطان قابوس') }}</span>
+    <span class="squ-footer__name-en" lang="en" dir="ltr">{{ squ_name_en|default('Sultan Qaboos University') }}</span>
+  </div>
+
+  <div class="squ-footer__icons">
+    {% if squ_icons_html|trim %}
+      {{ squ_icons_html }}
+    {% endif %}
+  </div>
+</div>

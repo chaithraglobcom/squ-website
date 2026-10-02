@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * Footer quick links grid (menu managed in Structure > Menus).
+ */
+#}
+<div{{ attributes.addClass('squ-footer__quick') }}>
+  {{ title_prefix }}
+  <h2{{ title_attributes.addClass('squ-footer__quick-title') }}><span class="squ-footer__quick-title-quick">{{ 'Quick'|t }}</span> <span class="squ-footer__quick-title-links">{{ 'LINKS'|t }}</span></h2>
+  {{ title_suffix }}
+  <div class="block-inner">
+    {{ content }}
+  </div>
+</div>

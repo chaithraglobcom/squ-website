@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * SQU menu markup: primary bar, header tools, or drawer.
+ */
+#}
+{% import _self as menus %}
+
+{% if menu_name == 'hamburger-menu' %}
+  {{ menus.drawer_links(items) }}
+{% else %}
+  {% set nav_class = menu_name == 'header-quick-links' ? 'primary-nav--header-links' : '' %}
+  <nav class="primary-nav{{ nav_class ? ' ' ~ nav_class : '' }}" aria-label="{{ menu_name|replace({'-': ' '})|title }}">
+    {{ menus.primary_links(items) }}
+  </nav>
+{% endif %}
+
+{% macro primary_links(items) %}
+  {% import _self as menus %}
+  {% for item in items %}
+    {% if item.below %}
+      <div class="primary-nav__item has-children">
+        {{ link(item.title, item.url, item.in_active_trail ? { 'class': ['is-active'], 'aria-current': 'page' } : {}) }}
+        <div class="primary-nav__sub">
+          {% for child in item.below %}
+            {{ link(child.title, child.url, child.in_active_trail ? { 'class': ['is-active'], 'aria-current': 'page' } : {}) }}
+          {% endfor %}
+        </div>
+      </div>
+    {% else %}
+      {{ link(item.title, item.url, item.in_active_trail ? { 'class': ['is-active'], 'aria-current': 'page' } : {}) }}
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+{% macro drawer_links(items) %}
+  {% import _self as menus %}
+  {% for item in items %}
+    {% if item.below %}
+      <details class="drawer-group"{% if item.in_active_trail %} open{% endif %}>
+        <summary>{{ item.title }}</summary>
+        <div class="drawer-sub">
+          {{ link(item.title, item.url) }}
+          {{ menus.drawer_links(item.below) }}
+        </div>
+      </details>
+    {% else %}
+      {{ link(item.title, item.url, item.in_active_trail ? { 'aria-current': 'page' } : {}) }}
+    {% endif %}
+  {% endfor %}
+{% endmacro %}

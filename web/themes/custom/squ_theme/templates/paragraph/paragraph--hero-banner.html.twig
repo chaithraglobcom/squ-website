@@ -1,28 +1,41 @@
 {#
-  Hero banner. Real fields on this bundle (hero_banner) are:
-  field_background_image, field_heading, field_quote_text, field_quote_author.
-  There is no field_title and no field_eyebrow - those were leftover names
-  from a different project's content model, and would silently print nothing.
-
-  The background is the uploaded "Background image"; if none is uploaded,
-  css/hero.css falls back to images/hero-default.jpg.
-  Reads the field values directly (not content.field_x), so it does not
-  depend on the paragraph's "Manage display" settings.
+  Hero banner — home landing (.squ-hero) or libraries page (.page-hero).
 #}
+{% set parent = paragraph.getParentEntity() %}
+{% set is_libraries = parent and parent.bundle == 'squ_libraries' %}
 {% set bg = paragraph.field_background_image.entity.fileuri %}
-<section class="squ-hero"{% if bg %} style="background-image:url('{{ file_url(bg) }}')"{% endif %}>
-  <div class="squ-hero__card">
-    {% if paragraph.field_heading.value %}
-      <span class="squ-hero__title">{{ paragraph.field_heading.value }}</span>
-    {% endif %}
-     {% if paragraph.field_heading1.value %}
-      <span class="squ-hero__title1">{{ paragraph.field_heading1.value }}</span>
-    {% endif %}
-    {% if paragraph.field_quote_text.value %}
-      <div class="squ-hero__quote">{{ paragraph.field_quote_text.value }}</div>
-    {% endif %}
-    {% if paragraph.field_quote_author.value %}
-      <div class="squ-hero__attribution">{{ paragraph.field_quote_author.value }}</div>
-    {% endif %}
-  </div>
-</section>
+
+{% if is_libraries %}
+  <section class="page-hero"{% if bg %} style="background-image: linear-gradient(rgba(20, 28, 38, 0.28), rgba(20, 28, 38, 0.28)), url('{{ file_url(bg) }}');"{% endif %}>
+    <div class="hero-inner">
+      {% if paragraph.field_heading.value %}
+        <h1>{{ paragraph.field_heading.value }}</h1>
+      {% endif %}
+      {% if paragraph.field_quote_text.value %}
+        {{ paragraph.field_quote_text.processed }}
+      {% endif %}
+      {% if paragraph.field_quote_author.value %}
+        <div class="hero-actions">
+          {{ paragraph.field_quote_author.processed }}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% else %}
+  <section class="squ-hero"{% if bg %} style="background-image:url('{{ file_url(bg) }}')"{% endif %}>
+    <div class="squ-hero__card">
+      {% if paragraph.field_heading.value %}
+        <span class="squ-hero__title">{{ paragraph.field_heading.value }}</span>
+      {% endif %}
+      {% if paragraph.field_heading1.value %}
+        <span class="squ-hero__title1">{{ paragraph.field_heading1.value }}</span>
+      {% endif %}
+      {% if paragraph.field_quote_text.value %}
+        <div class="squ-hero__quote">{{ paragraph.field_quote_text.value }}</div>
+      {% endif %}
+      {% if paragraph.field_quote_author.value %}
+        <div class="squ-hero__attribution">{{ paragraph.field_quote_author.value }}</div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}

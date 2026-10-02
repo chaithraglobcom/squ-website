@@ -10,7 +10,7 @@ dependencies:
     - squ_theme
 id: squ_theme_footer
 theme: squ_theme
-region: footer
+region: footer_bottom
 weight: 0
 provider: null
 plugin: 'system_menu_block:footer'

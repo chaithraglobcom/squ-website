@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * Footer top: brand block + quick links (flex row, no Olivero content grid).
+ */
+#}
+{% if content %}
+  <div{{ attributes.addClass('region', 'region--' ~ region|clean_class, 'squ-footer__region-top') }}>
+    {{ content }}
+  </div>
+{% endif %}
