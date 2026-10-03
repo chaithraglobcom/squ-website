@@ -29,7 +29,6 @@ services:
       - ./web/profiles:/var/www/html/profiles
       - ./web/themes:/var/www/html/themes
       - ./assets:/var/www/html/assets_import
-      - ./config:/opt/drupal/config
     environment:
       DRUPAL_DB_HOST: db
       DRUPAL_DB_NAME: ${DB_NAME}
