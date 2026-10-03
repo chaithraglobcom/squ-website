@@ -1,15 +1,15 @@
-uuid: e160fc54-7176-4cb9-8e43-bf0afdf8ceed
+uuid: 09caf010-d926-4f3f-8c7c-9db0298652a4
 langcode: en
 status: true
 dependencies:
   theme:
-    - squ_theme
+    - gin
 _core:
-  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
-id: squ_theme_primary_local_tasks
-theme: squ_theme
-region: highlighted
-weight: -4
+  default_config_hash: Hh01DLj9k7UnNdPpOQXHZHW7GHf2OPNDQyCJF7_R9ac
+id: gin_primary_local_tasks
+theme: gin
+region: header
+weight: 0
 provider: null
 plugin: local_tasks_block
 settings:

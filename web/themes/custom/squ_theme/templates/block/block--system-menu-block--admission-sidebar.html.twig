@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * Admission section menu in the left sidebar.
+ */
+#}
+<nav{{ attributes.addClass('squ-sidebar-nav', 'squ-sidebar-nav--admission') }} aria-label="{{ label|default('Section navigation'|t) }}">
+  {{ title_prefix }}
+  {{ title_suffix }}
+  {{ content }}
+</nav>

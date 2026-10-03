@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * Breadcrumb region (Structure > Block layout > Breadcrumb).
+ */
+#}
+{% if content %}
+  <nav{{ attributes.addClass('squ-breadcrumb') }} aria-label="{{ 'Breadcrumb'|t }}">
+    {{ content }}
+  </nav>
+{% endif %}

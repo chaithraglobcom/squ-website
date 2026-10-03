@@ -6,12 +6,11 @@ features:
   favicon: true
   node_user_picture: true
 logo:
-  path: 'public://squ_logo_with_text-removebg-preview_3.png'
+  path: 'public://Group_2.png'
   use_default: false
 footer_logo:
-  - 53
-footer_pattern:
-  - 54
+  - 91
+footer_pattern: {  }
 mobile_menu_all_widths: 0
 site_branding_bg_color: default
 base_primary_color: '#1b9ae4'

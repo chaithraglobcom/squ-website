@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * Left sidebar region — section menus, page title, Open Data tabs, etc.
+ */
+#}
+{% if content %}
+  <div{{ attributes.addClass('squ-left-sidebar__blocks') }}>
+    {{ content }}
+  </div>
+{% endif %}
