@@ -47,6 +47,9 @@ module:
   system: 0
   taxonomy: 0
   text: 0
+  tmgmt: 0
+  tmgmt_content: 0
+  tmgmt_libretranslate: 0
   update: 0
   user: 0
   views_ui: 0
