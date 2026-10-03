@@ -1,0 +1,295 @@
+uuid: 985fc8d5-e143-4957-944c-9ab7c753bc68
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_description
+    - field.storage.node.field_data_frequency
+    - field.storage.node.field_data_period
+    - field.storage.node.field_data_source
+    - field.storage.node.field_dataset_file
+    - field.storage.node.field_dataset_link
+    - node.type.open_data_item
+    - taxonomy.vocabulary.open_data_category
+  module:
+    - file
+    - link
+    - node
+    - text
+    - user
+id: open_data_items
+label: 'Open Data Items'
+module: views
+description: 'Accordion list of Open Data Items for one category (URL: /open-data/category/TID)'
+tag: ''
+base_table: node_field_data
+base_field: nid
+display:
+  default:
+    id: default
+    display_title: Default
+    display_plugin: default
+    position: 0
+    display_options:
+      title: 'Open Data'
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: ''
+          exclude: true
+          type: string
+          settings:
+            link_to_entity: false
+        field_data_description:
+          id: field_data_description
+          table: node__field_data_description
+          field: field_data_description
+          plugin_id: field
+          label: ''
+          exclude: true
+          type: text_default
+          settings: {  }
+        field_data_source:
+          id: field_data_source
+          table: node__field_data_source
+          field: field_data_source
+          plugin_id: field
+          label: ''
+          exclude: true
+          type: string
+          settings:
+            link_to_entity: false
+        field_data_period:
+          id: field_data_period
+          table: node__field_data_period
+          field: field_data_period
+          plugin_id: field
+          label: ''
+          exclude: true
+          type: string
+          settings:
+            link_to_entity: false
+        field_data_frequency:
+          id: field_data_frequency
+          table: node__field_data_frequency
+          field: field_data_frequency
+          plugin_id: field
+          label: ''
+          exclude: true
+          type: string
+          settings:
+            link_to_entity: false
+        field_dataset_file:
+          id: field_dataset_file
+          table: node__field_dataset_file
+          field: field_dataset_file
+          plugin_id: field
+          label: ''
+          exclude: true
+          type: file_default
+          settings:
+            use_description_as_link_text: true
+          delta_limit: 0
+          delta_offset: 0
+          multi_type: separator
+          separator: ' '
+        field_dataset_link:
+          id: field_dataset_link
+          table: node__field_dataset_link
+          field: field_dataset_link
+          plugin_id: field
+          label: ''
+          exclude: true
+          type: link
+          settings:
+            trim_length: 80
+            url_only: false
+            url_plain: false
+            rel: ''
+            target: ''
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: 'Accordion item'
+          plugin_id: custom
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: |-
+              <details class="od-item">
+              <summary>{{ title }}</summary>
+              <div class="od-body">
+              <h4>Description:</h4>
+              <table class="od-table">
+              <thead><tr><th>Field</th><th>Description</th><th>Source</th><th>Time period covered</th><th>Frequency of update</th></tr></thead>
+              <tbody><tr><td>{{ title }}</td><td>{{ field_data_description }}</td><td>{{ field_data_source }}</td><td>{{ field_data_period }}</td><td>{{ field_data_frequency }}</td></tr></tbody>
+              </table>
+              <h4>Download:</h4>
+              <div class="od-download">{{ field_dataset_file }} {{ field_dataset_link }}</div>
+              </div>
+              </details>
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_wrapper_type: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+      pager:
+        type: mini
+        options:
+          offset: 0
+          items_per_page: 20
+      exposed_form:
+        type: basic
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          plugin_id: text_custom
+          empty: true
+          content: 'No items have been published in this category yet.'
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          order: ASC
+          granularity: second
+      arguments:
+        field_open_data_category_target_id:
+          id: field_open_data_category_target_id
+          table: node__field_open_data_category
+          field: field_open_data_category_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          default_action: 'not found'
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: true
+          title: '{{ arguments.field_open_data_category_target_id }}'
+          default_argument_type: fixed
+          default_argument_options:
+            argument: ''
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: true
+          validate:
+            type: 'entity:taxonomy_term'
+            fail: 'not found'
+          validate_options:
+            bundles:
+              open_data_category: open_data_category
+            access: false
+            operation: view
+            multiple: 0
+          break_phrase: false
+          not: false
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            open_data_item: open_data_item
+          group: 1
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: false
+      row:
+        type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      query:
+        type: views_query
+        options: {  }
+      relationships: {  }
+      rendering_language: '***LANGUAGE_language_content***'
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_data_description'
+        - 'config:field.storage.node.field_data_frequency'
+        - 'config:field.storage.node.field_data_period'
+        - 'config:field.storage.node.field_data_source'
+        - 'config:field.storage.node.field_dataset_file'
+        - 'config:field.storage.node.field_dataset_link'
+  page_1:
+    id: page_1
+    display_title: Page
+    display_plugin: page
+    position: 1
+    display_options:
+      display_description: ''
+      display_extenders: {  }
+      path: open-data/category/%
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_data_description'
+        - 'config:field.storage.node.field_data_frequency'
+        - 'config:field.storage.node.field_data_period'
+        - 'config:field.storage.node.field_data_source'
+        - 'config:field.storage.node.field_dataset_file'
+        - 'config:field.storage.node.field_dataset_link'

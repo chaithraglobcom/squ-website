@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Footer bottom: copyright (left) + legal links with pipes (right).
+ */
+#}
+<div class="squ-footer__bar-columns">
+  <div class="squ-footer__copyright">
+    {% for item in items %}
+      {% set title_text = item.title|render|striptags|trim %}
+      {% if '©' in title_text or 'Rights Reserved' in title_text or 'All Rights' in title_text %}
+        {{ link(item.title, item.url, item.in_active_trail ? { 'class': ['is-active'], 'aria-current': 'page' } : {}) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <nav class="squ-footer__legal" aria-label="{{ 'Legal'|t }}">
+    <ul>
+      {% for item in items %}
+        {% set title_text = item.title|render|striptags|trim %}
+        {% if '©' not in title_text and 'Rights Reserved' not in title_text and 'All Rights' not in title_text %}
+          <li>{{ link(item.title, item.url, item.in_active_trail ? { 'class': ['is-active'], 'aria-current': 'page' } : {}) }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+</div>

@@ -1,0 +1,19 @@
+uuid: ceb42d31-c5f7-461a-8530-f20cc8d67aca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_period
+    - node.type.open_data_item
+id: node.open_data_item.field_data_period
+field_name: field_data_period
+entity_type: node
+bundle: open_data_item
+label: 'Time period covered'
+description: 'e.g. Academic year 2000-2025.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

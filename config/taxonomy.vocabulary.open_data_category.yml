@@ -1,0 +1,9 @@
+uuid: 5907f69a-ff86-40ff-856b-13ced17043ce
+langcode: en
+status: true
+dependencies: {  }
+name: 'Open Data Category'
+vid: open_data_category
+description: 'Categories for the SQU Open Data section (sidebar).'
+weight: 0
+new_revision: false

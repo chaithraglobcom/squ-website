@@ -1,0 +1,29 @@
+uuid: 3d46aaf0-74ad-4e65-a155-f577d65a4e9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.open_data_categories
+  module:
+    - system
+    - views
+  theme:
+    - squ_theme
+id: squ_theme_open_data_categories
+theme: squ_theme
+region: sidebar_first
+weight: -10
+provider: null
+plugin: 'views_block:open_data_categories-block_1'
+settings:
+  id: 'views_block:open_data_categories-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/open-data*'

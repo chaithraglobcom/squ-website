@@ -1,0 +1,18 @@
+uuid: 88da6c74-8925-492d-a663-47137be1cf7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.admission
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.admission
+target_entity_type_id: node
+target_bundle: admission
+default_langcode: site_default
+language_alterable: true

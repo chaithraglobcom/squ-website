@@ -50,21 +50,41 @@
           var lang = "en";
 
           function syncMenuOverlayMetrics() {
-            root.style.setProperty(
-              "--squ-header-h",
-              header.offsetHeight + "px",
+            var headerHeight = Math.round(header.getBoundingClientRect().height);
+            var currentHeaderH = parseInt(
+              getComputedStyle(root).getPropertyValue("--squ-header-h"),
+              10,
             );
+            if (
+              !Number.isFinite(currentHeaderH) ||
+              Math.abs(currentHeaderH - headerHeight) > 1
+            ) {
+              root.style.setProperty("--squ-header-h", headerHeight + "px");
+            }
+
             var hero = document.querySelector(".squ-hero");
             if (hero) {
-              root.style.setProperty(
-                "--squ-overlay-height",
-                hero.offsetHeight + "px",
+              var heroHeight = Math.round(hero.getBoundingClientRect().height);
+              var currentOverlayH = parseInt(
+                getComputedStyle(root).getPropertyValue("--squ-overlay-height"),
+                10,
               );
+              if (
+                !Number.isFinite(currentOverlayH) ||
+                Math.abs(currentOverlayH - heroHeight) > 1
+              ) {
+                root.style.setProperty(
+                  "--squ-overlay-height",
+                  heroHeight + "px",
+                );
+              }
             }
           }
           syncMenuOverlayMetrics();
           if (typeof ResizeObserver !== "undefined") {
-            var overlayObserver = new ResizeObserver(syncMenuOverlayMetrics);
+            var overlayObserver = new ResizeObserver(function () {
+              window.requestAnimationFrame(syncMenuOverlayMetrics);
+            });
             overlayObserver.observe(header);
             var heroEl = document.querySelector(".squ-hero");
             if (heroEl) {

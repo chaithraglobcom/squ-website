@@ -1,0 +1,117 @@
+uuid: 0395803e-0f3c-49a3-9302-cbd014a8e39a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.open_data_item.field_data_description
+    - field.field.node.open_data_item.field_data_frequency
+    - field.field.node.open_data_item.field_data_period
+    - field.field.node.open_data_item.field_data_source
+    - field.field.node.open_data_item.field_data_year
+    - field.field.node.open_data_item.field_dataset_file
+    - field.field.node.open_data_item.field_dataset_link
+    - field.field.node.open_data_item.field_open_data_category
+    - node.type.open_data_item
+  module:
+    - file
+    - link
+    - path
+    - text
+id: node.open_data_item.default
+targetEntityType: node
+bundle: open_data_item
+mode: default
+content:
+  field_data_description:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_data_frequency:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_data_period:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_data_source:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_data_year:
+    type: number
+    weight: 8
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_dataset_file:
+    type: file_generic
+    weight: 6
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_dataset_link:
+    type: link_default
+    weight: 7
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_open_data_category:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 10
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  promote: true
+  sticky: true
+  uid: true

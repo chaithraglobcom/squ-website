@@ -1,0 +1,137 @@
+uuid: 53c27124-1bba-4ea9-a524-7d961cc4dd14
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.open_data_category
+  module:
+    - taxonomy
+    - user
+id: open_data_categories
+label: 'Open Data Categories'
+module: views
+description: 'Sidebar list of Open Data categories'
+tag: ''
+base_table: taxonomy_term_field_data
+base_field: tid
+display:
+  default:
+    id: default
+    display_title: Default
+    display_plugin: default
+    position: 0
+    display_options:
+      title: 'Open Data Categories'
+      fields:
+        tid:
+          id: tid
+          table: taxonomy_term_field_data
+          field: tid
+          entity_type: taxonomy_term
+          entity_field: tid
+          plugin_id: field
+          label: ''
+          exclude: true
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: false
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: term_name
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            make_link: true
+            path: '/open-data/category/{{ tid }}'
+          element_type: ''
+          element_label_type: ''
+          element_wrapper_type: ''
+          type: string
+          settings:
+            link_to_entity: false
+          convert_spaces: false
+      pager:
+        type: none
+        options:
+          offset: 0
+      exposed_form:
+        type: basic
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+      empty: {  }
+      sorts:
+        weight:
+          id: weight
+          table: taxonomy_term_field_data
+          field: weight
+          entity_type: taxonomy_term
+          entity_field: weight
+          plugin_id: standard
+          order: ASC
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: standard
+          order: ASC
+      arguments: {  }
+      filters:
+        status:
+          id: status
+          table: taxonomy_term_field_data
+          field: status
+          entity_type: taxonomy_term
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+        vid:
+          id: vid
+          table: taxonomy_term_field_data
+          field: vid
+          entity_type: taxonomy_term
+          entity_field: vid
+          plugin_id: bundle
+          value:
+            open_data_category: open_data_category
+          group: 1
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          type: ul
+          wrapper_class: item-list
+          class: open-data-sidebar
+      row:
+        type: fields
+        options: {  }
+      query:
+        type: views_query
+        options: {  }
+      relationships: {  }
+      rendering_language: '***LANGUAGE_language_content***'
+      display_extenders: {  }
+  block_1:
+    id: block_1
+    display_title: Block
+    display_plugin: block
+    position: 1
+    display_options:
+      display_description: ''
+      display_extenders: {  }
+      block_description: 'Open Data categories sidebar'
+      block_hide_empty: true

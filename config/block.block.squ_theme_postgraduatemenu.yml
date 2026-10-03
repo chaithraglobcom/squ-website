@@ -10,7 +10,7 @@ dependencies:
     - squ_theme
 id: squ_theme_postgraduatemenu
 theme: squ_theme
-region: header
+region: header_section
 weight: 0
 provider: null
 plugin: 'system_menu_block:postgraduate-menu'

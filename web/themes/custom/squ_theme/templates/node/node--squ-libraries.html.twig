@@ -1,28 +1,9 @@
 {#
-  SQU Libraries node — main content only. Global header/footer come from the
-  page layout (squ-header + squ_footer). The section menu bar comes from
-  whichever Header-region menu block is visible on this page (Block layout).
+  SQU Libraries node — header/footer from page regions; section menu via blocks.
 #}
+{{ attach_library('squ_theme/squ_libraries') }}
 <article{{ attributes.addClass('squ-libraries-standalone') }}>
-
-  {% if libraries_breadcrumb %}
-    <section class="breadcrumb" aria-label="{{ 'Breadcrumb'|t }}">
-      <div class="container">
-        <ol>
-          {% for crumb in libraries_breadcrumb %}
-            <li>
-              {% if crumb.current %}
-                <span aria-current="page">{{ crumb.title }}</span>
-              {% else %}
-                <a href="{{ crumb.url }}">{{ crumb.title }}</a>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ol>
-      </div>
-    </section>
-  {% endif %}
-
+  {# Breadcrumb: Block layout > Breadcrumb region (over hero via .squ-libraries-route CSS). #}
   {{ content.field_banner|without('label') }}
 
   {% if content.field_simpleblock %}

@@ -1,0 +1,18 @@
+uuid: 385411c5-2db4-462d-8330-3c86c85868f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.student_department
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.student_department
+target_entity_type_id: node
+target_bundle: student_department
+default_langcode: site_default
+language_alterable: true

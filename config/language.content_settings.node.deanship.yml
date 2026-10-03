@@ -1,0 +1,18 @@
+uuid: 3a810e0b-7499-4c8d-b542-bcf2e77b9569
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.deanship
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.deanship
+target_entity_type_id: node
+target_bundle: deanship
+default_langcode: site_default
+language_alterable: true

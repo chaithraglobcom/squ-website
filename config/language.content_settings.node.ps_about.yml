@@ -1,0 +1,18 @@
+uuid: f13bdfed-5738-400a-af87-233c1f251e92
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.ps_about
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.ps_about
+target_entity_type_id: node
+target_bundle: ps_about
+default_langcode: site_default
+language_alterable: true

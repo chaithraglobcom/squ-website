@@ -10,7 +10,7 @@ dependencies:
     - squ_theme
 id: squ_theme_studyatsqu
 theme: squ_theme
-region: header
+region: header_section
 weight: -7
 provider: null
 plugin: 'system_menu_block:study-at-squ'

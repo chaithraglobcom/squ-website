@@ -11,7 +11,7 @@ dependencies:
     - squ_theme
 id: squ_theme_squhmenu
 theme: squ_theme
-region: header
+region: header_section
 weight: 0
 provider: null
 plugin: 'system_menu_block:squh-menu'
@@ -34,4 +34,5 @@ visibility:
     context_mapping:
       node: '@node.node_route_context:node'
     bundles:
+      home_page: home_page
       squh_page: squh_page

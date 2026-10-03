@@ -1,0 +1,18 @@
+uuid: 4ef56150-3177-4333-8933-88f0c0463475
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.transfer_squ
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.transfer_squ
+target_entity_type_id: node
+target_bundle: transfer_squ
+default_langcode: site_default
+language_alterable: true

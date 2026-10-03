@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * Footer quick links list.
+ */
+#}
+<ul class="squ-footer__quick-list">
+  {% for item in items %}
+    <li>{{ link(item.title, item.url) }}</li>
+  {% endfor %}
+</ul>

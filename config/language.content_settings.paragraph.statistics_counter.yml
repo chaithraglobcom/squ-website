@@ -1,0 +1,18 @@
+uuid: 4dc0f02d-a07d-4234-a6ac-635e92048d1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.statistics_counter
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.statistics_counter
+target_entity_type_id: paragraph
+target_bundle: statistics_counter
+default_langcode: site_default
+language_alterable: false

@@ -10,7 +10,7 @@ dependencies:
     - squ_theme
 id: squ_theme_headerquicklinks
 theme: squ_theme
-region: header
+region: header_tools
 weight: 0
 provider: null
 plugin: 'system_menu_block:header-quick-links'

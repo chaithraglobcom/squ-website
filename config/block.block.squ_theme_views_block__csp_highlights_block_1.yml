@@ -1,0 +1,29 @@
+uuid: 28e1647e-eb13-411f-a395-6c05602b5965
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.csp_highlights
+  module:
+    - system
+    - views
+  theme:
+    - squ_theme
+id: squ_theme_views_block__csp_highlights_block_1
+theme: squ_theme
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:csp_highlights-block_1'
+settings:
+  id: 'views_block:csp_highlights-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /csp/Home

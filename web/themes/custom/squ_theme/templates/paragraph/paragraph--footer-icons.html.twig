@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Footer social / utility icon (gold bordered square).
+ */
+#}
+{% set icon_html = content.field_footer_icons|render %}
+{% if icon_html|trim %}
+  {% if content.field_footer_icon_link[0]['#url'] is defined %}
+    <a href="{{ content.field_footer_icon_link[0]['#url'] }}" class="squ-footer__icon">
+      {{ icon_html }}
+    </a>
+  {% else %}
+    <span class="squ-footer__icon squ-footer__icon--static">{{ icon_html }}</span>
+  {% endif %}
+{% endif %}
