@@ -34,7 +34,6 @@ module:
   media: 0
   menu_link_content: 0
   menu_ui: 0
-  navigation: 0
   node: 0
   options: 0
   page_cache: 0
@@ -59,4 +58,5 @@ theme:
   olivero: 0
   claro: 0
   squ_theme: 0
+  gin: 0
 profile: standard

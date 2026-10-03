@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * Page title in left sidebar or main column depending on block placement.
+ */
+#}
+<div{{ attributes.addClass('block-page-title-block') }}>
+  {{ title_prefix }}
+  {{ content }}
+  {{ title_suffix }}
+</div>

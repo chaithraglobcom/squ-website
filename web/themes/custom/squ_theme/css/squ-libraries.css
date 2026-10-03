@@ -320,14 +320,14 @@
     /* =========================================================
        Breadcrumb and hero
        ========================================================= */
-    .breadcrumb {
-      position: relative;
-      z-index: 2;
+    /* Breadcrumb over hero — region is above content; pull onto banner. */
+    .squ-libraries-route .squ-page__breadcrumb-wrap {
       margin-bottom: -34px;
       padding-top: 12px;
     }
 
-    .breadcrumb ol {
+    .squ-libraries-route .squ-breadcrumb ol,
+    .squ-libraries-route .squ-page__breadcrumb ol {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
@@ -337,19 +337,23 @@
       font-size: 13px;
     }
 
-    .breadcrumb a,
-    .breadcrumb li {
+    .squ-libraries-route .squ-breadcrumb a,
+    .squ-libraries-route .squ-breadcrumb li,
+    .squ-libraries-route .squ-page__breadcrumb a,
+    .squ-libraries-route .squ-page__breadcrumb li {
       color: var(--white);
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
     }
 
-    .breadcrumb li:not(:last-child)::after {
+    .squ-libraries-route .squ-breadcrumb li:not(:last-child)::after,
+    .squ-libraries-route .squ-page__breadcrumb li:not(:last-child)::after {
       content: "/";
       margin-left: 6px;
       opacity: 0.85;
     }
 
-    .breadcrumb [aria-current="page"] {
+    .squ-libraries-route .squ-breadcrumb [aria-current="page"],
+    .squ-libraries-route .squ-page__breadcrumb [aria-current="page"] {
       font-weight: 500;
     }
 

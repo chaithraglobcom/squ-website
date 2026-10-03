@@ -1,28 +1,9 @@
-/* ===== Open Data section (theme file: themes/custom/squ_theme/css/open-data.css) ===== */
+/**
+ * @file
+ * Open Data section (/open-data*).
+ */
 
-/* Layout: sidebar left, content right (targets the element that directly holds the sidebar block) */
-*:has(> [id*="open-data-categories"]) {
-  display: grid;
-  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
-  column-gap: 40px;
-  row-gap: 0;
-  align-items: start;
-}
-*:has(> [id*="open-data-categories"]) > * {
-  grid-column: 2;
-}
-*:has(> [id*="open-data-categories"]) > [id*="open-data-categories"] {
-  grid-column: 1;
-  grid-row: 1 / span 20;
-}
-@media (max-width: 800px) {
-  *:has(> [id*="open-data-categories"]) {
-    display: block;
-  }
-  *:has(> [id*="open-data-categories"]) > [id*="open-data-categories"] {
-    margin-bottom: 24px;
-  }
-}
+/* Categories block: Left sidebar region (page two-column layout). */
 
 /* Sidebar tabs */
 ul.open-data-sidebar,
@@ -57,10 +38,12 @@ ul.open-data-sidebar,
 }
 
 /* Centered page title with diamond divider */
+.squ-page--with-sidebar .squ-page__content h1,
 body:has(.open-data-sidebar) h1 {
   text-align: center;
   font-weight: 400;
 }
+.squ-page--with-sidebar .squ-page__content h1::after,
 body:has(.open-data-sidebar) h1::after {
   content: "";
   display: block;

@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * Footer bottom bar: copyright + legal links.
+ */
+#}
+{% if content %}
+  <div{{ attributes.addClass('region', 'region--' ~ region|clean_class, 'squ-footer__region-bottom') }}>
+    {{ content }}
+  </div>
+{% endif %}
