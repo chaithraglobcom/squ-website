@@ -34,4 +34,5 @@ visibility:
     context_mapping:
       node: '@node.node_route_context:node'
     bundles:
+      home_page: home_page
       squh_page: squh_page
