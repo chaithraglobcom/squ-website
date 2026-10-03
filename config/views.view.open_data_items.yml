@@ -9,14 +9,12 @@ dependencies:
     - field.storage.node.field_data_source
     - field.storage.node.field_dataset_file
     - field.storage.node.field_dataset_link
-    - field.storage.node.field_open_data_category
     - node.type.open_data_item
     - taxonomy.vocabulary.open_data_category
   module:
     - file
     - link
     - node
-    - taxonomy
     - text
     - user
 id: open_data_items
@@ -182,10 +180,25 @@ display:
           id: field_open_data_category_target_id
           table: node__field_open_data_category
           field: field_open_data_category_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
           plugin_id: numeric
           default_action: 'not found'
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: true
+          title: '{{ arguments.field_open_data_category_target_id }}'
           default_argument_type: fixed
-          summary_options: {  }
+          default_argument_options:
+            argument: ''
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
           summary:
             sort_order: asc
             number_of_records: 0
@@ -200,6 +213,8 @@ display:
             access: false
             operation: view
             multiple: 0
+          break_phrase: false
+          not: false
       filters:
         status:
           id: status
@@ -238,6 +253,21 @@ display:
       relationships: {  }
       rendering_language: '***LANGUAGE_language_content***'
       display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_data_description'
+        - 'config:field.storage.node.field_data_frequency'
+        - 'config:field.storage.node.field_data_period'
+        - 'config:field.storage.node.field_data_source'
+        - 'config:field.storage.node.field_dataset_file'
+        - 'config:field.storage.node.field_dataset_link'
   page_1:
     id: page_1
     display_title: Page
@@ -247,3 +277,19 @@ display:
       display_description: ''
       display_extenders: {  }
       path: open-data/category/%
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_data_description'
+        - 'config:field.storage.node.field_data_frequency'
+        - 'config:field.storage.node.field_data_period'
+        - 'config:field.storage.node.field_data_source'
+        - 'config:field.storage.node.field_dataset_file'
+        - 'config:field.storage.node.field_dataset_link'
