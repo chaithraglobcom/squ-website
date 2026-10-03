@@ -1,0 +1,28 @@
+label: المحتوى
+display:
+  default:
+    display_options:
+      title: المحتوى
+      fields:
+        status:
+          settings:
+            format_custom_true: منشور
+        langcode:
+          label: اللغة
+        operations:
+          label: العمليات
+      filters:
+        status:
+          group_info:
+            group_items:
+              1:
+                title: منشور
+        langcode:
+          expose:
+            label: اللغة
+  page_1:
+    display_options:
+      menu:
+        title: المحتوى
+      tab_options:
+        title: المحتوى

@@ -1,0 +1,18 @@
+display:
+  default:
+    display_options:
+      fields:
+        type:
+          label: النوع
+        message:
+          label: الرسالة
+        link:
+          label: العمليات
+      pager:
+        options:
+          expose:
+            items_per_page_options_all_label: '- الكل -'
+      filters:
+        type:
+          expose:
+            label: النوع
